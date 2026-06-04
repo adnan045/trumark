@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  }
+}
+
+@layer utilities {
+  /* Fade in */
+  .animate-fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  .animate-fade-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .animate-fade-in {
+    opacity: 0;
+    transition: opacity 0.9s ease-out;
+  }
+  .animate-fade-in.is-visible {
+    opacity: 1;
+  }
+  .animate-scale-in {
+    opacity: 0;
+    transform: scale(0.92);
+    transition: opacity 0.7s ease-out, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .animate-scale-in.is-visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+  .animate-slide-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .animate-slide-left.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .animate-slide-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .animate-slide-right.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  /* Staggered delays */
+  .delay-100 { transition-delay: 0.1s; }
+  .delay-200 { transition-delay: 0.2s; }
+  .delay-300 { transition-delay: 0.3s; }
+  .delay-400 { transition-delay: 0.4s; }
+  .delay-500 { transition-delay: 0.5s; }
+  .delay-600 { transition-delay: 0.6s; }
+
+  /* Gentle floating */
+  .animate-float {
+    animation: floaty 4s ease-in-out infinite;
+  }
+  @keyframes floaty {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  /* Soft pulse for CTA */
+  .animate-pulse-soft {
+    animation: pulse-soft 2.5s ease-in-out infinite;
+  }
+  @keyframes pulse-soft {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.45); }
+    50%      { box-shadow: 0 0 0 12px rgba(34, 197, 94, 0); }
+  }
+
+  /* Marquee for logos */
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* Shiny button */
+  .btn-shine {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .btn-shine::after {
+    content: "";
+    position: absolute;
+    top: 0; left: -75%;
+    width: 50%; height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.8s ease;
+  }
+  .btn-shine:hover::after {
+    left: 125%;
+  }
+
+  /* Text reveal gradient */
+  .bg-gradient-brand {
+    background: linear-gradient(90deg, #0a56c7, #16a34a);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
