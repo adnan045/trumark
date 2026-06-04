@@ -6,3 +6,20 @@
     display: block !important;
   }
 }
+
+/* Custom Mega Menu Grid Layout Override */
+@media (min-width: 1024px) {
+  .mega-menu-wide {
+    min-width: 560px !important;
+    padding: 1.5rem !important;
+  }
+  .mega-menu-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    column-gap: 1.5rem !important;
+    row-gap: 0.5rem !important;
+  }
+  .mega-menu-col-span-2 {
+    grid-column: span 2 / span 2 !important;
+  }
+}
