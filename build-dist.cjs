@@ -1,0 +1,66 @@
+const fs = require("fs");
+const path = require("path");
+const { execSync } = require("child_process");
+
+// 1. Run the HTML generator
+console.log("Running HTML generator...");
+execSync("node generate-html.cjs", { stdio: "inherit" });
+
+// 2. Ensure dist folder exists
+console.log("Preparing dist folder...");
+if (fs.existsSync("dist")) {
+  fs.rmSync("dist", { recursive: true, force: true });
+}
+fs.mkdirSync("dist");
+
+// Helper to recursively copy directories
+function copyDir(src, dest) {
+  fs.mkdirSync(dest, { recursive: true });
+  const entries = fs.readdirSync(src, { withFileTypes: true });
+
+  for (let entry of entries) {
+    const srcPath = path.join(src, entry.name);
+    const destPath = path.join(dest, entry.name);
+
+    if (entry.isDirectory()) {
+      if (entry.name === "node_modules" || entry.name === "dist" || entry.name === ".git" || entry.name === "react-source-backup" || entry.name === ".npm") {
+        continue;
+      }
+      copyDir(srcPath, destPath);
+    } else {
+      fs.copyFileSync(srcPath, destPath);
+    }
+  }
+}
+
+// Copy directories
+const dirsToCopy = ["mbbs-abroad", "mbbs-in-europe", "study-abroad", "universities", "blog", "public"];
+dirsToCopy.forEach(dir => {
+  if (fs.existsSync(dir)) {
+    copyDir(dir, path.join("dist", dir));
+  }
+});
+
+// Copy root files
+const filesToCopy = [
+  "index.html",
+  "about.html",
+  "services.html",
+  "contact.html",
+  "blog.html",
+  "universities.html",
+  "mbbs-abroad.html",
+  "mbbs-in-europe.html",
+  "study-abroad.html",
+  "style.css",
+  "script.js",
+  "vercel.json"
+];
+
+filesToCopy.forEach(file => {
+  if (fs.existsSync(file)) {
+    fs.copyFileSync(file, path.join("dist", file));
+  }
+});
+
+console.log("Build successfully moved to dist/ folder!");

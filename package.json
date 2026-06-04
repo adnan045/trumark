@@ -2,7 +2,7 @@
   "name": "trumark-static",
   "version": "1.0.0",
   "scripts": {
-    "build": "echo 'Static Site - No Build Needed'",
+    "build": "node build-dist.cjs",
     "dev": "echo 'No Dev Script Needed'"
   }
 }
