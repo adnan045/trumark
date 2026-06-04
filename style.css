@@ -23,3 +23,9 @@
     grid-column: span 2 / span 2 !important;
   }
 }
+
+/* Custom Input Placeholder Visibility Fix */
+input::placeholder, textarea::placeholder {
+  color: #94a3b8 !important;
+  opacity: 1 !important;
+}
