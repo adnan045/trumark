@@ -34,12 +34,27 @@ function copyDir(src, dest) {
 }
 
 // Copy directories
-const dirsToCopy = ["mbbs-abroad", "mbbs-in-europe", "study-abroad", "universities", "blog", "public"];
+const dirsToCopy = ["mbbs-abroad", "mbbs-in-europe", "study-abroad", "universities", "blog"];
 dirsToCopy.forEach(dir => {
   if (fs.existsSync(dir)) {
     copyDir(dir, path.join("dist", dir));
   }
 });
+
+// Copy CONTENTS of public folder directly to the root of dist/ (Vite standard)
+if (fs.existsSync("public")) {
+  console.log("Copying public folder contents directly to dist root...");
+  const publicFiles = fs.readdirSync("public");
+  for (let file of publicFiles) {
+    const srcPath = path.join("public", file);
+    const destPath = path.join("dist", file);
+    if (fs.lstatSync(srcPath).isDirectory()) {
+      copyDir(srcPath, destPath);
+    } else {
+      fs.copyFileSync(srcPath, destPath);
+    }
+  }
+}
 
 // Copy root files
 const filesToCopy = [
