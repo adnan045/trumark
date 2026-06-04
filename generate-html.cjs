@@ -542,7 +542,7 @@ function wrapPage(content, title, subtitle, filepath, activeMenu = "") {
 <body class="min-h-screen flex flex-col bg-white text-slate-800 font-sans antialiased">
 
   <!-- Header Section -->
-  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-slate-200 shadow-sm">
+  <header class="sticky top-0 z-40 bg-white border-b border-slate-200 shadow-sm">
     ${headerHTML}
   </header>
 
