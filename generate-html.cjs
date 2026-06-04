@@ -481,14 +481,46 @@ function getRootPrefix(filepath) {
   return depth === 0 ? "./" : "../".repeat(depth);
 }
 
-// Global page wrap template
+// Helper to dynamically adjust relative paths inside injected header/footer HTML
+function adjustPaths(html, root) {
+  if (root === "./") return html;
+  return html.replace(/(href|src)="([^"]+)"/g, (match, attr, val) => {
+    if (val.startsWith("http") || val.startsWith("mailto") || val.startsWith("tel") || val.startsWith("#") || val.startsWith("/")) {
+      return match;
+    }
+    return `${attr}="${root}${val}"`;
+  });
+}
+
+// Helper to highlight the active menu item in header
+function highlightActiveMenu(html, activeMenu) {
+  if (!activeMenu) return html;
+  
+  // Replace: class="... text-slate-700 hover:text-blue-700 ..." ... data-menu="about"
+  const regex = new RegExp(`class="([^"]*)text-slate-700 hover:text-blue-700([^"]*)"([^>]*data-menu="${activeMenu}")`, "g");
+  let result = html.replace(regex, `class="$1text-blue-700 font-bold$2"$3`);
+  
+  // Replace: data-menu="about" ... class="... text-slate-700 hover:text-blue-700 ..."
+  const regex2 = new RegExp(`(data-menu="${activeMenu}"[^>]*class="[^"]*)text-slate-700 hover:text-blue-700([^"]*")`, "g");
+  result = result.replace(regex2, `$1text-blue-700 font-bold$2`);
+  
+  return result;
+}
+
+// Global page wrap template (reads header.html and footer.html on-the-fly!)
 function wrapPage(content, title, subtitle, filepath, activeMenu = "") {
   const root = getRootPrefix(filepath);
   
-  // Menu items HTML with active state highlight
-  const getMenuClass = (menuName) => {
-    return activeMenu === menuName ? "text-blue-700 font-bold" : "text-slate-700 hover:text-blue-700";
-  };
+  // Read header and footer templates
+  let headerHTML = fs.readFileSync("header.html", "utf8");
+  let footerHTML = fs.readFileSync("footer.html", "utf8");
+  
+  // Adjust links inside templates based on depth
+  headerHTML = adjustPaths(headerHTML, root);
+  footerHTML = adjustPaths(footerHTML, root);
+  
+  // Highlight active menu in header
+  headerHTML = highlightActiveMenu(headerHTML, activeMenu);
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -511,126 +543,7 @@ function wrapPage(content, title, subtitle, filepath, activeMenu = "") {
 
   <!-- Header Section -->
   <header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-slate-200 shadow-sm">
-    <div class="bg-blue-900 text-white text-xs">
-      <div class="max-w-7xl mx-auto px-4 py-1.5 flex flex-wrap items-center justify-between gap-2">
-        <div class="flex flex-wrap gap-4">
-          <span class="inline-flex items-center gap-1"><i data-lucide="map-pin" class="w-3 h-3"></i> C95, Sector 2, Noida, 201301</span>
-        </div>
-        <div class="flex flex-wrap gap-4">
-          <a href="tel:+918287216902" class="inline-flex items-center gap-1 hover:text-green-300"><i data-lucide="phone" class="w-3 h-3"></i> +91 82872 16902</a>
-          <a href="mailto:contact@truemarkedu.com" class="inline-flex items-center gap-1 hover:text-green-300"><i data-lucide="mail" class="w-3 h-3"></i> contact@truemarkedu.com</a>
-        </div>
-      </div>
-    </div>
-    
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="flex items-center justify-between h-20">
-        <a href="${root}index" class="flex items-center gap-3">
-          <img src="${root}logo.png" onerror="this.onerror=null; this.src='${root}logo.svg'" alt="TrueMark Edu" class="h-14 w-auto" />
-        </a>
-        
-        <!-- Desktop Nav -->
-        <nav class="hidden lg:flex items-center gap-1">
-          <a href="${root}index" class="px-3 py-2 text-sm font-medium ${getMenuClass("home")}">Home</a>
-          
-          <!-- Mega Menu MBBS Abroad -->
-          <div class="relative group py-2">
-            <button class="inline-flex items-center gap-1 px-3 py-2 text-sm font-medium ${getMenuClass("mbbs-abroad")}">
-              MBBS Abroad <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
-            </button>
-            <div class="absolute left-1/2 -translate-x-1/2 top-full hidden group-hover:block pt-3 z-50 min-w-[320px] bg-white rounded-xl shadow-xl border border-slate-100 p-4">
-              <div class="text-xs font-bold uppercase tracking-wider text-blue-700 mb-3">MBBS Abroad - Countries</div>
-              <ul class="space-y-1">
-                <li><a href="${root}mbbs-abroad" class="block text-sm text-slate-700 hover:text-green-700 hover:pl-2 transition-all py-1.5 font-bold">MBBS Abroad Overview</a></li>
-                ${mbbsCountries.map(c => `<li><a href="${root}mbbs-abroad/${c.slug}" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">MBBS in ${c.name}</a></li>`).join("")}
-              </ul>
-            </div>
-          </div>
-          
-          <!-- Mega Menu MBBS Europe -->
-          <div class="relative group py-2">
-            <button class="inline-flex items-center gap-1 px-3 py-2 text-sm font-medium ${getMenuClass("mbbs-in-europe")}">
-              MBBS in Europe <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
-            </button>
-            <div class="absolute left-1/2 -translate-x-1/2 top-full hidden group-hover:block pt-3 z-50 min-w-[320px] bg-white rounded-xl shadow-xl border border-slate-100 p-4">
-              <div class="text-xs font-bold uppercase tracking-wider text-blue-700 mb-3">MBBS in Europe</div>
-              <ul class="space-y-1">
-                <li><a href="${root}mbbs-in-europe" class="block text-sm text-slate-700 hover:text-green-700 hover:pl-2 transition-all py-1.5 font-bold">MBBS in Europe Overview</a></li>
-                ${europeCountries.map(c => `<li><a href="${root}mbbs-in-europe/${c.slug}" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">MBBS in ${c.name}</a></li>`).join("")}
-              </ul>
-            </div>
-          </div>
-          
-          <!-- Mega Menu Study Abroad -->
-          <div class="relative group py-2">
-            <button class="inline-flex items-center gap-1 px-3 py-2 text-sm font-medium ${getMenuClass("study-abroad")}">
-              Study Abroad <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
-            </button>
-            <div class="absolute left-1/2 -translate-x-1/2 top-full hidden group-hover:block pt-3 z-50 min-w-[320px] bg-white rounded-xl shadow-xl border border-slate-100 p-4">
-              <div class="text-xs font-bold uppercase tracking-wider text-blue-700 mb-3">Study Abroad Programs</div>
-              <ul class="space-y-1">
-                <li><a href="${root}study-abroad" class="block text-sm text-slate-700 hover:text-green-700 hover:pl-2 transition-all py-1.5 font-bold">Study Abroad Overview</a></li>
-                <li><a href="${root}study-abroad/mba-in-dubai" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">MBA in Dubai / UAE</a></li>
-                <li><a href="${root}study-abroad/germany" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">Study in Germany</a></li>
-                <li><a href="${root}study-abroad/canada" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">Study in Canada</a></li>
-                <li><a href="${root}study-abroad/usa" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">Study in USA</a></li>
-              </ul>
-            </div>
-          </div>
-          
-          <a href="${root}universities" class="px-3 py-2 text-sm font-medium ${getMenuClass("universities")}">Universities</a>
-          <a href="${root}services" class="px-3 py-2 text-sm font-medium ${getMenuClass("services")}">Services</a>
-          <a href="${root}blog" class="px-3 py-2 text-sm font-medium ${getMenuClass("blog")}">Blog</a>
-          <a href="${root}about" class="px-3 py-2 text-sm font-medium ${getMenuClass("about")}">About</a>
-          <a href="${root}contact" class="px-3 py-2 text-sm font-medium ${getMenuClass("contact")}">Contact</a>
-        </nav>
-        
-        <div class="flex items-center gap-3">
-          <a href="${root}contact" class="hidden md:inline-flex items-center bg-gradient-to-r from-blue-700 to-green-600 text-white text-sm font-semibold px-4 py-2 rounded-full shadow hover:shadow-lg transition">
-            Free Counseling
-          </a>
-          <button id="menu-btn" class="lg:hidden text-slate-700 focus:outline-none" aria-label="menu">
-            <i data-lucide="menu" class="w-6 h-6"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 bg-white max-h-[70vh] overflow-auto">
-      <div class="px-4 py-3 space-y-1 text-sm">
-        <a href="${root}index" class="block py-2 text-slate-700 font-medium">Home</a>
-        <div class="py-1">
-          <div class="font-semibold text-blue-700 py-1">MBBS Abroad</div>
-          <div class="pl-3 space-y-1 border-l border-slate-100">
-            <a href="${root}mbbs-abroad" class="block py-1 text-slate-600">MBBS Abroad Overview</a>
-            ${mbbsCountries.map(c => `<a href="${root}mbbs-abroad/${c.slug}" class="block py-1 text-slate-600">MBBS in ${c.name}</a>`).join("")}
-          </div>
-        </div>
-        <div class="py-1">
-          <div class="font-semibold text-blue-700 py-1">MBBS in Europe</div>
-          <div class="pl-3 space-y-1 border-l border-slate-100">
-            <a href="${root}mbbs-in-europe" class="block py-1 text-slate-600">MBBS in Europe Overview</a>
-            ${europeCountries.map(c => `<a href="${root}mbbs-in-europe/${c.slug}" class="block py-1 text-slate-600">MBBS in ${c.name}</a>`).join("")}
-          </div>
-        </div>
-        <div class="py-1">
-          <div class="font-semibold text-blue-700 py-1">Study Abroad</div>
-          <div class="pl-3 space-y-1 border-l border-slate-100">
-            <a href="${root}study-abroad" class="block py-1 text-slate-600">Study Abroad Overview</a>
-            <a href="${root}study-abroad/mba-in-dubai" class="block py-1 text-slate-600">MBA in Dubai / UAE</a>
-            <a href="${root}study-abroad/germany" class="block py-1 text-slate-600">Study in Germany</a>
-            <a href="${root}study-abroad/canada" class="block py-1 text-slate-600">Study in Canada</a>
-            <a href="${root}study-abroad/usa" class="block py-1 text-slate-600">Study in USA</a>
-          </div>
-        </div>
-        <a href="${root}universities" class="block py-2 text-slate-700 font-medium">Universities</a>
-        <a href="${root}services" class="block py-2 text-slate-700 font-medium">Services</a>
-        <a href="${root}blog" class="block py-2 text-slate-700 font-medium">Blog</a>
-        <a href="${root}about" class="block py-2 text-slate-700 font-medium">About</a>
-        <a href="${root}contact" class="block py-2 text-slate-700 font-medium">Contact</a>
-      </div>
-    </div>
+    ${headerHTML}
   </header>
 
   <main class="flex-1">
@@ -639,69 +552,7 @@ function wrapPage(content, title, subtitle, filepath, activeMenu = "") {
 
   <!-- Footer Section -->
   <footer class="bg-slate-900 text-slate-300">
-    <div class="max-w-7xl mx-auto px-4 py-14">
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
-        <div>
-          <img src="${root}logo.png" onerror="this.onerror=null; this.src='${root}logo.svg'" alt="TrueMark Edu" class="h-12 mb-4 brightness-0 invert opacity-90" />
-          <p class="text-sm leading-relaxed mb-4">TrueMark Edu is India's most trusted study abroad consultancy helping students secure admissions in top medical universities across Europe, Central Asia & Dubai.</p>
-          <div class="flex gap-3">
-            <a href="#" class="p-2 rounded-full bg-white/10 hover:bg-blue-600 transition flex items-center justify-center w-8 h-8"><i data-lucide="facebook" class="w-4 h-4"></i></a>
-            <a href="#" class="p-2 rounded-full bg-white/10 hover:bg-blue-400 transition flex items-center justify-center w-8 h-8"><i data-lucide="twitter" class="w-4 h-4"></i></a>
-            <a href="#" class="p-2 rounded-full bg-white/10 hover:bg-pink-500 transition flex items-center justify-center w-8 h-8"><i data-lucide="instagram" class="w-4 h-4"></i></a>
-            <a href="#" class="p-2 rounded-full bg-white/10 hover:bg-blue-700 transition flex items-center justify-center w-8 h-8"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
-            <a href="#" class="p-2 rounded-full bg-white/10 hover:bg-red-600 transition flex items-center justify-center w-8 h-8"><i data-lucide="youtube" class="w-4 h-4"></i></a>
-          </div>
-        </div>
-        <div>
-          <h4 className="text-white font-semibold mb-4 text-white">MBBS Abroad</h4>
-          <ul class="space-y-2 text-sm mt-3">
-            <li><a href="${root}mbbs-abroad/georgia" class="hover:text-green-400">MBBS in Georgia</a></li>
-            <li><a href="${root}mbbs-abroad/uzbekistan" class="hover:text-green-400">MBBS in Uzbekistan</a></li>
-            <li><a href="${root}mbbs-abroad/kazakhstan" class="hover:text-green-400">MBBS in Kazakhstan</a></li>
-            <li><a href="${root}mbbs-abroad/russia" class="hover:text-green-400">MBBS in Russia</a></li>
-            <li><a href="${root}mbbs-abroad/kyrgyzstan" class="hover:text-green-400">MBBS in Kyrgyzstan</a></li>
-            <li><a href="${root}mbbs-abroad/st-lucia" class="hover:text-green-400">MBBS in St. Lucia</a></li>
-            <li><a href="${root}mbbs-in-europe" class="hover:text-green-400">MBBS in Europe</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="text-white font-semibold mb-4">Quick Links</h4>
-          <ul class="space-y-2 text-sm mt-3">
-            <li><a href="${root}about" class="hover:text-green-400">About Us</a></li>
-            <li><a href="${root}services" class="hover:text-green-400">Services</a></li>
-            <li><a href="${root}universities" class="hover:text-green-400">Universities</a></li>
-            <li><a href="${root}blog" class="hover:text-green-400">Blog</a></li>
-            <li><a href="${root}study-abroad/mba-in-dubai" class="hover:text-green-400">MBA in Dubai</a></li>
-            <li><a href="${root}contact" class="hover:text-green-400">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="text-white font-semibold mb-4">Contact</h4>
-          <ul class="space-y-3 text-sm mt-3">
-            <li class="flex gap-2"><i data-lucide="map-pin" class="w-4 h-4 text-green-400 shrink-0 mt-1"></i>
-              <span>C95, Sector 2, Noida, Uttar Pradesh 201301</span>
-            </li>
-            <li class="flex gap-2"><i data-lucide="phone" class="w-4 h-4 text-green-400 shrink-0"></i>
-              <span><a href="tel:+918287216902" class="hover:text-green-400">+91 82872 16902</a></span>
-            </li>
-            <li class="flex gap-2"><i data-lucide="phone" class="w-4 h-4 text-green-400 shrink-0"></i>
-              <span><a href="tel:+919999606211" class="hover:text-green-400">+91 99996 06211</a></span>
-            </li>
-            <li class="flex gap-2"><i data-lucide="mail" class="w-4 h-4 text-green-400 shrink-0"></i>
-              <span><a href="mailto:contact@truemarkedu.com" class="hover:text-green-400">contact@truemarkedu.com</a></span>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="mt-10 pt-6 border-t border-white/10 flex flex-wrap justify-between items-center text-xs text-slate-400">
-        <span>© ${new Date().getFullYear()} TrueMark Edu. All rights reserved.</span>
-        <div class="flex gap-4">
-          <a href="${root}index" class="hover:text-green-400">Privacy Policy</a>
-          <a href="${root}index" class="hover:text-green-400">Terms of Service</a>
-          <a href="${root}contact" class="hover:text-green-400">Sitemap</a>
-        </div>
-      </div>
-    </div>
+    ${footerHTML}
   </footer>
 
   <!-- Floating WhatsApp & Scroll Back to Top Button -->
@@ -1602,11 +1453,11 @@ function buildUniversities(root) {
         ${universities.map((u, i) => {
           const image = countryCardImages[i % countryCardImages.length];
           return `
-            <div class="group bg-white rounded-3xl border border-slate-200 hover:shadow-2xl hover:-translate-y-1 transition-all overflow-hidden">
+            <div class="group bg-white rounded-3xl border border-slate-200 hover:shadow-2xl hover:-translate-y-1 transition-all overflow-hidden font-sans">
               <div class="relative h-56 overflow-hidden">
                 <img src="${image}" alt="${u.name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
-                <div class="absolute top-4 left-4 bg-white/95 text-slate-900 px-3 py-1.5 rounded-full text-xs font-bold">${u.flag} ${u.country}</div>
+                <div class="absolute top-4 left-4 bg-white/95 text-slate-900 px-3 py-1.5 rounded-full text-xs font-bold">${u.flag} {u.country}</div>
                 <div class="absolute top-4 right-4 bg-yellow-400 text-slate-900 px-3 py-1.5 rounded-full text-xs font-bold">${u.qs}</div>
               </div>
               <div class="p-6">
@@ -1794,7 +1645,7 @@ function buildCountryPage(country, variant, root) {
           <div class="lg:col-span-2 space-y-8">
             <div class="p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-green-50 border border-slate-200">
               <div class="text-6xl">${country.flag}</div>
-              <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-4">MBBS in {country.name}</h1>
+              <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-4">MBBS in ${country.name}</h1>
               <p class="text-slate-700 mt-3 text-lg">${country.description}</p>
               <div class="grid sm:grid-cols-3 gap-3 mt-6">
                 <div class="bg-white p-4 rounded-xl flex items-start gap-2">
@@ -1984,7 +1835,7 @@ function buildUniversityPage(u, root) {
             <div class="p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-green-50 border border-slate-200">
               <div class="text-6xl mb-4">${u.flag}</div>
               <h1 class="text-3xl font-extrabold text-slate-900">${u.name}</h1>
-              <p class="text-slate-600 mt-2">${u.country} · ${u.qs}</p>
+              <p class="text-slate-600 mt-2">${u.country} · {u.qs}</p>
               <div class="grid sm:grid-cols-3 gap-3 mt-6">
                 <div class="bg-white p-4 rounded-xl">
                   <div class="text-xs text-slate-500">Fees</div>
@@ -2002,7 +1853,7 @@ function buildUniversityPage(u, root) {
             </div>
 
             ${sections.map((s) => `
-              <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+              <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm font-sans">
                 <div class="flex items-center gap-3 mb-4">
                   <div class="p-3 bg-green-50 text-green-700 rounded-xl"><i data-lucide="${s.icon}" class="w-6 h-6"></i></div>
                   <h2 class="text-xl font-bold text-slate-900">${s.title}</h2>
@@ -2014,7 +1865,7 @@ function buildUniversityPage(u, root) {
             `).join("")}
 
             ${country ? `
-              <div class="p-6 rounded-2xl bg-gradient-to-r from-blue-700 to-green-600 text-white">
+              <div class="p-6 rounded-2xl bg-gradient-to-r from-blue-700 to-green-600 text-white font-sans">
                 <h3 class="text-2xl font-bold">Learn more about MBBS in ${country.name}</h3>
                 <p class="mt-2 text-white/90">${country.tagline}</p>
                 <a href="${root}mbbs-abroad/${country.slug}" class="mt-4 inline-flex items-center gap-2 bg-white text-blue-800 font-semibold px-5 py-2.5 rounded-full hover:shadow-xl transition">View Country Page →</a>
@@ -2035,7 +1886,7 @@ function buildBlogPostPage(b, root) {
     ${getPageHeroHTML(b.title, b.excerpt, [{ name: "Home", to: `${root}index` }, { name: "Blog", to: `${root}blog` }, { name: b.title }])}
     
     <section class="py-20">
-      <div class="max-w-4xl mx-auto px-4">
+      <div class="max-w-4xl mx-auto px-4 font-sans">
         <a href="${root}blog" class="text-blue-700 inline-flex items-center gap-2 mb-8 text-sm"><i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Blog</a>
         <div class="text-sm text-slate-500 mb-4">${b.category} · ${b.date}</div>
         <article class="prose prose-lg max-w-none">
@@ -2047,7 +1898,7 @@ function buildBlogPostPage(b, root) {
           </p>
           
           <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Key Highlights</h2>
-          <ul class="space-y-3 text-slate-700 mb-8">
+          <ul class="space-y-3 text-slate-700 mb-8 font-sans">
             ${[
               "NMC and WHO-approved universities only",
               "No donation or capitation fee",
@@ -2058,13 +1909,13 @@ function buildBlogPostPage(b, root) {
             ].map(p => `<li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-5 h-5 text-green-600 shrink-0 mt-0.5"></i> ${p}</li>`).join("")}
           </ul>
           
-          <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Why Students Prefer TrueMark Edu</h2>
+          <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4 font-sans">Why Students Prefer TrueMark Edu</h2>
           <p class="text-slate-700 leading-relaxed mb-8">
             We are one of the most trusted study abroad consultancies in India because we follow a zero-hidden-fee, student-first approach. From the first counseling call to airport pickup at your destination country — we stand with our students at every step. Our extensive ties with globally ranked government medical schools ensures that you get high-quality clinical training and are perfectly prepared for national licencing screening exams like NExT or USMLE.
           </p>
           
-          <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Frequently Asked Questions</h2>
-          <div class="space-y-4 mt-4">
+          <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4 font-sans">Frequently Asked Questions</h2>
+          <div class="space-y-4 mt-4 font-sans">
             ${faqs.map((f, i) => `
               <div class="p-5 bg-white border border-slate-200 rounded-xl shadow-sm">
                 <h4 class="font-bold text-slate-900">Q: ${f.q}</h4>
