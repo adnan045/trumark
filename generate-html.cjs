@@ -219,17 +219,17 @@ const europeCountries = [
     slug: "czech",
     name: "Czech Republic",
     flag: "🇨🇿",
-    tagline: "Charles University - among Europe's oldest & top medical schools",
+    tagline: "Ostrava University - Top European medical education",
     duration: "6 Years",
     fees: "₹ 70 – 90 Lacs (Total)",
     language: "English Medium",
     intakes: ["September"],
-    topUniversities: ["Charles University (Prague, Plzen, Hradec Kralove)", "Masaryk University", "Palacky University"],
-    highlights: ["Charles University 1348 AD", "Top EU research", "High FMGE passing"],
-    description: "Czech Republic and Charles University attract the best medical aspirants. It has one of the highest FMGE/NExT pass rates in Europe.",
+    topUniversities: ["Ostrava University", "Masaryk University", "Palacky University"],
+    highlights: ["Ostrava University", "Top EU research", "High FMGE passing"],
+    description: "Czech Republic and Ostrava University attract the best medical aspirants. It has one of the highest FMGE/NExT pass rates in Europe.",
     eligibility: ["NEET Qualified", "50% PCB", "University entrance test (Biology, Chemistry)"],
     hostel: "Student dormitories & apartments.",
-    food: "Indian restaurants in Prague.",
+    food: "Indian restaurants in Ostrava.",
     recognition: ["NMC", "WHO", "EU"],
     fmge: "Eligible for NExT. Excellent pass percentage.",
     process: ["Apply → Entrance Exam → Enroll → Visa"]
@@ -273,8 +273,8 @@ const universities = [
     process: ["Counseling → Entrance → Offer → Visa → Departure"]
   },
   {
-    slug: "charles-university-prague",
-    name: "Charles University, Prague",
+    slug: "ostrava-university",
+    name: "Ostrava University, Ostrava",
     country: "Czech Republic",
     flag: "🇨🇿",
     qs: "#153 QS World",
@@ -359,7 +359,7 @@ const testimonials = [
   { name: "Priya Sharma", role: "MBBS, Carol Davila, Romania", text: "The team guided me through the IMAT and European admissions process. I got into my dream university in Bucharest. Thank you TrueMark!", rating: 5 },
   { name: "Aarav Singh", role: "MBBS, Uzbekistan", text: "Cheapest MBBS abroad option with TrueMark. They told me about Uzbekistan and I saved so much money. Good faculty and Indian food there.", rating: 5 },
   { name: "Ananya Gupta", role: "MBA, Dubai", text: "Best consultancy for MBA in Dubai. Got admission with scholarship. The SOP team was fantastic!", rating: 5 },
-  { name: "Kunal Verma", role: "MBBS, Charles University, Czech Republic", text: "TrueMark Edu prepared me for the Charles University entrance test. I cracked it in first attempt. Great mentorship!", rating: 5 },
+  { name: "Kunal Verma", role: "MBBS, Ostrava University, Czech Republic", text: "TrueMark Edu prepared me for the Ostrava University entrance test. I cracked it in first attempt. Great mentorship!", rating: 5 },
   { name: "Sneha Reddy", role: "MBBS, Sapienza University, Rome, Italy", text: "Studying MBBS in Italy was unbelievable. TrueMark Edu's IMAT coaching and documentation support is unmatched.", rating: 5 }
 ];
 
@@ -759,12 +759,12 @@ function buildHome(root) {
       <div class="relative flex overflow-hidden">
         <div class="flex gap-8 animate-marquee shrink-0">
           ${[
-            "Carol Davila Bucharest", "Charles University Prague", "Sapienza University Rome", "Semmelweis Budapest",
+            "Carol Davila Bucharest", "Ostrava University", "Sapienza University Rome", "Semmelweis Budapest",
             "Sofia Medical University", "University of Warsaw", "Tbilisi State Medical", "Kazakh National Medical",
             "Tashkent Medical Academy", "Moscow State Medical", "Comenius University", "University of Barcelona",
             "Aureus University St. Lucia", "Asian Medical Institute"
           ].concat([
-            "Carol Davila Bucharest", "Charles University Prague", "Sapienza University Rome", "Semmelweis Budapest",
+            "Carol Davila Bucharest", "Ostrava University", "Sapienza University Rome", "Semmelweis Budapest",
             "Sofia Medical University", "University of Warsaw", "Tbilisi State Medical", "Kazakh National Medical",
             "Tashkent Medical Academy", "Moscow State Medical", "Comenius University", "University of Barcelona",
             "Aureus University St. Lucia", "Asian Medical Institute"
@@ -843,7 +843,7 @@ function buildHome(root) {
               EU Degree. <br /> Global Career. <br /><span class="text-green-300">Zero Tuition in Italy.</span>
             </h2>
             <p class="mt-6 text-lg text-white/90 leading-relaxed">
-              Study MBBS in Europe's top public and private universities. Charles University Prague, Carol Davila Bucharest, Sapienza Rome, Sofia Medical University & many more — all NMC, WHO & EU recognized.
+              Study MBBS in Europe's top public and private universities. Ostrava University, Carol Davila Bucharest, Sapienza Rome, Sofia Medical University & many more — all NMC, WHO & EU recognized.
             </p>
             <ul class="mt-8 grid sm:grid-cols-2 gap-3 text-white/90">
               ${["EU & WHO Recognized", "English Medium", "Best FMGE/NExT Results", "Schengen Countries", "Zero / Low Tuition", "Modern Hospitals"].map(p => `
@@ -1457,7 +1457,7 @@ function buildUniversities(root) {
               <div class="relative h-56 overflow-hidden">
                 <img src="${image}" alt="${u.name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
-                <div class="absolute top-4 left-4 bg-white/95 text-slate-900 px-3 py-1.5 rounded-full text-xs font-bold">${u.flag} {u.country}</div>
+                <div class="absolute top-4 left-4 bg-white/95 text-slate-900 px-3 py-1.5 rounded-full text-xs font-bold">${u.flag} ${u.country}</div>
                 <div class="absolute top-4 right-4 bg-yellow-400 text-slate-900 px-3 py-1.5 rounded-full text-xs font-bold">${u.qs}</div>
               </div>
               <div class="p-6">
@@ -1559,7 +1559,7 @@ function buildMBBSEurope(root) {
             <h2 class="text-3xl font-extrabold text-slate-900">Why MBBS in Europe?</h2>
             <p class="text-slate-600 mt-3">European universities rank among the world's best medical schools. Many public universities charge zero tuition. EU degrees are globally recognized and Indian students get excellent FMGE/NExT results.</p>
             <ul class="grid md:grid-cols-2 gap-3 mt-5 text-slate-700">
-              ${["EU-WHO-NMC recognized degrees", "Zero or low tuition in public universities", "English-medium curriculum", "Top-ranked universities like Charles, Sapienza, Carol Davila", "Schengen countries — travel Europe", "Best FMGE / NExT pass rates"].map(p => `
+              ${["EU-WHO-NMC recognized degrees", "Zero or low tuition in public universities", "English-medium curriculum", "Top-ranked universities like Ostrava, Sapienza, Carol Davila", "Schengen countries — travel Europe", "Best FMGE / NExT pass rates"].map(p => `
                 <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-5 h-5 text-green-600 shrink-0 mt-0.5"></i> ${p}</li>
               `).join("")}
             </ul>
@@ -1835,7 +1835,7 @@ function buildUniversityPage(u, root) {
             <div class="p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-green-50 border border-slate-200">
               <div class="text-6xl mb-4">${u.flag}</div>
               <h1 class="text-3xl font-extrabold text-slate-900">${u.name}</h1>
-              <p class="text-slate-600 mt-2">${u.country} · {u.qs}</p>
+              <p class="text-slate-600 mt-2">${u.country} · ${u.qs}</p>
               <div class="grid sm:grid-cols-3 gap-3 mt-6">
                 <div class="bg-white p-4 rounded-xl">
                   <div class="text-xs text-slate-500">Fees</div>
