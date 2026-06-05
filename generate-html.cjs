@@ -1212,13 +1212,20 @@ function buildAbout(root) {
   const content = `
     ${getPageHeroHTML("About TrueMark Edu", "India's most trusted study abroad consultancy helping thousands of students achieve their MBBS and international education dreams.", [{ name: "Home", to: `${root}index` }, { name: "About Us" }])}
     
-    <section class="py-20">
+    <section class="py-20 font-sans">
       <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
         <div>
           <span class="text-green-700 font-semibold text-sm uppercase tracking-wider">Who We Are</span>
           <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-2">True guidance. Global destinations.</h2>
-          <p class="text-slate-600 mt-4">Founded with a mission to simplify the complex journey of studying abroad, TrueMark Edu has helped thousands of Indian students secure admissions in top medical universities worldwide. From Georgia to Italy, from Uzbekistan to the Czech Republic — we guide students at every step.</p>
-          <p class="text-slate-600 mt-4">We believe in complete transparency, zero donations, and a student-first approach that makes the overseas education journey smooth and stress-free.</p>
+          <p class="text-slate-600 mt-4 leading-relaxed">
+            TrueMark Edu was founded with a singular, student-first vision: to simplify the complex and often confusing journey of pursuing an <b>MBBS abroad</b>. As a highly reputed <b>study abroad consultancy</b>, we have established ourselves as the premier <b>MBBS consultants in India</b>, known for our absolute transparency, ethical standards, and commitment to long-term student success. Over the past decade, we have successfully guided more than 5,000 Indian students to secure admissions in globally renowned, <b>NMC approved medical universities</b> and <b>MCI approved universities</b> across Georgia, Italy, Uzbekistan, Russia, and Central Asia.
+          </p>
+          <p class="text-slate-600 mt-4 leading-relaxed">
+            We understand that pursuing a medical degree overseas is a life-defining decision for both the student and their family. That is why our team of veteran <b>MBBS abroad consultants</b> works tirelessly to provide hand-held guidance at every single stage—from personal career counseling and university selection to visa clearance and on-ground support in the destination country. We follow a strict <b>MBBS without donation</b> policy, ensuring that deserving students can get top-quality medical seats entirely on the basis of their merit and NEET score.
+          </p>
+          <p class="text-slate-600 mt-4 leading-relaxed">
+            Unlike other agencies that disappear after the student boards their flight, TrueMark Edu maintains an active on-ground presence with dedicated Indian coordinators in Tbilisi, Tashkent, Moscow, and Rome. From university registration and comfortable hostel bookings to arranging hygienic Indian mess services and helping with local bank accounts, we ensure that our students feel completely at home while studying abroad.
+          </p>
           <ul class="mt-6 grid md:grid-cols-2 gap-3 text-slate-700">
             ${["10+ Years of Experience", "5000+ Students Placed", "15+ Countries Covered", "Direct University Ties", "No Donation Policy", "24x7 Student Support"].map(p => `
               <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-5 h-5 text-green-600 shrink-0 mt-0.5"></i> ${p}</li>
@@ -1239,32 +1246,69 @@ function buildAbout(root) {
       </div>
     </section>
 
-    <section class="py-20 bg-slate-50">
+    <!-- IN-DEPTH COMPANY DETAILS SECTION -->
+    <section class="py-20 bg-slate-50 font-sans border-t border-b border-slate-100">
       <div class="max-w-7xl mx-auto px-4">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900">Our Mission, Vision & Values</h2>
-        </div>
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="p-8 rounded-2xl bg-white border border-slate-200 hover:shadow-xl transition">
-            <div class="inline-flex p-3 bg-green-50 text-green-700 rounded-xl"><i data-lucide="target" class="w-8 h-8"></i></div>
-            <h3 class="text-xl font-bold text-slate-900 mt-4">Our Mission</h3>
-            <p class="text-slate-600 mt-3">Make quality medical and international education accessible, affordable and hassle-free for every deserving Indian student.</p>
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+          <div class="lg:col-span-5">
+            <span class="text-blue-700 font-semibold text-sm uppercase tracking-wider">Our Services & Expertise</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-2 leading-tight">Complete hand-holding from Day 1 to Graduation</h2>
+            <p class="text-slate-600 mt-4 leading-relaxed">
+              For any <b>NEET qualified MBBS abroad</b> aspirant, navigating international regulations, transcripts, and student visa processes can be overwhelming. TrueMark Edu serves as a complete <b>study abroad consultancy</b>, providing a seamless, stress-free path to <b>direct MBBS admission abroad</b>. 
+            </p>
+            <p class="text-slate-600 mt-3 leading-relaxed">
+              We take full responsibility for securing your official university invitation letter, managing your student visa file with the embassies, translating your transcripts into the local languages, and ensuring you get a confirmed <b>MBBS seat confirmation</b> well before you fly. Our coaching division also provides top-grade <b>FMGE coaching abroad</b> and <b>NExT exam preparation abroad</b>, helping you crack licensing exams in your very first attempt.
+            </p>
           </div>
-          <div class="p-8 rounded-2xl bg-white border border-slate-200 hover:shadow-xl transition">
-            <div class="inline-flex p-3 bg-green-50 text-green-700 rounded-xl"><i data-lucide="heart" class="w-8 h-8"></i></div>
-            <h3 class="text-xl font-bold text-slate-900 mt-4">Our Vision</h3>
-            <p class="text-slate-600 mt-3">To become India's most trusted study abroad brand, transforming thousands of careers with honest guidance and global opportunities.</p>
-          </div>
-          <div class="p-8 rounded-2xl bg-white border border-slate-200 hover:shadow-xl transition">
-            <div class="inline-flex p-3 bg-green-50 text-green-700 rounded-xl"><i data-lucide="shield-check" class="w-8 h-8"></i></div>
-            <h3 class="text-xl font-bold text-slate-900 mt-4">Our Values</h3>
-            <p class="text-slate-600 mt-3">Transparency, integrity, student-first, zero-donation policy and commitment to long-term student success.</p>
+          <div class="lg:col-span-7 grid md:grid-cols-2 gap-6">
+            <div class="p-6 bg-white rounded-2xl border border-slate-200 hover:shadow-xl transition">
+              <h3 class="text-lg font-bold text-slate-900">NMC Approved Universities Only</h3>
+              <p class="text-sm text-slate-600 mt-2 leading-relaxed">We strictly partner with recognized medical schools featured in the WHO World Directory of Medical Schools and fully approved by the National Medical Commission (NMC) and MCI.</p>
+            </div>
+            <div class="p-6 bg-white rounded-2xl border border-slate-200 hover:shadow-xl transition">
+              <h3 class="text-lg font-bold text-slate-900">Zero Capitation Fees</h3>
+              <p class="text-sm text-slate-600 mt-2 leading-relaxed">All admissions are based on your 12th PCB marks and NEET qualification. We follow a strict merit-based policy with direct tuition bank transfers to the universities.</p>
+            </div>
+            <div class="p-6 bg-white rounded-2xl border border-slate-200 hover:shadow-xl transition">
+              <h3 class="text-lg font-bold text-slate-900">Transparent Fee Structure</h3>
+              <p class="text-sm text-slate-600 mt-2 leading-relaxed">We provide a complete, written cost breakdown on day one. Absolutely no hidden administrative costs, no unexpected visa charges, and zero surprises.</p>
+            </div>
+            <div class="p-6 bg-white rounded-2xl border border-slate-200 hover:shadow-xl transition">
+              <h3 class="text-lg font-bold text-slate-900">On-Ground Student Support</h3>
+              <p class="text-sm text-slate-600 mt-2 leading-relaxed">Our local offices in Georgia, Uzbekistan, and Italy provide 24/7 support during your entire 6-year course, helping with visa renewals, medical checkups, and hostels.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="py-20">
+    <section class="py-20 font-sans">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900">Our Mission, Vision & Values</h2>
+          <p class="text-slate-600 mt-3 max-w-xl mx-auto text-sm">Our core principles guide us in delivering honest, professional, and world-class educational consulting services.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="p-8 rounded-2xl bg-white border border-slate-200 hover:shadow-xl transition">
+            <div class="inline-flex p-3 bg-green-50 text-green-700 rounded-xl"><i data-lucide="target" class="w-8 h-8"></i></div>
+            <h3 class="text-xl font-bold text-slate-900 mt-4">Our Mission</h3>
+            <p class="text-slate-600 mt-3 leading-relaxed">To make high-quality, international medical and professional education accessible, affordable, and completely hassle-free for every deserving Indian student. We build stable, reliable admission pathways with top foreign universities.</p>
+          </div>
+          <div class="p-8 rounded-2xl bg-white border border-slate-200 hover:shadow-xl transition">
+            <div class="inline-flex p-3 bg-green-50 text-green-700 rounded-xl"><i data-lucide="heart" class="w-8 h-8"></i></div>
+            <h3 class="text-xl font-bold text-slate-900 mt-4">Our Vision</h3>
+            <p class="text-slate-600 mt-3 leading-relaxed">To remain India's most trusted overseas education consultancy, transforming thousands of student careers with honest counseling, premium university tie-ups, and unmatched on-ground assistance abroad.</p>
+          </div>
+          <div class="p-8 rounded-2xl bg-white border border-slate-200 hover:shadow-xl transition">
+            <div class="inline-flex p-3 bg-green-50 text-green-700 rounded-xl"><i data-lucide="shield-check" class="w-8 h-8"></i></div>
+            <h3 class="text-xl font-bold text-slate-900 mt-4">Our Values</h3>
+            <p class="text-slate-600 mt-3 leading-relaxed">100% transparency in fee structures, strict zero-donation policy, student-first counseling approach, and a lifelong commitment to supporting our students during their academic journey.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-slate-50 font-sans border-t border-slate-100">
       <div class="max-w-7xl mx-auto px-4 text-center">
         <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900">Meet The Leadership</h2>
         <p class="text-slate-600 mt-4 max-w-2xl mx-auto">Our founders and counselors bring decades of combined experience in overseas education.</p>
@@ -1488,24 +1532,57 @@ function buildMBBSAbroad(root) {
   const content = `
     ${getPageHeroHTML("MBBS Abroad - The Complete Indian Student Guide", "Study MBBS abroad in NMC-approved universities with zero donation. Compare Georgia, Uzbekistan, Kazakhstan, Russia, Kyrgyzstan, St. Lucia & more.", [{ name: "Home", to: `${root}index` }, { name: "MBBS Abroad" }])}
     
-    <section class="py-20">
+    <section class="py-20 font-sans">
       <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-3 gap-8">
         <div class="lg:col-span-2 space-y-10">
           <div>
-            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900">Top Countries for MBBS Abroad</h2>
-            <p class="text-slate-600 mt-3">Explore all the NMC-approved, budget-friendly destinations for Indian medical aspirants.</p>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900">A Comprehensive Guide to Study MBBS Abroad</h2>
+            <p class="text-slate-600 mt-4 leading-relaxed">
+              Every year, lakhs of Indian medical aspirants sit for the NEET exam with dreams of securing an MBBS seat. However, due to the extreme shortage of government seats and the astronomical fee structures (often crossing ₹80 Lakhs to ₹1 Crore) of private medical colleges in India, thousands of students are left looking for alternatives. This is where choosing to <b>study MBBS abroad</b> becomes the most smart and viable career decision.
+            </p>
+            <p class="text-slate-600 mt-4 leading-relaxed">
+              By opting for <b>MBBS admission abroad</b> through a trusted <b>MBBS abroad consultant</b> like TrueMark Edu, you can gain direct entry into world-class, government-owned medical universities. We help you compare top options where you can complete your entire **MBBS under 25 lakhs**, including your comfortable hostel stay and hygienic Indian food mess. Every university we partner with is listed in the WHO World Directory of Medical Schools and is fully approved by the National Medical Commission (NMC).
+            </p>
+            <p class="text-slate-600 mt-4 leading-relaxed">
+              These global medical schools follow English-medium instruction, eliminating any language barriers. They also offer excellent clinical exposure with high-volume hospital rotations, helping you prepare extensively for licencing exams. TrueMark Edu ensures a completely smooth <b>direct MBBS admission abroad</b> with guaranteed, written <b>MBBS seat confirmation</b> and absolute transparency from day one.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-3xl font-extrabold text-slate-900">Top Countries for MBBS Abroad</h2>
+            <p class="text-slate-600 mt-3">Explore and compare NMC-approved, budget-friendly destinations for Indian medical students.</p>
           </div>
           <div class="grid md:grid-cols-2 gap-6">
             ${mbbsCountries.map((c, i) => getCountryCardHTML(c, root, i)).join("")}
           </div>
 
           <div class="p-8 rounded-2xl bg-gradient-to-r from-blue-50 to-green-50 border border-slate-200">
-            <h2 class="text-2xl font-bold text-slate-900">Why Study MBBS Abroad?</h2>
+            <h2 class="text-2xl font-bold text-slate-900">Key Benefits of Pursuing MBBS Abroad</h2>
             <ul class="grid md:grid-cols-2 gap-3 mt-4 text-slate-700">
-              ${["Total cost starts from ₹ 18 Lakhs only", "NMC & WHO approved universities", "No donation / No capitation fees", "Direct admission on 12th marks & NEET", "English medium education", "Indian food & hostel available", "Modern hospitals & clinical training", "Global degree, worldwide practice options"].map(p => `
+              ${[
+                "Total cost starts from ₹ 18 Lakhs only (entire course)",
+                "NMC approved medical universities & MCI recognized",
+                "Strict MBBS without donation policy — merit-based only",
+                "Direct MBBS admission abroad on 12th PCB & NEET",
+                "English medium education — no language barriers",
+                "Indian food, mess, and separate hostels available",
+                "World-class infrastructure, modern clinics & research facilities",
+                "Global degree accepted across India, US, UK, and Europe"
+              ].map(p => `
                 <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-5 h-5 text-green-600 shrink-0 mt-0.5"></i> ${p}</li>
               `).join("")}
             </ul>
+          </div>
+
+          <!-- EXTRA HIGH WORDCOUNT COPY BLOCK -->
+          <div class="space-y-4">
+            <h2 class="text-2xl font-bold text-slate-900">NMC Guidelines for Indian Students Studying Overseas</h2>
+            <p class="text-slate-600 leading-relaxed">
+              Before enrolling in any foreign medical college, it is absolutely essential to understand the latest National Medical Commission (NMC) guidelines. The NMC requires that any Indian student wishing to practice medicine back home must graduate from a medical school where the entire course is taught in the <b>English medium</b>, has a duration of at least 54 months (4.5 years), followed by a mandatory 12-month internship in the same university.
+            </p>
+            <p class="text-slate-600 leading-relaxed">
+              At TrueMark Edu, we ensure that every single university we recommend is 100% compliant with these guidelines. This gives you complete peace of mind that your medical degree will be fully recognized in India, making you eligible for the NExT/FMGE screening examinations. Our expert team also offers specialized <b>FMGE coaching abroad</b> and <b>NExT exam preparation abroad</b> resources, ensuring you are fully prepared to pass licensing tests and start practicing medicine in India.
+            </p>
           </div>
 
           <div>
@@ -1552,14 +1629,19 @@ function buildMBBSEurope(root) {
   const content = `
     ${getPageHeroHTML("MBBS in Europe", "Study MBBS in Europe - EU-recognized degrees, public universities with zero tuition in Italy, and high FMGE/NExT passing rates in Czech, Romania & Bulgaria.", [{ name: "Home", to: `${root}index` }, { name: "MBBS in Europe" }])}
     
-    <section class="py-20">
+    <section class="py-20 font-sans">
       <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-3 gap-8">
         <div class="lg:col-span-2 space-y-10">
           <div class="p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-green-50 border border-slate-200">
-            <h2 class="text-3xl font-extrabold text-slate-900">Why MBBS in Europe?</h2>
-            <p class="text-slate-600 mt-3">European universities rank among the world's best medical schools. Many public universities charge zero tuition. EU degrees are globally recognized and Indian students get excellent FMGE/NExT results.</p>
+            <h2 class="text-3xl font-extrabold text-slate-900">Why Pursue MBBS in Europe?</h2>
+            <p class="text-slate-600 mt-3 leading-relaxed">
+              For Indian medical students looking for a truly global career, choosing to study <b>MBBS in Europe for Indian students</b> is the ultimate path. European medical schools rank among the oldest, most prestigious medical academies in the world, featuring advanced research infrastructure, state-of-the-art diagnostics, and highly extensive clinical rotations in top EU teaching hospitals.
+            </p>
+            <p class="text-slate-600 mt-3 leading-relaxed">
+              By selecting <b>MBBS in EU countries</b>, you earn an internationally recognized ECTS degree that allows you to easily practice medicine across any of the 27 EU member states, as well as clear international licensing tests like USMLE (USA), PLAB (UK), or NExT (India). Furthermore, studying in a country that is part of the <b>MBBS in Schengen</b> zone means you can travel across Europe visa-free, gaining immense global exposure.
+            </p>
             <ul class="grid md:grid-cols-2 gap-3 mt-5 text-slate-700">
-              ${["EU-WHO-NMC recognized degrees", "Zero or low tuition in public universities", "English-medium curriculum", "Top-ranked universities like Ostrava, Sapienza, Carol Davila", "Schengen countries — travel Europe", "Best FMGE / NExT pass rates"].map(p => `
+              ${["Globally recognized EU degrees", "Zero or extremely low tuition in public universities", "Full English-medium medical curriculum", "Top-ranked schools like Ostrava University, Carol Davila, Warsaw", "Schengen zone travel benefits", "Outstanding FMGE / NExT screening pass rates"].map(p => `
                 <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-5 h-5 text-green-600 shrink-0 mt-0.5"></i> ${p}</li>
               `).join("")}
             </ul>
@@ -1567,6 +1649,21 @@ function buildMBBSEurope(root) {
 
           <div class="grid md:grid-cols-2 gap-6">
             ${europeCountries.map((c, i) => getCountryCardHTML(c, root, i)).join("")}
+          </div>
+
+          <!-- MASSIVE IN-DEPTH EUROPE DETAILS SECTION -->
+          <div class="space-y-4">
+            <h3 class="text-2xl font-bold text-slate-900">MBBS in Italy & The IMAT Exam Pathway</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Italy stands out as one of the most incredible destinations for medical education. By clearing the **IMAT (International Medical Admission Test)**, Indian students can study <b>MBBS in Italy</b> at prestigious public universities with <b>almost zero tuition fee</b> (or low annual fees of ₹1 to 3 Lakhs based on family income). 
+            </p>
+            <p class="text-slate-600 leading-relaxed">
+              These universities, such as Sapienza University of Rome, are world leaders in medical research and clinical oncology. TrueMark Edu is India's pioneer <b>MBBS abroad consultant</b> for Italy admissions, providing top-class IMAT preparation resources, document apostille, Declaration of Value (DoV) clearance, and 100% visa processing support.
+            </p>
+            <h3 class="text-2xl font-bold text-slate-900 mt-6">Study in Ostrava University, Romania, & Poland</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Apart from Italy, countries like the Czech Republic (featuring the highly respected <b>Ostrava University</b>), Romania (home to the historic <b>Carol Davila University</b>), and Poland (featuring the world-ranked <b>University of Warsaw</b>) offer phenomenal NMC-approved English-medium courses. These universities have historically delivered some of the highest passing ratios in licensing screening tests. With TrueMark Edu, you get direct university ties, absolute clarity in billing, and a guaranteed <b>MBBS seat confirmation</b> process.
+            </p>
           </div>
 
           <div class="p-8 rounded-3xl bg-gradient-to-r from-blue-800 to-green-700 text-white shadow-xl animate-fade-up">
