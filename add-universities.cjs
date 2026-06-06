@@ -1,0 +1,190 @@
+const fs = require("fs");
+
+let code = fs.readFileSync("generate-html.cjs", "utf8");
+
+// Define the completely new, expanded universities array
+const expandedUniversities = `const universities = [
+  {
+    slug: "carol-davila-bucharest",
+    name: "Carol Davila University of Medicine and Pharmacy",
+    country: "Romania",
+    flag: "🇷🇴",
+    qs: "Top 200",
+    fees: "₹ 7 – 9 Lacs/Year",
+    duration: "6 Years",
+    language: "English",
+    eligibility: ["NEET Qualified", "50% in PCB", "University Entrance Exam"],
+    hostel: "On-campus dormitory available at approx ₹ 25,000/month.",
+    food: "Indian restaurants and mess facility available nearby.",
+    recognition: ["NMC", "WHO", "EU", "WFME"],
+    fmge: "Eligible for NExT/FMGE.",
+    process: ["Counseling → Entrance → Offer → Visa → Departure"]
+  },
+  {
+    slug: "ostrava-university",
+    name: "University of Ostrava",
+    country: "Czech Republic",
+    flag: "🇨🇿",
+    qs: "Top EU Medical",
+    fees: "EUR 12,000/Year",
+    duration: "6 Years (Medicine)",
+    language: "English",
+    eligibility: ["NEET Qualified", "50% PCB marks", "Entrance Exam / Online Exam / Interview"],
+    hostel: "On-campus dormitory with modern amenities.",
+    food: "Indian mess and restaurants in Ostrava.",
+    recognition: ["NMC", "WHO", "EU", "WFME"],
+    fmge: "NExT eligible. High pass rate.",
+    process: ["1. Register for Entrance Exam", "2. Submit documents & pay EUR 200 Application Fee", "3. Programs: Medicine, Dentistry, Nursing", "4. Entrance Exam / Interview", "5. Visa Processing", "6. Departure in September"]
+  },
+  {
+    slug: "semmelweis-university",
+    name: "Semmelweis University, Budapest",
+    country: "Hungary",
+    flag: "🇭🇺",
+    qs: "Top 250",
+    fees: "₹ 10 – 13 Lacs/Year",
+    duration: "6 Years",
+    language: "English",
+    eligibility: ["NEET", "50% PCB", "Entrance test"],
+    hostel: "Hostels near campus.",
+    food: "Indian food nearby.",
+    recognition: ["NMC", "WHO", "EU"],
+    fmge: "Eligible for NExT.",
+    process: ["Apply → Entrance → Visa → Fly"]
+  },
+  {
+    slug: "sofia-medical-university",
+    name: "Sofia Medical University",
+    country: "Bulgaria",
+    flag: "🇧🇬",
+    qs: "Top EU Medical",
+    fees: "₹ 6 – 8 Lacs/Year",
+    duration: "6 Years",
+    language: "English",
+    eligibility: ["NEET", "50% PCB", "Entrance"],
+    hostel: "Hostel available.",
+    food: "Indian food available.",
+    recognition: ["NMC", "WHO", "EU"],
+    fmge: "Eligible for NExT.",
+    process: ["Apply → Exam → Visa → Fly"]
+  },
+  {
+    slug: "university-of-warsaw",
+    name: "University of Warsaw",
+    country: "Poland",
+    flag: "🇵🇱",
+    qs: "Top 300",
+    fees: "₹ 12 – 16 Lacs/Year",
+    duration: "6 Years",
+    language: "English",
+    eligibility: ["NEET", "50% PCB", "Entrance"],
+    hostel: "Student housing.",
+    food: "Indian options.",
+    recognition: ["NMC", "WHO", "EU"],
+    fmge: "NExT eligible.",
+    process: ["Apply → Exam → Visa"]
+  },
+  {
+    slug: "sapienza-university-rome",
+    name: "Sapienza University of Rome",
+    country: "Italy",
+    flag: "🇮🇹",
+    qs: "#134 QS",
+    fees: "₹ 1 – 3 Lacs/Year (public)",
+    duration: "6 Years",
+    language: "English",
+    eligibility: ["NEET", "50% PCB", "IMAT Score"],
+    hostel: "Student accommodation.",
+    food: "Indian mess & restaurants.",
+    recognition: ["NMC", "WHO", "EU"],
+    fmge: "Eligible for NExT.",
+    process: ["IMAT → Rank → Enroll → Visa"]
+  },
+  {
+    slug: "medical-university-of-gdansk",
+    name: "Medical University of Gdansk",
+    country: "Poland",
+    flag: "🇵🇱",
+    qs: "Top 500 QS",
+    fees: "EUR 13,500/Year",
+    duration: "6 Years (MD) / 3 Years (Nursing)",
+    language: "English",
+    eligibility: ["NEET Qualified", "50% PCB marks", "High School transcripts", "Online Entrance Exam"],
+    hostel: "Modern on-campus dormitories with excellent utilities.",
+    food: "Indian food outlets and student kitchen services near the Gdansk campus.",
+    recognition: ["NMC Approved", "WHO Listed", "EU Recognized", "WFME"],
+    fmge: "Fully eligible for NExT and licensing exams globally.",
+    process: ["1. MD Medicine: EUR 13,500 + EUR 750 Orientation Fee", "2. Bachelor of Nursing: EUR 6,000 + EUR 750 Orientation Fee", "3. Intakes: Sep'26, Last date 30'June", "4. Pass Entrance Exam / Interview", "5. Secure Visa & Departure in September 2026"]
+  },
+  {
+    slug: "medical-university-of-bialystok",
+    name: "Medical University of Bialystok",
+    country: "Poland",
+    flag: "🇵🇱",
+    qs: "Top EU Medical",
+    fees: "EUR 15,100/Year",
+    duration: "6 Years",
+    language: "English",
+    eligibility: ["NEET Qualified", "12th standard PCB 50%+", "Entrance Interview / Test"],
+    hostel: "On-campus student dorms with modern rooms and Wi-Fi.",
+    food: "Indian food delivery and self-cooking kitchens in dorms.",
+    recognition: ["NMC Approved", "WHO Listed", "EU Recognized"],
+    fmge: "Fully eligible for FMGE/NExT screening.",
+    process: ["1. MD Medicine: EUR 15,100 + EUR 200 Application Fee", "2. Bachelor of Nursing: Fee will be confirmed in the coming days", "3. Intakes: Sep'26, Last date 15'July", "4. University Entrance Interview", "5. Visa filing & Departure in September"]
+  },
+  {
+    slug: "medical-university-of-poznan",
+    name: "Medical University of Poznan",
+    country: "Poland",
+    flag: "🇵🇱",
+    qs: "Top 600 QS",
+    fees: "USD 19,000/Year",
+    duration: "6 Years (MD) / 5 Years (Dentistry)",
+    language: "English",
+    eligibility: ["NEET Qualified", "50% in PCB", "Entrance Exam / Online Interview"],
+    hostel: "Premium student residences near university hospital complexes.",
+    food: "Hygienic Polish student canteens & local Indian restaurants.",
+    recognition: ["NMC Approved", "WHO Listed", "EU Recognized", "WFME"],
+    fmge: "Eligible for NExT/FMGE and USMLE pathways.",
+    process: ["1. MD Medicine: USD 19,000 + USD 250 Application Fee", "2. Bachelor of Dentistry (5-Year Program): USD 18,400 + USD 250 Application Fee", "3. Intakes: Sep'26, Last date 30'June", "4. Complete Entrance Exam / Interview", "5. Get Visa & fly in September"]
+  },
+  {
+    slug: "medical-university-of-rzeszow",
+    name: "Medical University of Rzeszow",
+    country: "Poland",
+    flag: "🇵🇱",
+    qs: "Top Polish Medical",
+    fees: "EUR 14,500/Year",
+    duration: "6 Years",
+    language: "English",
+    eligibility: ["NEET Qualified", "50% in PCB", "University Interview / Evaluation"],
+    hostel: "Fully furnished student housing near clinics.",
+    food: "Polish cafeterias and student self-cooking facilities.",
+    recognition: ["NMC Approved", "WHO Listed", "EU Recognized"],
+    fmge: "Fully eligible for FMGE/NExT screening.",
+    process: ["1. MD Medicine: EUR 14,500 + EUR 200 Application Fee", "2. Intakes: Sep'26, Last date 30'June", "3. Complete Online interview / assessment", "4. Visa processing & Flight in September 2026"]
+  },
+  {
+    slug: "university-of-pecs",
+    name: "University of Pecs",
+    country: "Hungary",
+    flag: "🇭🇺",
+    qs: "Top 250 in Europe",
+    fees: "USD 16,750/Year",
+    duration: "6 Years",
+    language: "English",
+    eligibility: ["NEET Qualified", "12th Grade Biology & Chemistry 50%+", "Entrance Exam (Written & Oral)"],
+    hostel: "Premium modern university hostels near Faculty of Medicine.",
+    food: "Excellent Hungarian canteens & local Indian dining near Pecs.",
+    recognition: ["NMC Approved", "WHO Listed", "EU Recognized", "WFME"],
+    fmge: "Fully eligible for NExT/FMGE screening.",
+    process: ["1. Faculty of Medicine: USD 16,750 + USD 250 Application Fee", "2. Intakes: Sep'26, Last date 30'June", "3. Pass Entrance Examination (Written + Oral)", "4. Seat confirmation, Visa & Fly in September"]
+  }
+];`;
+
+// Replace the old universities array with the new expanded one
+const oldUniversitiesRegex = /const universities = \[\s*\{[\s\S]*?\}\s*\];/;
+code = code.replace(oldUniversitiesRegex, expandedUniversities);
+
+fs.writeFileSync("generate-html.cjs", code);
+console.log("Universities database successfully updated with all newly requested Polish and Hungarian medical universities!");
