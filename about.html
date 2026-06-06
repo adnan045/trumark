@@ -116,49 +116,62 @@
 </div>
 
 <!-- Mobile Menu -->
-<div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 bg-white max-h-[70vh] overflow-auto">
-  <div class="px-4 py-3 space-y-1 text-sm">
-    <a href="index" class="block py-2 text-slate-700 font-medium">Home</a>
-    <div class="py-1">
-      <div class="font-semibold text-blue-700 py-1">MBBS Abroad</div>
-      <div class="pl-3 space-y-1 border-l border-slate-100">
-        <a href="mbbs-abroad" class="block py-1 text-slate-600">MBBS Abroad Overview</a>
-        <a href="mbbs-abroad/georgia" class="block py-1 text-slate-600">MBBS in Georgia</a>
-        <a href="mbbs-abroad/uzbekistan" class="block py-1 text-slate-600">MBBS in Uzbekistan</a>
-        <a href="mbbs-abroad/kazakhstan" class="block py-1 text-slate-600">MBBS in Kazakhstan</a>
-        <a href="mbbs-abroad/russia" class="block py-1 text-slate-600">MBBS in Russia</a>
-        <a href="mbbs-abroad/kyrgyzstan" class="block py-1 text-slate-600">MBBS in Kyrgyzstan</a>
-        <a href="mbbs-abroad/st-lucia" class="block py-1 text-slate-600">MBBS in St. Lucia</a>
-        <a href="mbbs-abroad/india" class="block py-1 text-slate-600">MBBS in India</a>
+<div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 bg-white max-h-[75vh] overflow-auto">
+  <div class="px-5 py-4 space-y-1 text-sm font-sans">
+    <a href="index" class="block py-3 font-semibold text-slate-800 border-b border-slate-100">Home</a>
+    
+    <!-- Accordion 1: MBBS Abroad -->
+    <div class="py-1 border-b border-slate-100">
+      <button class="mobile-accordion-btn w-full flex items-center justify-between font-bold text-slate-800 py-3 focus:outline-none" data-target="mobile-mbbs-abroad">
+        MBBS Abroad <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
+      </button>
+      <div id="mobile-mbbs-abroad" class="hidden pl-4 py-1.5 space-y-1 border-l-2 border-blue-500/20">
+        <a href="mbbs-abroad" class="block py-1.5 text-slate-700 font-semibold">MBBS Abroad Overview</a>
+        <a href="mbbs-abroad/georgia" class="block py-1.5 text-slate-600">MBBS in Georgia</a>
+        <a href="mbbs-abroad/uzbekistan" class="block py-1.5 text-slate-600">MBBS in Uzbekistan</a>
+        <a href="mbbs-abroad/kazakhstan" class="block py-1.5 text-slate-600">MBBS in Kazakhstan</a>
+        <a href="mbbs-abroad/russia" class="block py-1.5 text-slate-600">MBBS in Russia</a>
+        <a href="mbbs-abroad/kyrgyzstan" class="block py-1.5 text-slate-600">MBBS in Kyrgyzstan</a>
+        <a href="mbbs-abroad/st-lucia" class="block py-1.5 text-slate-600">MBBS in St. Lucia</a>
+        <a href="mbbs-abroad/india" class="block py-1.5 text-slate-600">MBBS in India</a>
       </div>
     </div>
-    <div class="py-1">
-      <div class="font-semibold text-blue-700 py-1">MBBS in Europe</div>
-      <div class="pl-3 space-y-1 border-l border-slate-100">
-        <a href="mbbs-in-europe" class="block py-1 text-slate-600">MBBS in Europe Overview</a>
-        <a href="mbbs-in-europe/italy" class="block py-1 text-slate-600">MBBS in Italy</a>
-        <a href="mbbs-in-europe/spain" class="block py-1 text-slate-600">MBBS in Spain</a>
-        <a href="mbbs-in-europe/romania" class="block py-1 text-slate-600">MBBS in Romania</a>
-        <a href="mbbs-in-europe/bulgaria" class="block py-1 text-slate-600">MBBS in Bulgaria</a>
-        <a href="mbbs-in-europe/czech" class="block py-1 text-slate-600">MBBS in Czech Republic</a>
-        <a href="mbbs-in-europe/slovakia" class="block py-1 text-slate-600">MBBS in Slovakia</a>
+    
+    <!-- Accordion 2: MBBS in Europe -->
+    <div class="py-1 border-b border-slate-100">
+      <button class="mobile-accordion-btn w-full flex items-center justify-between font-bold text-slate-800 py-3 focus:outline-none" data-target="mobile-mbbs-europe">
+        MBBS in Europe <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
+      </button>
+      <div id="mobile-mbbs-europe" class="hidden pl-4 py-1.5 space-y-1 border-l-2 border-blue-500/20">
+        <a href="mbbs-in-europe" class="block py-1.5 text-slate-700 font-semibold">MBBS in Europe Overview</a>
+        <a href="mbbs-in-europe/italy" class="block py-1.5 text-slate-600">MBBS in Italy</a>
+        <a href="mbbs-in-europe/spain" class="block py-1.5 text-slate-600">MBBS in Spain</a>
+        <a href="mbbs-in-europe/romania" class="block py-1.5 text-slate-600">MBBS in Romania</a>
+        <a href="mbbs-in-europe/bulgaria" class="block py-1.5 text-slate-600">MBBS in Bulgaria</a>
+        <a href="mbbs-in-europe/czech" class="block py-1.5 text-slate-600">MBBS in Czech Republic</a>
+        <a href="mbbs-in-europe/slovakia" class="block py-1.5 text-slate-600">MBBS in Slovakia</a>
       </div>
     </div>
-    <div class="py-1">
-      <div class="font-semibold text-blue-700 py-1">Study Abroad</div>
-      <div class="pl-3 space-y-1 border-l border-slate-100">
-        <a href="study-abroad" class="block py-1 text-slate-600">Study Abroad Overview</a>
-        <a href="study-abroad/mba-in-dubai" class="block py-1 text-slate-600">MBA in Dubai / UAE</a>
-        <a href="study-abroad/germany" class="block py-1 text-slate-600">Study in Germany</a>
-        <a href="study-abroad/canada" class="block py-1 text-slate-600">Study in Canada</a>
-        <a href="study-abroad/usa" class="block py-1 text-slate-600">Study in USA</a>
+    
+    <!-- Accordion 3: Study Abroad -->
+    <div class="py-1 border-b border-slate-100">
+      <button class="mobile-accordion-btn w-full flex items-center justify-between font-bold text-slate-800 py-3 focus:outline-none" data-target="mobile-study-abroad">
+        Study Abroad <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
+      </button>
+      <div id="mobile-study-abroad" class="hidden pl-4 py-1.5 space-y-1 border-l-2 border-blue-500/20">
+        <a href="study-abroad" class="block py-1.5 text-slate-700 font-semibold">Study Abroad Overview</a>
+        <a href="study-abroad/mba-in-dubai" class="block py-1.5 text-slate-600">MBA in Dubai / UAE</a>
+        <a href="study-abroad/germany" class="block py-1.5 text-slate-600">Study in Germany</a>
+        <a href="study-abroad/canada" class="block py-1.5 text-slate-600">Study in Canada</a>
+        <a href="study-abroad/usa" class="block py-1.5 text-slate-600">Study in USA</a>
       </div>
     </div>
-    <a href="universities" class="block py-2 text-slate-700 font-medium">Universities</a>
-    <a href="services" class="block py-2 text-slate-700 font-medium">Services</a>
-    <a href="blog" class="block py-2 text-slate-700 font-medium">Blog</a>
-    <a href="about" class="block py-2 text-slate-700 font-medium">About</a>
-    <a href="contact" class="block py-2 text-slate-700 font-medium">Contact</a>
+    
+    <a href="universities" class="block py-3 font-semibold text-slate-800 border-b border-slate-100">Universities</a>
+    <a href="services" class="block py-3 font-semibold text-slate-800 border-b border-slate-100">Services</a>
+    <a href="blog" class="block py-3 font-semibold text-slate-800 border-b border-slate-100">Blog</a>
+    <a href="about" class="block py-3 font-semibold text-slate-800 border-b border-slate-100">About Us</a>
+    <a href="contact" class="block py-3 font-semibold text-slate-800">Contact Us</a>
   </div>
 </div>
 

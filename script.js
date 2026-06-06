@@ -74,4 +74,38 @@ document.addEventListener("DOMContentLoaded", () => {
       form.reset();
     });
   }
+
+  // 5. Mobile Menu Accordion Toggle
+  const accordionBtns = document.querySelectorAll(".mobile-accordion-btn");
+  accordionBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const targetId = btn.getAttribute("data-target");
+      const targetEl = document.getElementById(targetId);
+      const icon = btn.querySelector("i[data-lucide='chevron-down']");
+      
+      if (targetEl) {
+        const isHidden = targetEl.classList.contains("hidden");
+        
+        // Hide all other accordions first (for a clean single-open accordion feel)
+        document.querySelectorAll(".mobile-accordion-btn").forEach(otherBtn => {
+          if (otherBtn !== btn) {
+            const otherTargetId = otherBtn.getAttribute("data-target");
+            const otherTargetEl = document.getElementById(otherTargetId);
+            if (otherTargetEl) otherTargetEl.classList.add("hidden");
+            const otherIcon = otherBtn.querySelector("i[data-lucide='chevron-down']");
+            if (otherIcon) otherIcon.classList.remove("rotate-180");
+          }
+        });
+
+        // Toggle current accordion
+        if (isHidden) {
+          targetEl.classList.remove("hidden");
+          if (icon) icon.classList.add("rotate-180");
+        } else {
+          targetEl.classList.add("hidden");
+          if (icon) icon.classList.remove("rotate-180");
+        }
+      }
+    });
+  });
 });
