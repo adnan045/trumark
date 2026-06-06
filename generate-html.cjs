@@ -4021,7 +4021,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   });
-});
 
   // 5. Mobile Menu Accordion Toggle
   const accordionBtns = document.querySelectorAll(".mobile-accordion-btn");
