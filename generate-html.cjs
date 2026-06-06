@@ -1,8 +1,1526 @@
 const fs = require("fs");
 const path = require("path");
 
+// --- COLLEGES DETAILED PRICING DATABASE ---
+const collegesDatabase = {
+  "Georgia": [
+    {
+      "sNo": "1",
+      "name": "International Black Sea University",
+      "tuitionUSD": "$31,800",
+      "tuitionINR": "4800",
+      "hostelUSD": "₹4,08,000",
+      "hostelINR": "3000",
+      "worldRank": "₹2,55,000",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "3",
+      "name": "Georgian National University SEU",
+      "tuitionUSD": "$40,800",
+      "tuitionINR": "6,300",
+      "hostelUSD": "₹5,35,500",
+      "hostelINR": "3000",
+      "worldRank": "₹2,55,000",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "4",
+      "name": "Grigol Robakidze University",
+      "tuitionUSD": "$36,000",
+      "tuitionINR": "5,500",
+      "hostelUSD": "₹4,67,500",
+      "hostelINR": "3000",
+      "worldRank": "₹2,55,000",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "5",
+      "name": "Avicenna Batumi Medical University",
+      "tuitionUSD": "$32,400",
+      "tuitionINR": "4,900",
+      "hostelUSD": "₹4,16,500",
+      "hostelINR": "3000",
+      "worldRank": "₹2,55,000",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "6",
+      "name": "Alte University",
+      "tuitionUSD": "$36,000",
+      "tuitionINR": "5,500",
+      "hostelUSD": "₹4,67,500",
+      "hostelINR": "3000",
+      "worldRank": "₹2,55,000",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "7",
+      "name": "Georgian American University (GAU)",
+      "tuitionUSD": "$39,000",
+      "tuitionINR": "6,000",
+      "hostelUSD": "₹5,10,000",
+      "hostelINR": "3000",
+      "worldRank": "₹2,55,000",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "10",
+      "name": "Caucasus International University Georgia",
+      "tuitionUSD": "$39,000",
+      "tuitionINR": "6,000",
+      "hostelUSD": "₹5,10,000",
+      "hostelINR": "3000",
+      "worldRank": "₹2,55,000",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "11",
+      "name": "East European University Georgia",
+      "tuitionUSD": "$36,000",
+      "tuitionINR": "5,500",
+      "hostelUSD": "₹4,67,500",
+      "hostelINR": "3000",
+      "worldRank": "₹2,55,000",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "12",
+      "name": "New Vision University Georgia",
+      "tuitionUSD": "$45,000",
+      "tuitionINR": "7,000",
+      "hostelUSD": "₹5,95,000",
+      "hostelINR": "3000",
+      "worldRank": "₹2,55,000",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "18",
+      "name": "David Tvildiani Medical University",
+      "tuitionUSD": "$39,000",
+      "tuitionINR": "6,000",
+      "hostelUSD": "₹5,10,000",
+      "hostelINR": "3000",
+      "worldRank": "₹2,55,000",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "19",
+      "name": "University of Georgia",
+      "tuitionUSD": "$42,000",
+      "tuitionINR": "6,500",
+      "hostelUSD": "₹5,52,500",
+      "hostelINR": "3000",
+      "worldRank": "₹2,55,000",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "20",
+      "name": "Geomedi State University",
+      "tuitionUSD": "$36,000",
+      "tuitionINR": "5,500",
+      "hostelUSD": "₹4,67,500",
+      "hostelINR": "3000",
+      "worldRank": "₹2,55,000",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "22",
+      "name": "European University Georgia",
+      "tuitionUSD": "$38,400",
+      "tuitionINR": "5,900",
+      "hostelUSD": "₹5,01,500",
+      "hostelINR": "3000",
+      "worldRank": "₹2,55,000",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "23",
+      "name": "BAU International",
+      "tuitionUSD": "$31,800",
+      "tuitionINR": "4,800",
+      "hostelUSD": "₹4,08,000",
+      "hostelINR": "3000",
+      "worldRank": "₹2,55,000",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "24",
+      "name": "East West University Georgia",
+      "tuitionUSD": "$26,400",
+      "tuitionINR": "3,900",
+      "hostelUSD": "₹3,31,500",
+      "hostelINR": "3000",
+      "worldRank": "₹2,55,000",
+      "countryRank": "—"
+    }
+  ],
+  "Kyrgyzstan": [
+    {
+      "sNo": "1",
+      "name": "OSH State Medical University",
+      "tuitionUSD": "4,000 USD",
+      "tuitionINR": "₹3,40,000",
+      "hostelUSD": "700 USD",
+      "hostelINR": "₹59,500",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "2",
+      "name": "Jalalabad State University",
+      "tuitionUSD": "4,200 USD",
+      "tuitionINR": "₹3,57,000",
+      "hostelUSD": "700 USD",
+      "hostelINR": "₹59,500",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "3",
+      "name": "Adam University",
+      "tuitionUSD": "4,000 USD",
+      "tuitionINR": "₹3,40,000",
+      "hostelUSD": "800 USD",
+      "hostelINR": "₹68,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "4",
+      "name": "Kyrgyz State Medical Academy",
+      "tuitionUSD": "4,800 USD",
+      "tuitionINR": "₹4,08,000",
+      "hostelUSD": "700 USD",
+      "hostelINR": "₹59,500",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "5",
+      "name": "International School of Medicine Kyrgyzstan",
+      "tuitionUSD": "6,000 USD",
+      "tuitionINR": "₹5,10,000",
+      "hostelUSD": "750 USD",
+      "hostelINR": "₹63,750",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "6",
+      "name": "Asian Medical Institute Kyrgyzstan",
+      "tuitionUSD": "3,400 USD",
+      "tuitionINR": "₹2,89,000",
+      "hostelUSD": "450 USD",
+      "hostelINR": "₹38,250",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "8",
+      "name": "International University of Kyrgyzstan",
+      "tuitionUSD": "5,000 USD",
+      "tuitionINR": "₹4,25,000",
+      "hostelUSD": "800 USD",
+      "hostelINR": "₹68,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "9",
+      "name": "Kyrgyz Russian Slavic University",
+      "tuitionUSD": "4,000 USD",
+      "tuitionINR": "₹3,40,000",
+      "hostelUSD": "700 USD",
+      "hostelINR": "₹59,500",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "10",
+      "name": "Adam University School of Medicine",
+      "tuitionUSD": "4,000 USD",
+      "tuitionINR": "₹3,40,000",
+      "hostelUSD": "—",
+      "hostelINR": "—",
+      "worldRank": "—",
+      "countryRank": "—"
+    }
+  ],
+  "Kazakhstan": [
+    {
+      "sNo": "1",
+      "name": "South Kazakhstan Medical Academy",
+      "tuitionUSD": "4,400 USD",
+      "tuitionINR": "₹3,74,000",
+      "hostelUSD": "800 USD",
+      "hostelINR": "₹68,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "2",
+      "name": "Asfendiyarov Kazakh National Medical University",
+      "tuitionUSD": "30,00,000 KZT",
+      "tuitionINR": "₹5,10,000",
+      "hostelUSD": "900 USD",
+      "hostelINR": "₹76,500",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "3",
+      "name": "Kazakh National Medical University",
+      "tuitionUSD": "30,00,000 KZT",
+      "tuitionINR": "₹5,10,000",
+      "hostelUSD": "900 USD",
+      "hostelINR": "₹76,500",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "4",
+      "name": "Karaganda State Medical University Kazakhstan",
+      "tuitionUSD": "4,100 USD",
+      "tuitionINR": "₹3,48,500",
+      "hostelUSD": "800 USD",
+      "hostelINR": "₹68,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "5",
+      "name": "Astana Medical University Kazakhstan",
+      "tuitionUSD": "27,50,000 KZT",
+      "tuitionINR": "₹4,67,500",
+      "hostelUSD": "1,000 USD",
+      "hostelINR": "₹85,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "6",
+      "name": "Semey State Medical University",
+      "tuitionUSD": "20,40,000 KZT",
+      "tuitionINR": "₹3,46,800",
+      "hostelUSD": "900 USD",
+      "hostelINR": "₹76,500",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "7",
+      "name": "Al Farabi Kazakh National University Kazakhstan",
+      "tuitionUSD": "22,00,000 KZT",
+      "tuitionINR": "₹3,74,000",
+      "hostelUSD": "700 USD",
+      "hostelINR": "₹59,500",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "8",
+      "name": "Kazakh Medical University of Continuing Education",
+      "tuitionUSD": "—",
+      "tuitionINR": "—",
+      "hostelUSD": "—",
+      "hostelINR": "—",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "9",
+      "name": "Kokshetau State University Kazakhstan",
+      "tuitionUSD": "3,800 USD",
+      "tuitionINR": "₹3,23,000",
+      "hostelUSD": "800 USD",
+      "hostelINR": "₹68,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "10",
+      "name": "West Kazakhstan State Medical University",
+      "tuitionUSD": "18,50,000 KZT",
+      "tuitionINR": "₹3,14,500",
+      "hostelUSD": "500 USD",
+      "hostelINR": "₹42,500",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "11",
+      "name": "International Medical School",
+      "tuitionUSD": "—",
+      "tuitionINR": "—",
+      "hostelUSD": "—",
+      "hostelINR": "—",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "12",
+      "name": "Kazakh Russian Medical State University",
+      "tuitionUSD": "4,500 USD",
+      "tuitionINR": "₹3,82,500",
+      "hostelUSD": "800 USD",
+      "hostelINR": "₹68,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "13",
+      "name": "Caspian University",
+      "tuitionUSD": "4,500 USD",
+      "tuitionINR": "₹3,82,500",
+      "hostelUSD": "800 USD",
+      "hostelINR": "₹68,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    }
+  ],
+  "Uzbekistan": [
+    {
+      "sNo": "1",
+      "name": "Tashkent Medical Academy",
+      "tuitionUSD": "3,500 USD",
+      "tuitionINR": "₹2,97,500",
+      "hostelUSD": "700 USD",
+      "hostelINR": "₹59,500",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "2",
+      "name": "Fergana State University Medical Centre",
+      "tuitionUSD": "3,500 USD",
+      "tuitionINR": "₹2,97,500",
+      "hostelUSD": "750 USD",
+      "hostelINR": "₹63,750",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "3",
+      "name": "Samarkand State Medical University",
+      "tuitionUSD": "3,500 USD",
+      "tuitionINR": "₹2,97,500",
+      "hostelUSD": "500 USD",
+      "hostelINR": "₹42,500",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "4",
+      "name": "Bukhara State University Uzbekistan",
+      "tuitionUSD": "3,200 USD",
+      "tuitionINR": "₹2,72,000",
+      "hostelUSD": "500 USD",
+      "hostelINR": "₹42,500",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "5",
+      "name": "Tashkent State Dental Institute",
+      "tuitionUSD": "3,500 USD",
+      "tuitionINR": "₹2,97,500",
+      "hostelUSD": "700 USD",
+      "hostelINR": "₹59,500",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "6",
+      "name": "Tashkent Medical Academy (Chirchik Branch)",
+      "tuitionUSD": "3,000 USD",
+      "tuitionINR": "₹2,55,000",
+      "hostelUSD": "700 USD",
+      "hostelINR": "₹59,500",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "7",
+      "name": "Tashkent Urgench Branch",
+      "tuitionUSD": "4,000 USD",
+      "tuitionINR": "₹3,40,000",
+      "hostelUSD": "700 USD",
+      "hostelINR": "₹59,500",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "8",
+      "name": "Andijan Medical Institute",
+      "tuitionUSD": "3,500 USD",
+      "tuitionINR": "₹2,97,500",
+      "hostelUSD": "700 USD",
+      "hostelINR": "₹59,500",
+      "worldRank": "—",
+      "countryRank": "—"
+    }
+  ],
+  "Nepal": [
+    {
+      "sNo": "1",
+      "name": "B.P. Koirala Institute of Health Sciences (BPKIHS)",
+      "tuitionUSD": "75,000 USD*",
+      "tuitionINR": "₹63,75,000*",
+      "hostelUSD": "1,403 USD/yr",
+      "hostelINR": "₹1,19,255/yr",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "2",
+      "name": "Birat Medical College (BMC), Biratnagar",
+      "tuitionUSD": "58,494 USD*",
+      "tuitionINR": "₹49,72,990*",
+      "hostelUSD": "1,403 USD/yr",
+      "hostelINR": "₹1,19,255/yr",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "3",
+      "name": "Institute of Medicine, Nepal – IOM",
+      "tuitionUSD": "75,000 USD*",
+      "tuitionINR": "₹63,75,000*",
+      "hostelUSD": "1,403 USD/yr",
+      "hostelINR": "₹1,19,255/yr",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "4",
+      "name": "Janaki Medical College, Nepal",
+      "tuitionUSD": "66,265 USD*",
+      "tuitionINR": "₹56,32,525*",
+      "hostelUSD": "1,403 USD/yr",
+      "hostelINR": "₹1,19,255/yr",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "5",
+      "name": "Kathmandu Medical College, Nepal",
+      "tuitionUSD": "66,265 USD*",
+      "tuitionINR": "₹56,32,525*",
+      "hostelUSD": "1,403 USD/yr",
+      "hostelINR": "₹1,19,255/yr",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "6",
+      "name": "KIST Medical College Kathmandu, Nepal",
+      "tuitionUSD": "66,265 USD*",
+      "tuitionINR": "₹56,32,525*",
+      "hostelUSD": "1,403 USD/yr",
+      "hostelINR": "₹1,19,255/yr",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "7",
+      "name": "Lumbini Medical College (LMC), Nepal",
+      "tuitionUSD": "60,241 USD*",
+      "tuitionINR": "₹51,20,485*",
+      "hostelUSD": "1,403 USD/yr",
+      "hostelINR": "₹1,19,255/yr",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "8",
+      "name": "Universal College of Medical Science (UCMS)",
+      "tuitionUSD": "—",
+      "tuitionINR": "—",
+      "hostelUSD": "1,403 USD/yr",
+      "hostelINR": "₹1,19,255/yr",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "9",
+      "name": "Nepal Medical College",
+      "tuitionUSD": "66,265 USD*",
+      "tuitionINR": "₹56,32,525*",
+      "hostelUSD": "1,403 USD/yr",
+      "hostelINR": "₹1,19,255/yr",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "10",
+      "name": "College of Medical Science",
+      "tuitionUSD": "69,880 USD*",
+      "tuitionINR": "₹59,39,800*",
+      "hostelUSD": "1,403 USD/yr",
+      "hostelINR": "₹1,19,255/yr",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "11",
+      "name": "Nobel Medical College",
+      "tuitionUSD": "66,265 USD*",
+      "tuitionINR": "₹56,32,525*",
+      "hostelUSD": "1,403 USD/yr",
+      "hostelINR": "₹1,19,255/yr",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "12",
+      "name": "National Medical College",
+      "tuitionUSD": "66,265 USD*",
+      "tuitionINR": "₹56,32,525*",
+      "hostelUSD": "1,403 USD/yr",
+      "hostelINR": "₹1,19,255/yr",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "13",
+      "name": "Chitwan Medical College",
+      "tuitionUSD": "72,289 USD*",
+      "tuitionINR": "₹61,44,565*",
+      "hostelUSD": "1,403 USD/yr",
+      "hostelINR": "₹1,19,255/yr",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "14",
+      "name": "Manipal College",
+      "tuitionUSD": "74,699 USD*",
+      "tuitionINR": "₹63,49,415*",
+      "hostelUSD": "1,403 USD/yr",
+      "hostelINR": "₹1,19,255/yr",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "15",
+      "name": "Devdaha Medical College",
+      "tuitionUSD": "72,289 USD*",
+      "tuitionINR": "₹61,44,565*",
+      "hostelUSD": "1,403 USD/yr",
+      "hostelINR": "₹1,19,255/yr",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "16",
+      "name": "B&amp;C Medical College",
+      "tuitionUSD": "60,241 USD*",
+      "tuitionINR": "₹51,20,485*",
+      "hostelUSD": "1,403 USD/yr",
+      "hostelINR": "₹1,19,255/yr",
+      "worldRank": "—",
+      "countryRank": "—"
+    }
+  ],
+  "Bangladesh": [
+    {
+      "sNo": "1",
+      "name": "Bangladesh Medical College",
+      "tuitionUSD": "—",
+      "tuitionINR": "—",
+      "hostelUSD": "—",
+      "hostelINR": "—",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "2",
+      "name": "Barind Medical College Bangladesh",
+      "tuitionUSD": "—",
+      "tuitionINR": "—",
+      "hostelUSD": "—",
+      "hostelINR": "—",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "3",
+      "name": "Dhaka National Medical College",
+      "tuitionUSD": "35,000 USD*",
+      "tuitionINR": "₹2,97,50,000*",
+      "hostelUSD": "—",
+      "hostelINR": "—",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "4",
+      "name": "BGC Trust Medical College Bangladesh",
+      "tuitionUSD": "10,000 USD*",
+      "tuitionINR": "₹8,50,000*",
+      "hostelUSD": "—",
+      "hostelINR": "—",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "5",
+      "name": "Eastern Medical College Bangladesh",
+      "tuitionUSD": "—",
+      "tuitionINR": "—",
+      "hostelUSD": "—",
+      "hostelINR": "—",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "6",
+      "name": "Khwaja Yunus Ali Medical College",
+      "tuitionUSD": "16,500 USD*",
+      "tuitionINR": "₹14,02,500*",
+      "hostelUSD": "—",
+      "hostelINR": "—",
+      "worldRank": "—",
+      "countryRank": "—"
+    }
+  ],
+  "China": [
+    {
+      "sNo": "1",
+      "name": "Capital Medical University",
+      "tuitionUSD": "40,000 RMB",
+      "tuitionINR": "₹4,40,000",
+      "hostelUSD": "7,000 USD",
+      "hostelINR": "₹5,95,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "2",
+      "name": "Beihua Medical University",
+      "tuitionUSD": "21,000 RMB",
+      "tuitionINR": "₹2,31,000",
+      "hostelUSD": "5,600 USD",
+      "hostelINR": "₹4,76,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "3",
+      "name": "Wuhan Medical University",
+      "tuitionUSD": "40,000 RMB",
+      "tuitionINR": "₹4,40,000",
+      "hostelUSD": "12,000 USD",
+      "hostelINR": "₹10,20,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "4",
+      "name": "China Medical University",
+      "tuitionUSD": "40,000 RMB",
+      "tuitionINR": "₹4,40,000",
+      "hostelUSD": "11,000 USD",
+      "hostelINR": "₹9,35,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "5",
+      "name": "Jiamusi University",
+      "tuitionUSD": "—",
+      "tuitionINR": "—",
+      "hostelUSD": "—",
+      "hostelINR": "—",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "6",
+      "name": "Dalian Medical University",
+      "tuitionUSD": "45,000 RMB",
+      "tuitionINR": "₹4,95,000",
+      "hostelUSD": "8,000 USD",
+      "hostelINR": "₹6,80,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "7",
+      "name": "Hebei Medical University",
+      "tuitionUSD": "36,000 RMB",
+      "tuitionINR": "₹3,96,000",
+      "hostelUSD": "4,000 USD",
+      "hostelINR": "₹3,40,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "8",
+      "name": "Jilin University",
+      "tuitionUSD": "33,000 RMB",
+      "tuitionINR": "₹3,63,000",
+      "hostelUSD": "6,000 USD",
+      "hostelINR": "₹5,10,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "9",
+      "name": "FUDAN University",
+      "tuitionUSD": "75,000 RMB",
+      "tuitionINR": "₹8,25,000",
+      "hostelUSD": "10,000 USD",
+      "hostelINR": "₹8,50,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "10",
+      "name": "China Three Gorges University",
+      "tuitionUSD": "24,000 RMB",
+      "tuitionINR": "₹2,64,000",
+      "hostelUSD": "4,800 USD",
+      "hostelINR": "₹4,08,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "11",
+      "name": "Nanjing Medical University",
+      "tuitionUSD": "34,000 RMB",
+      "tuitionINR": "₹3,74,000",
+      "hostelUSD": "6,000 USD",
+      "hostelINR": "₹5,10,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "12",
+      "name": "Anhui Medical University",
+      "tuitionUSD": "30,000 RMB",
+      "tuitionINR": "₹3,30,000",
+      "hostelUSD": "4,000 USD",
+      "hostelINR": "₹3,40,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "13",
+      "name": "Xi&#39;an Jiaotong University",
+      "tuitionUSD": "40,000 RMB",
+      "tuitionINR": "₹4,40,000",
+      "hostelUSD": "11,000 USD",
+      "hostelINR": "₹9,35,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "14",
+      "name": "Xiamen Amoy University",
+      "tuitionUSD": "38,000 RMB",
+      "tuitionINR": "₹4,18,000",
+      "hostelUSD": "9,000 USD",
+      "hostelINR": "₹7,65,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "15",
+      "name": "Guangzhou Medical University",
+      "tuitionUSD": "30,000 RMB",
+      "tuitionINR": "₹3,30,000",
+      "hostelUSD": "4,000 USD",
+      "hostelINR": "₹3,40,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "16",
+      "name": "Fujian Medical University",
+      "tuitionUSD": "35,000 RMB",
+      "tuitionINR": "₹3,85,000",
+      "hostelUSD": "4,000 USD",
+      "hostelINR": "₹3,40,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "17",
+      "name": "Ningxia Medical University",
+      "tuitionUSD": "29,800 RMB",
+      "tuitionINR": "₹3,27,800",
+      "hostelUSD": "5,000 USD",
+      "hostelINR": "₹4,25,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "18",
+      "name": "Wenzhou Medical University",
+      "tuitionUSD": "30,000 RMB",
+      "tuitionINR": "₹3,30,000",
+      "hostelUSD": "4,500 USD",
+      "hostelINR": "₹3,82,500",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "19",
+      "name": "Qingdao University",
+      "tuitionUSD": "30,000 RMB",
+      "tuitionINR": "₹3,30,000",
+      "hostelUSD": "10,000 USD",
+      "hostelINR": "₹8,50,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "20",
+      "name": "Soochow University Suzhou",
+      "tuitionUSD": "32,500 RMB",
+      "tuitionINR": "₹3,57,500",
+      "hostelUSD": "6,000 USD",
+      "hostelINR": "₹5,10,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "21",
+      "name": "Yangzhou Medical University",
+      "tuitionUSD": "30,000 RMB",
+      "tuitionINR": "₹3,30,000",
+      "hostelUSD": "4,500 USD",
+      "hostelINR": "₹3,82,500",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "22",
+      "name": "Southern Medical University",
+      "tuitionUSD": "40,000 RMB",
+      "tuitionINR": "₹4,40,000",
+      "hostelUSD": "6,000 USD",
+      "hostelINR": "₹5,10,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "23",
+      "name": "Kunming Medical University",
+      "tuitionUSD": "35,000 RMB",
+      "tuitionINR": "₹3,85,000",
+      "hostelUSD": "5,000 USD",
+      "hostelINR": "₹4,25,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "24",
+      "name": "Nantong University",
+      "tuitionUSD": "26,000 RMB",
+      "tuitionINR": "₹2,86,000",
+      "hostelUSD": "4,000 USD",
+      "hostelINR": "₹3,40,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "25",
+      "name": "Zhejiang University",
+      "tuitionUSD": "42,800 RMB",
+      "tuitionINR": "₹4,70,800",
+      "hostelUSD": "6,000 USD",
+      "hostelINR": "₹5,10,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "26",
+      "name": "Southwest Medical University",
+      "tuitionUSD": "40,000 RMB",
+      "tuitionINR": "₹4,40,000",
+      "hostelUSD": "6,000 USD",
+      "hostelINR": "₹5,10,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "27",
+      "name": "Jinzhou Medical University",
+      "tuitionUSD": "32,000 RMB",
+      "tuitionINR": "₹3,52,000",
+      "hostelUSD": "5,000 USD",
+      "hostelINR": "₹4,25,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "28",
+      "name": "Xinjiang Medical University",
+      "tuitionUSD": "30,000 RMB",
+      "tuitionINR": "₹3,30,000",
+      "hostelUSD": "4,500 USD",
+      "hostelINR": "₹3,82,500",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "29",
+      "name": "Jinan University (JNU)",
+      "tuitionUSD": "34,000 RMB",
+      "tuitionINR": "₹3,74,000",
+      "hostelUSD": "6,000 USD",
+      "hostelINR": "₹5,10,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "30",
+      "name": "Southeast University",
+      "tuitionUSD": "32,800 RMB",
+      "tuitionINR": "₹3,60,800",
+      "hostelUSD": "6,000 USD",
+      "hostelINR": "₹5,10,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "31",
+      "name": "Sun Yat-Sen University",
+      "tuitionUSD": "48,000 RMB",
+      "tuitionINR": "₹5,28,000",
+      "hostelUSD": "5,100 USD",
+      "hostelINR": "₹4,33,500",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "32",
+      "name": "Guangxi Medical University",
+      "tuitionUSD": "30,000 RMB",
+      "tuitionINR": "₹3,30,000",
+      "hostelUSD": "6,000 USD",
+      "hostelINR": "₹5,10,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "33",
+      "name": "Jiangsu University",
+      "tuitionUSD": "34,000 RMB",
+      "tuitionINR": "₹3,74,000",
+      "hostelUSD": "4,900 USD",
+      "hostelINR": "₹4,16,500",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "34",
+      "name": "Harbin Medical University",
+      "tuitionUSD": "30,000 RMB",
+      "tuitionINR": "₹3,30,000",
+      "hostelUSD": "4,000 USD",
+      "hostelINR": "₹3,40,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "35",
+      "name": "Huazhong University of Science &amp; Technology",
+      "tuitionUSD": "40,000 RMB",
+      "tuitionINR": "₹4,40,000",
+      "hostelUSD": "6,500 USD",
+      "hostelINR": "₹5,52,500",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "36",
+      "name": "Ningbo University",
+      "tuitionUSD": "30,000 RMB",
+      "tuitionINR": "₹3,30,000",
+      "hostelUSD": "6,000 USD",
+      "hostelINR": "₹5,10,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "37",
+      "name": "North Sichuan Medical College",
+      "tuitionUSD": "32,000 RMB",
+      "tuitionINR": "₹3,52,000",
+      "hostelUSD": "12,000 USD",
+      "hostelINR": "₹10,20,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "38",
+      "name": "Xuzhou Medical University",
+      "tuitionUSD": "33,000 RMB",
+      "tuitionINR": "₹3,63,000",
+      "hostelUSD": "5,000 USD",
+      "hostelINR": "₹4,25,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "39",
+      "name": "Shantou University",
+      "tuitionUSD": "60,000 RMB",
+      "tuitionINR": "₹6,60,000",
+      "hostelUSD": "8,000 USD",
+      "hostelINR": "₹6,80,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "40",
+      "name": "Zhengzhou Medical University",
+      "tuitionUSD": "35,000 RMB",
+      "tuitionINR": "₹3,85,000",
+      "hostelUSD": "5,000 USD",
+      "hostelINR": "₹4,25,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "41",
+      "name": "Shihezi Medical University",
+      "tuitionUSD": "30,000 RMB",
+      "tuitionINR": "₹3,30,000",
+      "hostelUSD": "5,000 USD",
+      "hostelINR": "₹4,25,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "42",
+      "name": "Sichuan University",
+      "tuitionUSD": "36,000 RMB",
+      "tuitionINR": "₹3,96,000",
+      "hostelUSD": "6,000 USD",
+      "hostelINR": "₹5,10,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "43",
+      "name": "Tianjin Medical University",
+      "tuitionUSD": "45,000 RMB",
+      "tuitionINR": "₹4,95,000",
+      "hostelUSD": "11,000 USD",
+      "hostelINR": "₹9,35,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "44",
+      "name": "Tongji University School of Medicine",
+      "tuitionUSD": "45,000 RMB",
+      "tuitionINR": "₹4,95,000",
+      "hostelUSD": "9,000 USD",
+      "hostelINR": "₹7,65,000",
+      "worldRank": "—",
+      "countryRank": "—"
+    }
+  ],
+  "Armenia": [
+    {
+      "sNo": "1",
+      "name": "Yerevan Haybusak University, Armenia",
+      "tuitionUSD": "—",
+      "tuitionINR": "—",
+      "hostelUSD": "—",
+      "hostelINR": "—",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "2",
+      "name": "St. Tereza Medical University Armenia",
+      "tuitionUSD": "—",
+      "tuitionINR": "—",
+      "hostelUSD": "—",
+      "hostelINR": "—",
+      "worldRank": "—",
+      "countryRank": "—"
+    }
+  ],
+  "Barbados": [
+    {
+      "sNo": "1",
+      "name": "Victoria University of Barbados",
+      "tuitionUSD": "11,000 USD",
+      "tuitionINR": "—",
+      "hostelUSD": "—",
+      "hostelINR": "—",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "2",
+      "name": "American University of Barbados",
+      "tuitionUSD": "—",
+      "tuitionINR": "—",
+      "hostelUSD": "—",
+      "hostelINR": "—",
+      "worldRank": "—",
+      "countryRank": "—"
+    }
+  ],
+  "Antigua": [
+    {
+      "sNo": "1",
+      "name": "American University of Antigua",
+      "tuitionUSD": "—",
+      "tuitionINR": "—",
+      "hostelUSD": "—",
+      "hostelINR": "—",
+      "worldRank": "—",
+      "countryRank": "—"
+    }
+  ],
+  "Caribbean": [
+    {
+      "sNo": "1",
+      "name": "New York Medical University Curacao",
+      "tuitionUSD": "—",
+      "tuitionINR": "—",
+      "hostelUSD": "—",
+      "hostelINR": "—",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "2",
+      "name": "Metropolitan University College of Medicine Antigua",
+      "tuitionUSD": "—",
+      "tuitionINR": "—",
+      "hostelUSD": "—",
+      "hostelINR": "—",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "3",
+      "name": "Lincoln American University",
+      "tuitionUSD": "—",
+      "tuitionINR": "—",
+      "hostelUSD": "—",
+      "hostelINR": "—",
+      "worldRank": "—",
+      "countryRank": "—"
+    }
+  ],
+  "Philippines": [
+    {
+      "sNo": "1",
+      "name": "Brokenshire College School of Medicine",
+      "tuitionUSD": "—",
+      "tuitionINR": "—",
+      "hostelUSD": "—",
+      "hostelINR": "—",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "2",
+      "name": "University of Perpetual Help System Dalta (UPHSD)",
+      "tuitionUSD": "—",
+      "tuitionINR": "—",
+      "hostelUSD": "—",
+      "hostelINR": "—",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "3",
+      "name": "AMA School of Medicine (AMASOM)",
+      "tuitionUSD": "—",
+      "tuitionINR": "—",
+      "hostelUSD": "—",
+      "hostelINR": "—",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "4",
+      "name": "Davao Medical School Foundation",
+      "tuitionUSD": "—",
+      "tuitionINR": "—",
+      "hostelUSD": "—",
+      "hostelINR": "—",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "5",
+      "name": "Bicol Christian College of Medicine (BCCM)",
+      "tuitionUSD": "—",
+      "tuitionINR": "—",
+      "hostelUSD": "—",
+      "hostelINR": "—",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "6",
+      "name": "Emilio Aguinaldo College (EAC)",
+      "tuitionUSD": "—",
+      "tuitionINR": "—",
+      "hostelUSD": "—",
+      "hostelINR": "—",
+      "worldRank": "—",
+      "countryRank": "—"
+    },
+    {
+      "sNo": "7",
+      "name": "Our Lady Fatima University",
+      "tuitionUSD": "—",
+      "tuitionINR": "—",
+      "hostelUSD": "—",
+      "hostelINR": "—",
+      "worldRank": "—",
+      "countryRank": "—"
+    }
+  ]
+};
+
 // --- DATA FROM SITE.TS ---
 const mbbsCountries = [
+  ...[
+  {
+    "slug": "nepal",
+    "name": "Nepal",
+    "flag": "🇳🇵",
+    "tagline": "High FMGE success & close proximity to India",
+    "duration": "5.5 Years",
+    "fees": "₹ 45 – 60 Lacs (Total)",
+    "language": "English Medium",
+    "intakes": [
+      "September"
+    ],
+    "topUniversities": [
+      "B.P. Koirala Institute of Health Sciences (BPKIHS)",
+      "Kathmandu University",
+      "Tribhuvan University",
+      "Manipal College of Medical Sciences"
+    ],
+    "highlights": [
+      "NMC Approved",
+      "Similar Syllabus to India",
+      "No Passport Required",
+      "Indian Food & Culture",
+      "High FMGE Passing Ratio"
+    ],
+    "description": "Studying MBBS in Nepal is highly favored by Indian medical students due to its direct academic similarity to the Indian curriculum, shared culture, and geographic proximity. Many NMC approved medical universities and MCI approved universities in Nepal provide outstanding clinical training in local hospitals, leading to excellent FMGE and NExT results without requiring any donation.",
+    "eligibility": [
+      "NEET Qualified",
+      "50% in PCB",
+      "17+ years of age"
+    ],
+    "hostel": "On-campus hostels with dedicated blocks for Indian students, attached mess.",
+    "food": "Indian food (both North and South Indian) is readily available everywhere on campus.",
+    "recognition": [
+      "NMC",
+      "WHO",
+      "EU Recognized"
+    ],
+    "fmge": "Fully eligible for NExT / FMGE screening.",
+    "process": [
+      "1. Counseling",
+      "2. Registration (Last date: 30 June)",
+      "3. Document Verification",
+      "4. University Entrance / Interview",
+      "5. Seat Confirmation",
+      "6. Travel to Nepal in September"
+    ]
+  },
+  {
+    "slug": "bangladesh",
+    "name": "Bangladesh",
+    "flag": "🇧🇩",
+    "tagline": "Highest FMGE passing ratio & identical disease pattern",
+    "duration": "5 Years + 1 Year Internship",
+    "fees": "₹ 30 – 45 Lacs (Total)",
+    "language": "English Medium",
+    "intakes": [
+      "September",
+      "January"
+    ],
+    "topUniversities": [
+      "University of Dhaka",
+      "University of Rajshahi",
+      "Chittagong Medical College",
+      "Sylhet Women's Medical College"
+    ],
+    "highlights": [
+      "Highest FMGE Pass Rate",
+      "Same Disease Spectrum as India",
+      "NMC & WHO Approved",
+      "Low Cost of Living",
+      "English Medium"
+    ],
+    "description": "Pursuing MBBS in Bangladesh is an excellent path for Indian students due to having the highest FMGE passing ratio among all foreign destinations. The disease pattern, syllabus, and study materials are identical to the Indian curriculum. TrueMark Edu—your trusted MBBS abroad consultant—ensures smooth direct MBBS admission abroad in top-tier MCI approved universities in Bangladesh.",
+    "eligibility": [
+      "NEET Qualified",
+      "GPA 7.0+ in SSC and HSC",
+      "Biology GPA 3.5+"
+    ],
+    "hostel": "Well-built student hostels with 24/7 security and laundry.",
+    "food": "100% Indian-style mess serving North and South Indian cuisines daily.",
+    "recognition": [
+      "NMC",
+      "WHO",
+      "BMDC"
+    ],
+    "fmge": "Eligible for NExT / FMGE screening with record passing ratios.",
+    "process": [
+      "1. Eligibility Matching & Counseling",
+      "2. Apply (Last date: 30 June)",
+      "3. DGHS Equivalence Certificate",
+      "4. Admission Offer & Seat Confirmation",
+      "5. Visa Stamping",
+      "6. Departure"
+    ]
+  },
+  {
+    "slug": "china",
+    "name": "China",
+    "flag": "🇨🇳",
+    "tagline": "World-class medical research & high-volume clinical practice",
+    "duration": "5 Years + 1 Year Internship",
+    "fees": "₹ 25 – 40 Lacs (Total)",
+    "language": "English Medium",
+    "intakes": [
+      "September"
+    ],
+    "topUniversities": [
+      "Nanjing Medical University",
+      "Sichuan University",
+      "Zhejiang University",
+      "Huazhong University of Science and Technology"
+    ],
+    "highlights": [
+      "Top Global Rankings",
+      "Cutting-edge Labs",
+      "WHO & NMC Listed",
+      "Affordable Living Cost",
+      "English Medium Program"
+    ],
+    "description": "Choosing to study MBBS in China gives Indian students access to some of the world's most high-tech public medical colleges. Chinese universities are top-tier NMC approved medical universities providing massive clinical volume and advanced diagnostic laboratories. TrueMark Edu helps you navigate the direct MBBS admission abroad process with guaranteed MBBS seat confirmation in English-medium universities.",
+    "eligibility": [
+      "NEET Qualified",
+      "12th Standard PCB 60%+",
+      "Age 17-25"
+    ],
+    "hostel": "On-campus modern dormitories, fully furnished with heating/cooling.",
+    "food": "Dedicated halal and Indian food canteens inside the campus.",
+    "recognition": [
+      "NMC",
+      "WHO",
+      "MOE China"
+    ],
+    "fmge": "Fully eligible for NExT / FMGE screening.",
+    "process": [
+      "1. Register (Last date: 30 June)",
+      "2. Submit academic transcripts",
+      "3. Video Interview",
+      "4. Admission Letter & JW202 visa document",
+      "5. Student Visa stamping",
+      "6. Flight to China in September"
+    ]
+  },
+  {
+    "slug": "armenia",
+    "name": "Armenia",
+    "flag": "🇦🇲",
+    "tagline": "Highly economical MBBS in safe European border country",
+    "duration": "6 Years",
+    "fees": "₹ 18 – 25 Lacs (Total)",
+    "language": "English Medium",
+    "intakes": [
+      "September",
+      "March"
+    ],
+    "topUniversities": [
+      "Yerevan State Medical University",
+      "Yerevan Haybusak University"
+    ],
+    "highlights": [
+      "Super Affordable",
+      "Safe European Environment",
+      "No Entrance Exam",
+      "English Medium",
+      "NMC Approved"
+    ],
+    "description": "Armenia is an incredibly peaceful and safe country bordering Eastern Europe. For students looking for the cheapest MBBS abroad, Armenia offers a world-class English-medium medical program. TrueMark Edu helps you select NMC approved medical universities in Yerevan, providing easy direct MBBS admission abroad with zero donation.",
+    "eligibility": [
+      "NEET Qualified",
+      "50% PCB in 12th"
+    ],
+    "hostel": "Student hostels near the Yerevan State Medical University.",
+    "food": "Indian restaurants, tiffin services and mess options available nearby.",
+    "recognition": [
+      "NMC",
+      "WHO",
+      "EU Recognized"
+    ],
+    "fmge": "Eligible for NExT screening exam.",
+    "process": [
+      "Apply online → Document verification → Invitation letter → Visa stamping → Flight"
+    ]
+  },
+  {
+    "slug": "philippines",
+    "name": "Philippines",
+    "flag": "🇵🇭",
+    "tagline": "US-styled medical education with hands-on practice",
+    "duration": "5.5 Years (BS-MD)",
+    "fees": "₹ 24 – 35 Lacs (Total)",
+    "language": "English Medium",
+    "intakes": [
+      "September",
+      "November"
+    ],
+    "topUniversities": [
+      "Davao Medical School Foundation",
+      "University of Perpetual Help System DALTA",
+      "Gullas College of Medicine"
+    ],
+    "highlights": [
+      "90% English speaking nation",
+      "US Medical Curriculum",
+      "Hands-on Clinical Rotation",
+      "Excellent FMGE pass rate",
+      "WHO & NMC Listed"
+    ],
+    "description": "Studying MBBS in the Philippines offers a unique BS-MD curriculum modeled after the American medical education system. It provides immense practical clinical rotations in busy city hospitals, giving students hands-on patient exposure. TrueMark Edu guides you through the direct MBBS admission abroad, ensuring easy MBBS seat confirmation.",
+    "eligibility": [
+      "NEET Qualified",
+      "50% in PCB in 12th Grade"
+    ],
+    "hostel": "Affordable student dorms with air-conditioning and Wi-Fi.",
+    "food": "Indian food, rice, and traditional mess options are widely available.",
+    "recognition": [
+      "NMC",
+      "WHO",
+      "CHED Philippines"
+    ],
+    "fmge": "Fully eligible for NExT / FMGE screening.",
+    "process": [
+      "1. Counseling",
+      "2. Admission in BS Course (Last date: 30 June)",
+      "3. NMAT exam guidance",
+      "4. MD program admission",
+      "5. Visa filing",
+      "6. Flight"
+    ]
+  }
+],
   {
     slug: "georgia",
     name: "Georgia",
@@ -2077,6 +3595,58 @@ function buildCountryPage(country, variant, root) {
               </ul>
             </div>
 
+            <!-- DYNAMIC INTERACTIVE COLLEGE FEES TABLE -->
+            ${(() => {
+              const countryKey = Object.keys(collegesDatabase).find(k => k.toLowerCase() === country.name.toLowerCase());
+              const colleges = collegesDatabase[countryKey || ""] || [];
+              if (colleges.length === 0) return "";
+              
+              return `
+              <div class="p-6 rounded-2xl bg-white border border-slate-200 mt-8 shadow-sm font-sans">
+                <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+                  <div>
+                    <h2 class="text-2xl font-bold text-slate-900">MBBS Fee Structure & College List (2025-26)</h2>
+                    <p class="text-slate-500 text-sm mt-1">All fees are annual unless marked with * (total course fees). Compare tuition & hostels across all medical schools.</p>
+                  </div>
+                  <div class="relative w-full max-w-xs">
+                    <input type="text" class="fee-table-search w-full px-4 py-2.5 pl-10 rounded-lg border border-slate-200 text-sm focus:border-blue-600 focus:outline-none" placeholder="Search college name..." data-table="fee-table-${country.slug}">
+                    <div class="absolute left-3 top-3.5 text-slate-400"><i data-lucide="search" class="w-4 h-4"></i></div>
+                  </div>
+                </div>
+                <div class="overflow-x-auto">
+                  <table id="fee-table-${country.slug}" class="w-full text-left border-collapse text-sm">
+                    <thead>
+                      <tr class="bg-blue-900 text-white font-semibold">
+                        <th class="p-4 rounded-l-xl">S.No</th>
+                        <th class="p-4">University / Institution</th>
+                        <th class="p-4">Tuition Fee (USD)</th>
+                        <th class="p-4">Tuition Fee (INR)</th>
+                        <th class="p-4">Hostel Fee (USD)</th>
+                        <th class="p-4">Hostel Fee (INR)</th>
+                        <th class="p-4">World Rank</th>
+                        <th class="p-4 rounded-r-xl">Country Rank</th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 text-slate-700">
+                      ${colleges.map(c => `
+                        <tr class="hover:bg-slate-50/50 transition">
+                          <td class="p-4 font-semibold">${c.sNo}</td>
+                          <td class="p-4 font-bold text-slate-900">${c.name}</td>
+                          <td class="p-4 font-semibold text-blue-700">${c.tuitionUSD}</td>
+                          <td class="p-4 font-bold text-slate-900">${c.tuitionINR}</td>
+                          <td class="p-4 text-slate-500">${c.hostelUSD}</td>
+                          <td class="p-4 text-slate-600">${c.hostelINR}</td>
+                          <td class="p-4">${c.worldRank}</td>
+                          <td class="p-4">${c.countryRank}</td>
+                        </tr>
+                      `).join("")}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              `;
+            })()}
+
             <div class="grid md:grid-cols-2 gap-6">
               <div class="p-6 rounded-2xl bg-white border border-slate-200">
                 <h3 class="text-lg font-bold text-slate-900">Hostel & Accommodation</h3>
@@ -2432,6 +4002,26 @@ document.addEventListener("DOMContentLoaded", () => {
       form.reset();
     });
   }
+
+
+  // 6. Real-time Fee Table Filtering
+  const searchInputs = document.querySelectorAll(".fee-table-search");
+  searchInputs.forEach(input => {
+    input.addEventListener("input", () => {
+      const filter = input.value.toLowerCase();
+      const tableId = input.getAttribute("data-table");
+      const rows = document.querySelectorAll('#' + tableId + ' tbody tr');
+      rows.forEach(row => {
+        const text = row.innerText.toLowerCase();
+        if (text.includes(filter)) {
+          row.classList.remove("hidden");
+        } else {
+          row.classList.add("hidden");
+        }
+      });
+    });
+  });
+});
 
   // 5. Mobile Menu Accordion Toggle
   const accordionBtns = document.querySelectorAll(".mobile-accordion-btn");

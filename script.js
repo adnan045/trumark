@@ -75,6 +75,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+
+  // 6. Real-time Fee Table Filtering
+  const searchInputs = document.querySelectorAll(".fee-table-search");
+  searchInputs.forEach(input => {
+    input.addEventListener("input", () => {
+      const filter = input.value.toLowerCase();
+      const tableId = input.getAttribute("data-table");
+      const rows = document.querySelectorAll('#' + tableId + ' tbody tr');
+      rows.forEach(row => {
+        const text = row.innerText.toLowerCase();
+        if (text.includes(filter)) {
+          row.classList.remove("hidden");
+        } else {
+          row.classList.add("hidden");
+        }
+      });
+    });
+  });
+});
+
   // 5. Mobile Menu Accordion Toggle
   const accordionBtns = document.querySelectorAll(".mobile-accordion-btn");
   accordionBtns.forEach(btn => {
