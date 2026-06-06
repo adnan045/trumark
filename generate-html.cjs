@@ -1640,7 +1640,7 @@ const mbbsCountries = [
     name: "India",
     flag: "🇮🇳",
     tagline: "Deemed & Private MBBS admissions without donation",
-    duration: "5.5 Years + 1 Year Internship",
+    duration: "4.5 year - 1 year internship",
     fees: "₹ 40 – 1.2 Cr (Total)",
     language: "English / Regional",
     intakes: ["August / September"],
