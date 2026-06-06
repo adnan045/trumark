@@ -3208,8 +3208,8 @@ function buildContact(root) {
               <div class="inline-flex p-3 bg-green-50 text-green-700 rounded-xl shrink-0"><i data-lucide="mail" class="w-6 h-6"></i></div>
               <div>
                 <h4 class="font-bold text-slate-900">Email</h4>
-                <p class="text-sm text-slate-600">contact@truemarkedu.com</p>
-                <p class="text-sm text-slate-600">admissions@truemarkedu.com</p>
+                <p class="text-sm text-slate-600">info@truemarkedu.com</p>
+                <p class="text-sm text-slate-600">director@truemarkedu.com</p>
               </div>
             </div>
           </div>
