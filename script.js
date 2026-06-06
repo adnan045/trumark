@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       
       const text = `Hi TrueMark Edu! My name is ${name}. My number is ${phone}. Email: ${email}. Interest: &country=${country}. Message: &message=${message}`;
-      const whatsappURL = `https://wa.me/918287216902?text=${encodeURIComponent(text)}`;
+      const whatsappURL = `https://wa.me/919999606112?text=${encodeURIComponent(text)}`;
       
       window.open(whatsappURL, "_blank");
       

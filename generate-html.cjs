@@ -252,6 +252,25 @@ const europeCountries = [
     recognition: ["NMC", "WHO", "EU"],
     fmge: "Eligible for NExT.",
     process: ["Application → Entrance → Offer → Visa"]
+  },
+  {
+    slug: "poland",
+    name: "Poland",
+    flag: "🇵🇱",
+    tagline: "MBBS in Poland - Top-tier EU medical programs",
+    duration: "6 Years",
+    fees: "₹ 12 – 16 Lacs/Year",
+    language: "English Medium",
+    intakes: ["September"],
+    topUniversities: ["University of Warsaw", "Jagiellonian University", "Medical University of Gdansk"],
+    highlights: ["EU degree", "Top clinical exposure", "Schengen Country"],
+    description: "Studying MBBS in Poland is a prestigious pathway for Indian students looking for premier medical education in Europe. Poland is a major Schengen nation, and its medical degrees are highly respected worldwide. Top universities like the University of Warsaw offer top-class, English-medium MBBS courses with fees of ₹ 12 - 16 Lacs per year. TrueMark Edu guides you through the competitive entrance exam and visa processing to ensure easy MBBS seat confirmation.",
+    eligibility: ["NEET Qualified", "50% in PCB", "University Entrance Exam"],
+    hostel: "Excellent on-campus dormitories with 24/7 student facilities.",
+    food: "Indian food and local mess options easily available in university areas.",
+    recognition: ["NMC Approved", "WHO Listed", "EU Recognized"],
+    fmge: "Fully eligible for FMGE/NExT screening.",
+    process: ["1. Profile Evaluation", "2. Entrance Exam", "3. Offer Letter", "4. Visa", "5. Flight to Poland"]
   }
 ];
 
@@ -326,7 +345,7 @@ const universities = [
     country: "Poland",
     flag: "🇵🇱",
     qs: "Top 300",
-    fees: "₹ 8 – 12 Lacs/Year",
+    fees: "₹ 12 – 16 Lacs/Year",
     duration: "6 Years",
     language: "English",
     eligibility: ["NEET", "50% PCB", "Entrance"],
@@ -356,7 +375,7 @@ const universities = [
 
 const testimonials = [
   { name: "Rohan Mehta", role: "MBBS, Tbilisi State Medical University, Georgia", text: "TrueMark Edu made my MBBS in Georgia dream come true. From counseling to visa, everything was smooth. Highly recommended!", rating: 5 },
-  { name: "Priya Sharma", role: "MBBS, Carol Davila, Romania", text: "The team guided me through the IMAT and European admissions process. I got into my dream university in Bucharest. Thank you TrueMark!", rating: 5 },
+  { name: "Priya Sharma", role: "MBBS, Carol Davila, Romania", text: "The team guided me through the entrance test and Romanian admissions process. I got into my dream university in Bucharest. Thank you TrueMark!", rating: 5 },
   { name: "Aarav Singh", role: "MBBS, Uzbekistan", text: "Cheapest MBBS abroad option with TrueMark. They told me about Uzbekistan and I saved so much money. Good faculty and Indian food there.", rating: 5 },
   { name: "Ananya Gupta", role: "MBA, Dubai", text: "Best consultancy for MBA in Dubai. Got admission with scholarship. The SOP team was fantastic!", rating: 5 },
   { name: "Kunal Verma", role: "MBBS, Ostrava University, Czech Republic", text: "TrueMark Edu prepared me for the Ostrava University entrance test. I cracked it in first attempt. Great mentorship!", rating: 5 },
@@ -556,7 +575,7 @@ function wrapPage(content, title, subtitle, filepath, activeMenu = "") {
   </footer>
 
   <!-- Floating WhatsApp & Scroll Back to Top Button -->
-  <a href="https://wa.me/918287216902" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all flex items-center justify-center animate-bounce duration-1000" aria-label="WhatsApp">
+  <a href="https://wa.me/919999606112" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all flex items-center justify-center animate-bounce duration-1000" aria-label="WhatsApp">
     <svg class="w-7 h-7 fill-white" viewBox="0 0 24 24">
       <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.262 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.859-4.42 9.863-9.864.002-2.637-1.023-5.11-2.884-6.974C16.573 1.8 14.1 1.777 12.001 1.777c-5.44 0-9.866 4.418-9.87 9.864 0 1.758.463 3.473 1.337 4.988L2.427 20.87l4.22-1.716zM17.7 14.93c-.312-.156-1.848-.91-2.134-1.015-.286-.105-.494-.156-.701.156-.207.312-.804 1.015-.986 1.22-.182.207-.364.234-.676.078-1.284-.641-2.128-1.085-2.97-2.528-.22-.377.22-.35.63-1.17.068-.13.034-.247-.017-.35-.05-.105-.494-1.19-.677-1.63-.177-.428-.357-.37-.494-.37h-.42c-.143 0-.377.053-.574.27-.197.218-.752.735-.752 1.79 0 1.054.767 2.073.873 2.217.106.143 1.51 2.3 3.655 3.228.51.22.908.351 1.218.45.513.162.98.14 1.35.084.41-.06 1.848-.756 2.11-.1.263-.736.263-1.365.185-1.48-.078-.115-.286-.182-.598-.338z"/>
     </svg>
@@ -573,7 +592,7 @@ function getContactFormHTML() {
   return `<form id="counseling-form" class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100 space-y-4">
     <div>
       <h3 class="text-xl font-bold text-slate-900">Book Free Counseling</h3>
-      <p class="text-sm text-slate-500">Get a 1-on-1 session with our expert counselors today.</p>
+      <p class="text-sm text-slate-500">Get a 1-on-1 session with our admission experts today.</p>
     </div>
     <input required type="text" name="name" id="form-name" placeholder="Your Name *" class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-blue-600 focus:outline-none text-sm" />
     <input required type="tel" name="phone" id="form-phone" placeholder="Phone / WhatsApp *" class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-blue-600 focus:outline-none text-sm" />
@@ -690,7 +709,7 @@ function buildHome(root) {
             <a href="tel:+918287216902" class="btn-shine inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-7 py-3.5 rounded-full transition-all shadow-lg">
               <i data-lucide="phone" class="w-4 h-4"></i> +91 82872 16902
             </a>
-            <a href="https://wa.me/918287216902" class="btn-shine inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/20 text-white font-bold px-7 py-3.5 rounded-full transition-all">
+            <a href="https://wa.me/919999606112" class="btn-shine inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/20 text-white font-bold px-7 py-3.5 rounded-full transition-all">
               💬 WhatsApp Us
             </a>
           </div>
@@ -1194,7 +1213,7 @@ function buildHome(root) {
           <a href="${root}contact" class="inline-flex items-center gap-2 bg-white text-blue-900 font-bold px-8 py-4 rounded-full hover:shadow-2xl hover:-translate-y-1 transition-all text-lg">
             Book Free Counseling <i data-lucide="arrow-right" class="w-5 h-5"></i>
           </a>
-          <a href="https://wa.me/918287216902" class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-full transition-all shadow-lg text-lg">
+          <a href="https://wa.me/919999606112" class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-full transition-all shadow-lg text-lg">
             💬 WhatsApp Now
           </a>
           <a href="tel:+918287216902" class="inline-flex items-center gap-2 bg-white/10 backdrop-blur border border-white/30 hover:bg-white/20 text-white font-bold px-8 py-4 rounded-full transition-all text-lg">
@@ -1316,16 +1335,16 @@ function buildAbout(root) {
           <div class="p-8 rounded-2xl bg-white border border-slate-200 hover:shadow-xl transition">
             <div class="w-24 h-24 rounded-full bg-gradient-to-br from-blue-700 to-green-600 text-white flex items-center justify-center text-3xl font-bold mx-auto">A</div>
             <h3 class="text-xl font-bold text-slate-900 mt-4">Anandita Jitt</h3>
-            <div class="text-sm text-green-700 font-semibold">Founder & Counselor</div>
-            <p class="text-slate-600 text-sm mt-3">10+ years of experience in overseas MBBS admissions. Personally counsels students for Europe & Georgia.</p>
+            <div class="text-sm text-green-700 font-semibold">Founder & University Relations</div>
+            <p class="text-slate-600 text-sm mt-3">10+ years of experience in overseas MBBS admissions. Managing top university relations and admissions across Europe and Georgia.</p>
             <a href="tel:+918287216902" class="text-sm text-blue-700 mt-3 inline-block">+91 82872 16902</a>
           </div>
           <div class="p-8 rounded-2xl bg-white border border-slate-200 hover:shadow-xl transition">
             <div class="w-24 h-24 rounded-full bg-gradient-to-br from-blue-700 to-green-600 text-white flex items-center justify-center text-3xl font-bold mx-auto">H</div>
             <h3 class="text-xl font-bold text-slate-900 mt-4">Haidar Ali</h3>
-            <div class="text-sm text-green-700 font-semibold">Co-founder & Admissions Head</div>
-            <p class="text-slate-600 text-sm mt-3">Visa documentation, university partnerships and on-ground student support across Central Asia.</p>
-            <a href="tel:+919999606211" class="text-sm text-blue-700 mt-3 inline-block">+91 99996 06211</a>
+            <div class="text-sm text-green-700 font-semibold">Co-founder & Europe MBBS Expert</div>
+            <p class="text-slate-600 text-sm mt-3">8+ years of experience in EdTech, Europe MBBS expert. Handling visa documentation, university partnerships and on-ground student support across Europe and Central Asia.</p>
+            <a href="tel:+919999606112" class="text-sm text-blue-700 mt-3 inline-block">+91 99996 06112</a>
           </div>
         </div>
       </div>
@@ -1392,7 +1411,7 @@ function buildServices(root) {
 // 4. CONTACT PAGE (contact.html)
 function buildContact(root) {
   const content = `
-    ${getPageHeroHTML("Contact TrueMark Edu", "Get in touch with our expert counselors. We're happy to help you with any questions about MBBS abroad, Europe admissions, visa and coaching.", [{ name: "Home", to: `${root}index` }, { name: "Contact" }])}
+    ${getPageHeroHTML("Contact TrueMark Edu", "Get in touch with our admissions experts. We're happy to help you with any questions about MBBS abroad, Europe admissions, visa and coaching.", [{ name: "Home", to: `${root}index` }, { name: "Contact" }])}
     
     <section class="py-20">
       <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-3 gap-8">
@@ -1438,7 +1457,7 @@ function buildContact(root) {
             </div>
           </div>
           
-          <a href="https://wa.me/918287216902" target="_blank" rel="noreferrer" class="flex items-center gap-3 p-6 rounded-2xl bg-green-600 text-white hover:bg-green-700 transition">
+          <a href="https://wa.me/919999606112" target="_blank" rel="noreferrer" class="flex items-center gap-3 p-6 rounded-2xl bg-green-600 text-white hover:bg-green-700 transition">
             <i data-lucide="message-square" class="w-6 h-6"></i>
             <div>
               <div class="font-bold">Chat with us on WhatsApp</div>
@@ -1470,17 +1489,22 @@ function buildBlogList(root) {
     
     <section class="py-20">
       <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        ${blogs.map((b) => `
-          <a href="${root}blog/${b.slug}" class="group bg-white rounded-2xl border border-slate-200 hover:shadow-xl transition overflow-hidden block">
-            <div class="h-48 bg-gradient-to-br from-blue-700 to-green-600 flex items-center justify-center text-white text-5xl">📚</div>
-            <div class="p-6">
-              <div class="text-xs text-green-700 font-semibold">${b.category} · ${b.date}</div>
-              <h3 class="text-lg font-bold text-slate-900 mt-2 group-hover:text-blue-700 transition">${b.title}</h3>
-              <p class="text-sm text-slate-600 mt-2">${b.excerpt}</p>
-              <div class="mt-4 text-blue-700 font-semibold text-sm">Read Article →</div>
-            </div>
-          </a>
-        `).join("")}
+        ${blogs.map((b, i) => {
+          const image = [IMG.campus, IMG.classroom, IMG.dubai, IMG.airport, IMG.university, IMG.students][i % 6];
+          return `
+            <a href="${root}blog/${b.slug}" class="group bg-white rounded-2xl border border-slate-200 hover:shadow-xl transition overflow-hidden block">
+              <div class="h-48 overflow-hidden relative">
+                <img src="${image}" alt="${b.title}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              </div>
+              <div class="p-6">
+                <div class="text-xs text-green-700 font-semibold">${b.category} · ${b.date}</div>
+                <h3 class="text-lg font-bold text-slate-900 mt-2 group-hover:text-blue-700 transition">${b.title}</h3>
+                <p class="text-sm text-slate-600 mt-2">${b.excerpt}</p>
+                <div class="mt-4 text-blue-700 font-semibold text-sm">Read Article →</div>
+              </div>
+            </a>
+          `;
+        }).join("")}
       </div>
     </section>
   `;
@@ -2142,7 +2166,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       
       const text = \`Hi TrueMark Edu! My name is \${name}. My number is \${phone}. Email: \${email}. Interest: \&country=\${country}. Message: \&message=\${message}\`;
-      const whatsappURL = \`https://wa.me/918287216902?text=\${encodeURIComponent(text)}\`;
+      const whatsappURL = \`https://wa.me/919999606112?text=\${encodeURIComponent(text)}\`;
       
       window.open(whatsappURL, "_blank");
       
