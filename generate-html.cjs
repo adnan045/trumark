@@ -2304,8 +2304,8 @@ function buildHome(root) {
             <a href="${root}contact" class="btn-shine inline-flex items-center gap-2 bg-white text-blue-900 font-bold px-7 py-3.5 rounded-full hover:shadow-2xl hover:-translate-y-0.5 transition-all animate-pulse-soft">
               Get Free Counseling <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </a>
-            <a href="tel:+918287216902" class="btn-shine inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-7 py-3.5 rounded-full transition-all shadow-lg">
-              <i data-lucide="phone" class="w-4 h-4"></i> +91 82872 16902
+            <a href="tel:+919999606112" class="btn-shine inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-7 py-3.5 rounded-full transition-all shadow-lg">
+              <i data-lucide="phone" class="w-4 h-4"></i> +91 99996 06112
             </a>
             <a href="https://wa.me/919999606112" class="btn-shine inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/20 text-white font-bold px-7 py-3.5 rounded-full transition-all">
               💬 WhatsApp Us
@@ -2814,8 +2814,8 @@ function buildHome(root) {
           <a href="https://wa.me/919999606112" class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-full transition-all shadow-lg text-lg">
             💬 WhatsApp Now
           </a>
-          <a href="tel:+918287216902" class="inline-flex items-center gap-2 bg-white/10 backdrop-blur border border-white/30 hover:bg-white/20 text-white font-bold px-8 py-4 rounded-full transition-all text-lg">
-            <i data-lucide="phone" class="w-5 h-5"></i> Call +91 82872 16902
+          <a href="tel:+919999606112" class="inline-flex items-center gap-2 bg-white/10 backdrop-blur border border-white/30 hover:bg-white/20 text-white font-bold px-8 py-4 rounded-full transition-all text-lg">
+            <i data-lucide="phone" class="w-5 h-5"></i> Call +91 99996 06112
           </a>
         </div>
       </div>
@@ -3106,7 +3106,7 @@ function buildAbout(root) {
             <h3 class="text-xl font-bold text-slate-900 mt-4">Anandita Jitt</h3>
             <div class="text-sm text-green-700 font-semibold">Founder & University Relations</div>
             <p class="text-slate-600 text-sm mt-3">10+ years of experience in overseas MBBS admissions. Managing top university relations and admissions across Europe and Georgia.</p>
-            <a href="tel:+918287216902" class="text-sm text-blue-700 mt-3 inline-block">+91 82872 16902</a>
+            <a href="tel:+919999606112" class="text-sm text-blue-700 mt-3 inline-block">+91 99996 06112</a>
           </div>
           <div class="p-8 rounded-2xl bg-white border border-slate-200 hover:shadow-xl transition">
             <div class="w-24 h-24 rounded-full bg-gradient-to-br from-blue-700 to-green-600 text-white flex items-center justify-center text-3xl font-bold mx-auto">H</div>
@@ -3200,7 +3200,7 @@ function buildContact(root) {
               <div class="inline-flex p-3 bg-green-50 text-green-700 rounded-xl shrink-0"><i data-lucide="phone" class="w-6 h-6"></i></div>
               <div>
                 <h4 class="font-bold text-slate-900">Call / WhatsApp</h4>
-                <p class="text-sm text-slate-600">Anandita Jitt: +91 82872 16902</p>
+                <p class="text-sm text-slate-600">Anandita Jitt: +91 99996 06112</p>
                 <p class="text-sm text-slate-600">Haidar Ali: +91 99996 06211</p>
               </div>
             </div>
