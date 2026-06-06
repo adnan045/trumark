@@ -4053,6 +4053,53 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  // 7. Desktop Click-to-Open Dropdown Menus
+  const desktopBtns = document.querySelectorAll(".desktop-dropdown-btn");
+  desktopBtns.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation(); // Prevent immediate closing due to document click listener
+      
+      const targetId = btn.getAttribute("data-target");
+      const targetEl = document.getElementById(targetId);
+      const icon = btn.querySelector("i[data-lucide='chevron-down']");
+      
+      if (targetEl) {
+        const isHidden = targetEl.classList.contains("hidden");
+        
+        // Hide all other desktop dropdowns first
+        document.querySelectorAll(".desktop-dropdown").forEach(otherDropdown => {
+          if (otherDropdown !== targetEl) {
+            otherDropdown.classList.add("hidden");
+          }
+        });
+        document.querySelectorAll(".desktop-dropdown-btn i[data-lucide='chevron-down']").forEach(otherIcon => {
+          if (otherIcon !== icon) {
+            otherIcon.classList.remove("rotate-180");
+          }
+        });
+
+        // Toggle current dropdown
+        if (isHidden) {
+          targetEl.classList.remove("hidden");
+          if (icon) icon.classList.add("rotate-180");
+        } else {
+          targetEl.classList.add("hidden");
+          if (icon) icon.classList.remove("rotate-180");
+        }
+      }
+    });
+  });
+
+  // Close all dropdowns when clicking anywhere outside of them
+  document.addEventListener("click", () => {
+    document.querySelectorAll(".desktop-dropdown").forEach(dropdown => {
+      dropdown.classList.add("hidden");
+    });
+    document.querySelectorAll(".desktop-dropdown-btn i[data-lucide='chevron-down']").forEach(icon => {
+      icon.classList.remove("rotate-180");
+    });
+  });
 });
 `;
 

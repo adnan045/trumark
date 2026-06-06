@@ -37,16 +37,16 @@
       <img src="/logo.png" onerror="this.onerror=null; this.src='logo.svg'" alt="TrueMark Edu" style="width: 200px; height: 40px; object-fit: contain;" />
     </a>
     
-    <!-- Desktop Nav -->
+    <!-- Desktop Nav with CLICK-TO-OPEN Dropdowns -->
     <nav class="hidden lg:flex items-center gap-1">
       <a href="/index" class="px-3 py-2 text-sm font-medium text-slate-700 hover:text-blue-700" data-menu="home">Home</a>
       
-      <!-- Mega Menu MBBS Abroad -->
-      <div class="relative group py-2">
-        <button class="inline-flex items-center gap-1 px-3 py-2 text-sm font-medium text-blue-700 font-bold" data-menu="mbbs-abroad">
-          MBBS Abroad <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+      <!-- Click Menu MBBS Abroad -->
+      <div class="relative py-2">
+        <button class="desktop-dropdown-btn inline-flex items-center gap-1 px-3 py-2 text-sm font-medium text-slate-700 hover:text-blue-700 focus:outline-none" data-target="dropdown-mbbs-abroad">
+          MBBS Abroad <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-300"></i>
         </button>
-        <div class="absolute left-1/2 -translate-x-1/2 top-full hidden group-hover:block pt-3 z-50 bg-white rounded-xl shadow-xl border border-slate-100 mega-menu-wide">
+        <div id="dropdown-mbbs-abroad" class="desktop-dropdown absolute left-1/2 -translate-x-1/2 top-full hidden pt-3 z-50 bg-white rounded-xl shadow-xl border border-slate-100 mega-menu-wide">
           <div class="text-xs font-bold uppercase tracking-wider text-blue-700 mb-3">MBBS Abroad - Countries</div>
           <ul class="mega-menu-grid">
             <li class="mega-menu-col-span-2 border-b border-slate-100 pb-1.5"><a href="/mbbs-abroad" class="block text-sm text-slate-800 hover:text-green-700 hover:pl-2 transition-all font-bold">MBBS Abroad Overview</a></li>
@@ -61,12 +61,12 @@
         </div>
       </div>
       
-      <!-- Mega Menu MBBS Europe -->
-      <div class="relative group py-2">
-        <button class="inline-flex items-center gap-1 px-3 py-2 text-sm font-medium text-slate-700 hover:text-blue-700" data-menu="mbbs-in-europe">
-          MBBS in Europe <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+      <!-- Click Menu MBBS Europe -->
+      <div class="relative py-2">
+        <button class="desktop-dropdown-btn inline-flex items-center gap-1 px-3 py-2 text-sm font-medium text-slate-700 hover:text-blue-700 focus:outline-none" data-target="dropdown-mbbs-europe">
+          MBBS in Europe <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-300"></i>
         </button>
-        <div class="absolute left-1/2 -translate-x-1/2 top-full hidden group-hover:block pt-3 z-50 bg-white rounded-xl shadow-xl border border-slate-100 mega-menu-wide">
+        <div id="dropdown-mbbs-europe" class="desktop-dropdown absolute left-1/2 -translate-x-1/2 top-full hidden pt-3 z-50 bg-white rounded-xl shadow-xl border border-slate-100 mega-menu-wide">
           <div class="text-xs font-bold uppercase tracking-wider text-blue-700 mb-3">MBBS in Europe</div>
           <ul class="mega-menu-grid">
             <li class="mega-menu-col-span-2 border-b border-slate-100 pb-1.5"><a href="/mbbs-in-europe" class="block text-sm text-slate-800 hover:text-green-700 hover:pl-2 transition-all font-bold">MBBS in Europe Overview</a></li>
@@ -80,12 +80,12 @@
         </div>
       </div>
       
-      <!-- Mega Menu Study Abroad -->
-      <div class="relative group py-2">
-        <button class="inline-flex items-center gap-1 px-3 py-2 text-sm font-medium text-slate-700 hover:text-blue-700" data-menu="study-abroad">
-          Study Abroad <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+      <!-- Click Menu Study Abroad -->
+      <div class="relative py-2">
+        <button class="desktop-dropdown-btn inline-flex items-center gap-1 px-3 py-2 text-sm font-medium text-slate-700 hover:text-blue-700 focus:outline-none" data-target="dropdown-study-abroad">
+          Study Abroad <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-300"></i>
         </button>
-        <div class="absolute left-1/2 -translate-x-1/2 top-full hidden group-hover:block pt-3 z-50 bg-white rounded-xl shadow-xl border border-slate-100 mega-menu-wide">
+        <div id="dropdown-study-abroad" class="desktop-dropdown absolute left-1/2 -translate-x-1/2 top-full hidden pt-3 z-50 bg-white rounded-xl shadow-xl border border-slate-100 mega-menu-wide">
           <div class="text-xs font-bold uppercase tracking-wider text-blue-700 mb-3">Study Abroad Programs</div>
           <ul class="mega-menu-grid">
             <li class="mega-menu-col-span-2 border-b border-slate-100 pb-1.5"><a href="/study-abroad" class="block text-sm text-slate-800 hover:text-green-700 hover:pl-2 transition-all font-bold">Study Abroad Overview</a></li>
@@ -99,6 +99,7 @@
       
       <a href="/universities" class="px-3 py-2 text-sm font-medium text-slate-700 hover:text-blue-700" data-menu="universities">Universities</a>
       <a href="/services" class="px-3 py-2 text-sm font-medium text-slate-700 hover:text-blue-700" data-menu="services">Services</a>
+      <a href="/pricing" class="px-3 py-2 text-sm font-medium text-slate-700 hover:text-blue-700" data-menu="pricing">Consultation Charges</a>
       <a href="/blog" class="px-3 py-2 text-sm font-medium text-slate-700 hover:text-blue-700" data-menu="blog">Blog</a>
       <a href="/about" class="px-3 py-2 text-sm font-medium text-slate-700 hover:text-blue-700" data-menu="about">About</a>
       <a href="/contact" class="px-3 py-2 text-sm font-medium text-slate-700 hover:text-blue-700" data-menu="contact">Contact</a>
@@ -169,6 +170,7 @@
     
     <a href="/universities" class="block py-3 font-semibold text-slate-800 border-b border-slate-100">Universities</a>
     <a href="/services" class="block py-3 font-semibold text-slate-800 border-b border-slate-100">Services</a>
+    <a href="/pricing" class="block py-3 font-semibold text-slate-800 border-b border-slate-100">Consultation Charges</a>
     <a href="/blog" class="block py-3 font-semibold text-slate-800 border-b border-slate-100">Blog</a>
     <a href="/about" class="block py-3 font-semibold text-slate-800 border-b border-slate-100">About Us</a>
     <a href="/contact" class="block py-3 font-semibold text-slate-800">Contact Us</a>
