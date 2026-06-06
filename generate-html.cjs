@@ -2092,10 +2092,9 @@ const countryCardImages = [
   "https://images.pexels.com/photos/30981181/pexels-photo-30981181.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1400"
 ];
 
-// Helper to determine path depth (relative path to root)
+// Helper to determine path depth (always absolute from root for production stability)
 function getRootPrefix(filepath) {
-  const depth = filepath.split("/").length - 1;
-  return depth === 0 ? "./" : "../".repeat(depth);
+  return "/";
 }
 
 // Helper to dynamically adjust relative paths inside injected header/footer HTML
