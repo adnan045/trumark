@@ -62,6 +62,7 @@ const filesToCopy = [
   "about.html",
   "services.html",
   "contact.html",
+  "pricing.html",
   "blog.html",
   "universities.html",
   "mbbs-abroad.html",
