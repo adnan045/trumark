@@ -45,3 +45,28 @@ input::placeholder, textarea::placeholder {
   padding-top: 2rem !important;
   padding-bottom: 2rem !important;
 }
+
+/* Custom Navigation Header Padding and Gap Fix */
+.custom-nav {
+  display: flex !important;
+  align-items: center !important;
+  gap: 2px !important;
+}
+.custom-nav-link {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+  font-size: 13.5px !important;
+  white-space: nowrap !important;
+}
+@media (min-width: 1280px) {
+  .custom-nav {
+    gap: 6px !important;
+  }
+  .custom-nav-link {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+    font-size: 14.5px !important;
+  }
+}
