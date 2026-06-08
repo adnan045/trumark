@@ -72,3 +72,10 @@ input::placeholder, textarea::placeholder {
     font-size: 14.5px !important;
   }
 }
+
+/* Permanent Header Top Bar Hiding */
+header .bg-blue-900, 
+.bg-blue-900.text-xs,
+header .bg-blue-900.text-white {
+  display: none !important;
+}
