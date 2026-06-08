@@ -2172,7 +2172,7 @@ function wrapPage(content, title, subtitle, filepath, activeMenu = "") {
   </footer>
 
   <!-- Floating WhatsApp & Scroll Back to Top Button -->
-  <a href="https://wa.me/919999606112" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all flex items-center justify-center animate-bounce duration-1000" aria-label="WhatsApp">
+  <a href="https://wa.me/919540302093" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all flex items-center justify-center animate-bounce duration-1000" aria-label="WhatsApp">
     <svg class="w-7 h-7 fill-white" viewBox="0 0 24 24">
       <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.262 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.859-4.42 9.863-9.864.002-2.637-1.023-5.11-2.884-6.974C16.573 1.8 14.1 1.777 12.001 1.777c-5.44 0-9.866 4.418-9.87 9.864 0 1.758.463 3.473 1.337 4.988L2.427 20.87l4.22-1.716zM17.7 14.93c-.312-.156-1.848-.91-2.134-1.015-.286-.105-.494-.156-.701.156-.207.312-.804 1.015-.986 1.22-.182.207-.364.234-.676.078-1.284-.641-2.128-1.085-2.97-2.528-.22-.377.22-.35.63-1.17.068-.13.034-.247-.017-.35-.05-.105-.494-1.19-.677-1.63-.177-.428-.357-.37-.494-.37h-.42c-.143 0-.377.053-.574.27-.197.218-.752.735-.752 1.79 0 1.054.767 2.073.873 2.217.106.143 1.51 2.3 3.655 3.228.51.22.908.351 1.218.45.513.162.98.14 1.35.084.41-.06 1.848-.756 2.11-.1.263-.736.263-1.365.185-1.48-.078-.115-.286-.182-.598-.338z"/>
     </svg>
@@ -2303,10 +2303,10 @@ function buildHome(root) {
             <a href="${root}contact" class="btn-shine inline-flex items-center gap-2 bg-white text-blue-900 font-bold px-7 py-3.5 rounded-full hover:shadow-2xl hover:-translate-y-0.5 transition-all animate-pulse-soft">
               Get Free Counseling <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </a>
-            <a href="tel:+919999606112" class="btn-shine inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-7 py-3.5 rounded-full transition-all shadow-lg">
-              <i data-lucide="phone" class="w-4 h-4"></i> +91 99996 06112
+            <a href="tel:+919540302093" class="btn-shine inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-7 py-3.5 rounded-full transition-all shadow-lg">
+              <i data-lucide="phone" class="w-4 h-4"></i> +91 95403 02093
             </a>
-            <a href="https://wa.me/919999606112" class="btn-shine inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/20 text-white font-bold px-7 py-3.5 rounded-full transition-all">
+            <a href="https://wa.me/919540302093" class="btn-shine inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/20 text-white font-bold px-7 py-3.5 rounded-full transition-all">
               💬 WhatsApp Us
             </a>
           </div>
@@ -2809,11 +2809,11 @@ function buildHome(root) {
           <a href="${root}contact" class="inline-flex items-center gap-2 bg-white text-blue-900 font-bold px-8 py-4 rounded-full hover:shadow-2xl hover:-translate-y-1 transition-all text-lg">
             Book Free Counseling <i data-lucide="arrow-right" class="w-5 h-5"></i>
           </a>
-          <a href="https://wa.me/919999606112" class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-full transition-all shadow-lg text-lg">
+          <a href="https://wa.me/919540302093" class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-full transition-all shadow-lg text-lg">
             💬 WhatsApp Now
           </a>
-          <a href="tel:+919999606112" class="inline-flex items-center gap-2 bg-white/10 backdrop-blur border border-white/30 hover:bg-white/20 text-white font-bold px-8 py-4 rounded-full transition-all text-lg">
-            <i data-lucide="phone" class="w-5 h-5"></i> Call +91 99996 06112
+          <a href="tel:+919540302093" class="inline-flex items-center gap-2 bg-white/10 backdrop-blur border border-white/30 hover:bg-white/20 text-white font-bold px-8 py-4 rounded-full transition-all text-lg">
+            <i data-lucide="phone" class="w-5 h-5"></i> Call +91 95403 02093
           </a>
         </div>
       </div>
@@ -2985,7 +2985,7 @@ function buildPricing(root) {
         <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Want a Custom Fee Quote & Consultation?</h2>
         <p class="text-white/80 max-w-xl mx-auto text-sm leading-relaxed mb-8">Connect directly with our admission experts for customized pricing plans, easy EMI option details, and university tuition direct billing processes.</p>
         <div class="flex flex-wrap justify-center gap-4">
-          <a href="https://wa.me/919999606112" class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-7 py-3 rounded-full shadow-lg transition">💬 Discuss on WhatsApp</a>
+          <a href="https://wa.me/919540302093" class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-7 py-3 rounded-full shadow-lg transition">💬 Discuss on WhatsApp</a>
           <a href="${root}contact" class="inline-flex items-center gap-2 bg-white text-blue-900 font-bold px-7 py-3 rounded-full hover:shadow-xl transition">Book Free Session</a>
         </div>
       </div>
@@ -3104,14 +3104,14 @@ function buildAbout(root) {
             <h3 class="text-xl font-bold text-slate-900 mt-4">Anandita Jitt</h3>
             <div class="text-sm text-green-700 font-semibold">Founder & University Relations</div>
             <p class="text-slate-600 text-sm mt-3">10+ years of experience in overseas MBBS admissions. Managing top university relations and admissions across Europe and Georgia.</p>
-            <a href="tel:+919999606112" class="text-sm text-blue-700 mt-3 inline-block">+91 99996 06112</a>
+            <a href="tel:+919540302093" class="text-sm text-blue-700 mt-3 inline-block">+91 95403 02093</a>
           </div>
           <div class="p-8 rounded-2xl bg-white border border-slate-200 hover:shadow-xl transition">
             <div class="w-24 h-24 rounded-full bg-gradient-to-br from-blue-700 to-green-600 text-white flex items-center justify-center text-3xl font-bold mx-auto">H</div>
             <h3 class="text-xl font-bold text-slate-900 mt-4">Haidar Ali</h3>
             <div class="text-sm text-green-700 font-semibold">Co-founder & Europe MBBS Expert</div>
             <p class="text-slate-600 text-sm mt-3">8+ years of experience in EdTech, Europe MBBS expert. Handling visa documentation, university partnerships and on-ground student support across Europe and Central Asia.</p>
-            <a href="tel:+919999606112" class="text-sm text-blue-700 mt-3 inline-block">+91 99996 06112</a>
+            <a href="tel:+919540302032" class="text-sm text-blue-700 mt-3 inline-block">+91 95403 02032</a>
           </div>
         </div>
       </div>
@@ -3198,8 +3198,8 @@ function buildContact(root) {
               <div class="inline-flex p-3 bg-green-50 text-green-700 rounded-xl shrink-0"><i data-lucide="phone" class="w-6 h-6"></i></div>
               <div>
                 <h4 class="font-bold text-slate-900">Call / WhatsApp</h4>
-                <p class="text-sm text-slate-600">Anandita Jitt: +91 99996 06112</p>
-                <p class="text-sm text-slate-600">Haidar Ali: +91 99996 06211</p>
+                <p class="text-sm text-slate-600">Anandita Jitt: +91 95403 02093</p>
+                <p class="text-sm text-slate-600">Haidar Ali: +91 95403 02032</p>
               </div>
             </div>
           </div>
@@ -3224,7 +3224,7 @@ function buildContact(root) {
             </div>
           </div>
           
-          <a href="https://wa.me/919999606112" target="_blank" rel="noreferrer" class="flex items-center gap-3 p-6 rounded-2xl bg-green-600 text-white hover:bg-green-700 transition">
+          <a href="https://wa.me/919540302093" target="_blank" rel="noreferrer" class="flex items-center gap-3 p-6 rounded-2xl bg-green-600 text-white hover:bg-green-700 transition">
             <i data-lucide="message-square" class="w-6 h-6"></i>
             <div>
               <div class="font-bold">Chat with us on WhatsApp</div>
@@ -3998,7 +3998,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       
       const text = \`Hi TrueMark Edu! My name is \${name}. My number is \${phone}. Email: \${email}. Interest: \&country=\${country}. Message: \&message=\${message}\`;
-      const whatsappURL = \`https://wa.me/919999606112?text=\${encodeURIComponent(text)}\`;
+      const whatsappURL = \`https://wa.me/919540302093?text=\${encodeURIComponent(text)}\`;
       
       window.open(whatsappURL, "_blank");
       
