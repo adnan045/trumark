@@ -37,7 +37,7 @@
       <img src="/logo.png" onerror="this.onerror=null; this.src='logo.svg'" alt="TrueMark Edu" style="width: 180px; height: 36px; object-fit: contain;" />
     </a>
     
-    <!-- Desktop Nav (Home removed, other links flat and beautifully spaced) -->
+    <!-- Desktop Nav (About, Blog, Contact, and Home removed; Services renamed to Info with Consultation Charges dropdown) -->
     <nav class="hidden lg:flex items-center font-sans custom-nav">
       
       <!-- Click Menu MBBS Abroad -->
@@ -97,11 +97,18 @@
       </div>
       
       <a href="/universities" class="py-2 font-medium text-slate-700 hover:text-blue-700 custom-nav-link" data-menu="universities">Universities</a>
-      <a href="/services" class="py-2 font-medium text-blue-700 font-bold custom-nav-link" data-menu="services">Services</a>
-      <a href="/pricing" class="py-2 font-medium text-slate-700 hover:text-blue-700 custom-nav-link" data-menu="pricing">Consultation Charges</a>
-      <a href="/blog" class="py-2 font-medium text-slate-700 hover:text-blue-700 custom-nav-link" data-menu="blog">Blog</a>
-      <a href="/about" class="py-2 font-medium text-slate-700 hover:text-blue-700 custom-nav-link" data-menu="about">About</a>
-      <a href="/contact" class="py-2 font-medium text-slate-700 hover:text-blue-700 custom-nav-link" data-menu="contact">Contact</a>
+      
+      <!-- Click Menu Info (Services renamed to Info with only Consultation Charges dropdown) -->
+      <div class="relative py-2">
+        <button class="desktop-dropdown-btn inline-flex items-center gap-1 py-2 font-medium text-slate-700 hover:text-blue-700 focus:outline-none custom-nav-link" data-target="dropdown-info">
+          Info <i data-lucide="chevron-down" class="w-3 h-3 transition-transform duration-300"></i>
+        </button>
+        <div id="dropdown-info" class="desktop-dropdown absolute left-1/2 -translate-x-1/2 top-full hidden pt-3 z-50 bg-white rounded-xl shadow-xl border border-slate-100 p-4 min-w-[200px]">
+          <ul class="space-y-1">
+            <li><a href="/pricing" class="block text-sm text-slate-600 hover:text-blue-700 py-1.5 px-2 hover:bg-slate-50 rounded-lg">Consultation Charges</a></li>
+          </ul>
+        </div>
+      </div>
     </nav>
     
     <div class="flex items-center gap-3 shrink-0">
@@ -118,7 +125,6 @@
 <!-- Mobile Menu -->
 <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 bg-white max-h-[75vh] overflow-auto">
   <div class="px-5 py-4 space-y-1 text-sm font-sans">
-    <a href="/index" class="block py-3 font-semibold text-slate-800 border-b border-slate-100">Home</a>
     
     <!-- Accordion 1: MBBS Abroad -->
     <div class="py-1 border-b border-slate-100">
@@ -168,11 +174,16 @@
     </div>
     
     <a href="/universities" class="block py-3 font-semibold text-slate-800 border-b border-slate-100">Universities</a>
-    <a href="/services" class="block py-3 font-semibold text-slate-800 border-b border-slate-100">Services</a>
-    <a href="/pricing" class="block py-3 font-semibold text-slate-800 border-b border-slate-100">Consultation Charges</a>
-    <a href="/blog" class="block py-3 font-semibold text-slate-800 border-b border-slate-100">Blog</a>
-    <a href="/about" class="block py-3 font-semibold text-slate-800 border-b border-slate-100">About Us</a>
-    <a href="/contact" class="block py-3 font-semibold text-slate-800">Contact Us</a>
+    
+    <!-- Accordion 4: Info -->
+    <div class="py-1 border-b border-slate-100">
+      <button class="mobile-accordion-btn w-full flex items-center justify-between font-bold text-slate-800 py-3 focus:outline-none" data-target="mobile-info">
+        Info <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
+      </button>
+      <div id="mobile-info" class="hidden pl-4 py-1.5 space-y-1 border-l-2 border-blue-500/20">
+        <a href="/pricing" class="block py-1.5 text-slate-600">Consultation Charges</a>
+      </div>
+    </div>
   </div>
 </div>
 
