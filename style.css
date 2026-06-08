@@ -47,10 +47,12 @@ input::placeholder, textarea::placeholder {
 }
 
 /* Custom Navigation Header Padding and Gap Fix */
-.custom-nav {
-  display: flex !important;
-  align-items: center !important;
-  gap: 2px !important;
+@media (min-width: 1024px) {
+  .custom-nav {
+    display: flex !important;
+    align-items: center !important;
+    gap: 2px !important;
+  }
 }
 .custom-nav-link {
   padding-left: 10px !important;
