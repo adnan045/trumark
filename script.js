@@ -13,7 +13,17 @@ document.addEventListener("DOMContentLoaded", () => {
   
   if (menuBtn && mobileMenu) {
     menuBtn.addEventListener("click", () => {
-      mobileMenu.classList.toggle("hidden");
+      const isHidden = mobileMenu.classList.contains("hidden");
+      if (isHidden) {
+        mobileMenu.classList.remove("hidden");
+        menuBtn.innerHTML = '<i data-lucide="x" class="w-6 h-6"></i>';
+      } else {
+        mobileMenu.classList.add("hidden");
+        menuBtn.innerHTML = '<i data-lucide="menu" class="w-6 h-6"></i>';
+      }
+      if (typeof lucide !== "undefined") {
+        lucide.createIcons();
+      }
     });
   }
 
