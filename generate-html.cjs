@@ -3903,6 +3903,8 @@ mbbsCountries.forEach(c => {
 // Write Dynamic Countries (Europe)
 europeCountries.forEach(c => {
   fs.writeFileSync(path.join("mbbs-in-europe", `${c.slug}.html`), buildCountryPage(c, "europe", "../"));
+  // Also write to mbbs-abroad folder to prevent 404 errors for students typing /mbbs-abroad/italy etc.
+  fs.writeFileSync(path.join("mbbs-abroad", `${c.slug}.html`), buildCountryPage(c, "europe", "../"));
 });
 
 // Write Dynamic Programs

@@ -56,6 +56,15 @@ if (fs.existsSync("public")) {
   }
 }
 
+// Copy all European country HTML files into mbbs-abroad/ directory too, to prevent 404s!
+if (fs.existsSync("dist/mbbs-in-europe")) {
+  console.log("Cross-copying European countries to mbbs-abroad folder to prevent 404s...");
+  const euroFiles = fs.readdirSync("dist/mbbs-in-europe");
+  euroFiles.forEach(file => {
+    fs.copyFileSync(path.join("dist/mbbs-in-europe", file), path.join("dist/mbbs-abroad", file));
+  });
+}
+
 // Copy root files
 const filesToCopy = [
   "index.html",
