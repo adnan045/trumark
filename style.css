@@ -90,3 +90,33 @@ header .bg-blue-900.text-white {
     align-self: start !important; /* Critical to allow the sidebar item to stick independently of container height */
   }
 }
+
+/* Premium Pricing Cards Layout & Spacing Override */
+.pricing-card-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.85rem !important;
+  margin-top: 1.5rem !important;
+  margin-bottom: 2rem !important;
+}
+.pricing-card-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  font-size: 0.95rem !important;
+  line-height: 1.4 !important;
+}
+.pricing-card-item-active {
+  color: #1e293b !important;
+  font-weight: 500 !important;
+}
+.pricing-card-item-inactive {
+  color: #94a3b8 !important;
+  text-decoration: line-through !important;
+}
+.pricing-card-dark .pricing-card-item-active {
+  color: #ffffff !important;
+}
+.pricing-card-dark .pricing-card-item-inactive {
+  color: rgba(255, 255, 255, 0.45) !important;
+}
