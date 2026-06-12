@@ -2097,7 +2097,14 @@ const universityImageMap = {
   "ostrava-university": "univ-ostrava.jpeg",
   "semmelweis-university": "univ-semmelweis.jpeg",
   "sofia-medical-university": "univ-sofia.jpeg",
-  "medical-university-of-bialystok": "univ-bialystok.jpeg"
+  "medical-university-of-bialystok": "univ-bialystok.jpeg",
+  "carol-davila-bucharest": "univ-carol-davila.webp",
+  "university-of-warsaw": "univ-warsaw.webp",
+  "sapienza-university-rome": "univ-sapienza.webp",
+  "medical-university-of-gdansk": "univ-gdansk.webp",
+  "medical-university-of-poznan": "univ-poznan.webp",
+  "medical-university-of-rzeszow": "univ-rzeszow.webp",
+  "university-of-pecs": "univ-pecs.webp"
 };
 
 // Helper to determine path depth (always absolute from root for production stability)
