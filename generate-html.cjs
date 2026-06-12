@@ -2473,15 +2473,6 @@ function buildHome(root) {
           <div class="relative min-h-[400px] lg:min-h-full">
             <img src="${IMG.students2}" alt="MBBS in Europe students" class="absolute inset-0 w-full h-full object-cover" />
             <div class="absolute inset-0 bg-gradient-to-r from-blue-900/30 to-transparent"></div>
-            <div class="absolute bottom-8 left-8 right-8 grid grid-cols-2 gap-4">
-              ${europeCountries.slice(0, 4).map(c => `
-                <a href="${root}mbbs-in-europe/${c.slug}" class="bg-white/15 backdrop-blur-md border border-white/30 rounded-2xl p-4 hover:bg-white/25 transition block">
-                  <div class="text-3xl">${c.flag}</div>
-                  <div class="font-bold mt-2 text-white">${c.name}</div>
-                  <div class="text-xs text-white/80">${c.duration}</div>
-                </a>
-              `).join("")}
-            </div>
           </div>
         </div>
       </div>
