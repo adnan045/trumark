@@ -2252,7 +2252,9 @@ function getCountryCardHTML(c, root, index) {
     bangladesh: "bangladesh.png",
     china: "china.jpeg",
     india: "india.jpeg",
-    italy: "italy.png"
+    italy: "italy.png",
+    philippines: "philippines.jpeg",
+    "st-lucia": "st-lucia.jpeg"
   };
 
   const imageName = imageMap[c.slug] || countryCardImages[index % countryCardImages.length];
