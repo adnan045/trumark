@@ -79,3 +79,14 @@ header .bg-blue-900,
 header .bg-blue-900.text-white {
   display: none !important;
 }
+
+/* Premium Sticky Sidebar Form Fix */
+@media (min-width: 1024px) {
+  .sticky-sidebar {
+    position: -webkit-sticky !important;
+    position: sticky !important;
+    top: 100px !important;
+    z-index: 10 !important;
+    align-self: start !important; /* Critical to allow the sidebar item to stick independently of container height */
+  }
+}

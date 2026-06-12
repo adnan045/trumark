@@ -3408,7 +3408,7 @@ function buildMBBSAbroad(root) {
             </div>
           </div>
         </div>
-        <aside>${getContactFormHTML()}</aside>
+        <aside class="sticky-sidebar">${getContactFormHTML()}</aside>
       </div>
     </section>
   `;
@@ -3475,7 +3475,7 @@ function buildMBBSEurope(root) {
             </div>
           </div>
         </div>
-        <aside>${getContactFormHTML()}</aside>
+        <aside class="sticky-sidebar">${getContactFormHTML()}</aside>
       </div>
     </section>
   `;
@@ -3524,7 +3524,7 @@ function buildStudyAbroad(root) {
             }).join("")}
           </div>
         </div>
-        <aside>${getContactFormHTML()}</aside>
+        <aside class="sticky-sidebar">${getContactFormHTML()}</aside>
       </div>
     </section>
   `;
@@ -3697,7 +3697,7 @@ function buildCountryPage(country, variant, root) {
               <a href="${root}contact" class="mt-5 inline-flex items-center bg-white text-blue-800 font-semibold px-5 py-3 rounded-full hover:shadow-xl transition">Book Free Counseling <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i></a>
             </div>
           </div>
-          <aside>${getContactFormHTML()}</aside>
+          <aside class="sticky-sidebar">${getContactFormHTML()}</aside>
         </div>
       </div>
     </section>
@@ -3754,7 +3754,7 @@ function buildProgramPage(pSlug, root) {
             </div>
           </div>
         </div>
-        <aside>${getContactFormHTML()}</aside>
+        <aside class="sticky-sidebar">${getContactFormHTML()}</aside>
       </div>
     </section>
   `;
@@ -3823,7 +3823,7 @@ function buildUniversityPage(u, root) {
               </div>
             ` : ""}
           </div>
-          <aside>${getContactFormHTML()}</aside>
+          <aside class="sticky-sidebar">${getContactFormHTML()}</aside>
         </div>
       </div>
     </section>
