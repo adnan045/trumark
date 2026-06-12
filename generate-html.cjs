@@ -2092,6 +2092,14 @@ const countryCardImages = [
   "https://images.pexels.com/photos/30981181/pexels-photo-30981181.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1400"
 ];
 
+// Custom client-provided university images (slug -> file in public/)
+const universityImageMap = {
+  "ostrava-university": "univ-ostrava.jpeg",
+  "semmelweis-university": "univ-semmelweis.jpeg",
+  "sofia-medical-university": "univ-sofia.jpeg",
+  "medical-university-of-bialystok": "univ-bialystok.jpeg"
+};
+
 // Helper to determine path depth (always absolute from root for production stability)
 function getRootPrefix(filepath) {
   return "/";
@@ -2571,7 +2579,7 @@ function buildHome(root) {
           ${universities.map((u, i) => `
             <a href="${root}universities/${u.slug}" class="group relative overflow-hidden rounded-3xl bg-white shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 animate-fade-up" style="transition-delay: ${(i % 3) * 100}ms">
               <div class="relative h-60 overflow-hidden">
-                <img src="${[IMG.campus, IMG.university, IMG.classroom, IMG.students2, IMG.classroom2, IMG.students3][i % 6]}" alt="${u.name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
+                <img src="${universityImageMap[u.slug] ? root + universityImageMap[u.slug] : [IMG.campus, IMG.university, IMG.classroom, IMG.students2, IMG.classroom2, IMG.students3][i % 6]}" alt="${u.name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/30 to-transparent"></div>
                 <div class="absolute top-4 left-4 bg-white text-slate-900 px-3 py-1.5 rounded-full text-xs font-bold shadow-lg">
                   ${u.flag} ${u.country}
@@ -3341,7 +3349,7 @@ function buildUniversities(root) {
     <section class="py-20">
       <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         ${universities.map((u, i) => {
-          const image = countryCardImages[i % countryCardImages.length];
+          const image = universityImageMap[u.slug] ? root + universityImageMap[u.slug] : countryCardImages[i % countryCardImages.length];
           return `
             <div class="group bg-white rounded-3xl border border-slate-200 hover:shadow-2xl hover:-translate-y-1 transition-all overflow-hidden font-sans">
               <div class="relative h-56 overflow-hidden">
