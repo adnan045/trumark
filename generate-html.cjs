@@ -2979,6 +2979,59 @@ function buildPricing(root) {
       </div>
     </section>
 
+    <!-- OUR SERVICES MERGED SECTION -->
+    <section class="py-20 bg-white font-sans border-t border-slate-100">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="inline-block bg-blue-100 text-blue-700 text-xs font-bold tracking-wider uppercase px-4 py-1.5 rounded-full">Complete Solutions</span>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-4">Our End-to-End Study Abroad Services</h2>
+          <p class="text-slate-600 mt-3 text-lg">We manage your entire admission journey from university matching and documentation to on-ground landing support.</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          ${services.map((s) => `
+            <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:shadow-xl hover:border-green-300 transition">
+              <div class="inline-flex p-3 bg-green-50 text-green-700 rounded-xl"><i data-lucide="${s.icon}" class="w-8 h-8"></i></div>
+              <h3 class="text-lg font-bold text-slate-900 mt-4">${s.title}</h3>
+              <p class="text-slate-600 text-sm mt-2">${s.desc}</p>
+              <a href="${root}contact" class="mt-4 inline-flex items-center gap-1 text-sm text-blue-700 font-semibold hover:gap-2 transition-all">Know More <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+            </div>
+          `).join("")}
+        </div>
+      </div>
+    </section>
+    
+    <section class="py-20 bg-slate-50 font-sans border-t border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900">Why Choose TrueMark Edu?</h2>
+          <p class="text-slate-600 mt-4 leading-relaxed">We bring a student-first approach with complete transparency. No donations, no hidden fees, only honest guidance and direct university admissions.</p>
+          <ul class="mt-6 space-y-3 text-slate-700">
+            ${["Free 1-on-1 counseling session", "Direct partnerships with 50+ universities", "End-to-end documentation support", "IELTS / PTE / OET / NExT coaching", "Loan & scholarship assistance", "Pre-departure & on-ground support"].map(p => `
+              <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-5 h-5 text-green-600 shrink-0 mt-0.5"></i> ${p}</li>
+            `).join("")}
+          </ul>
+        </div>
+        <div class="p-8 rounded-2xl bg-white border border-slate-200 shadow-lg">
+          <h3 class="text-xl font-bold text-slate-900">Simple 6-Step Process</h3>
+          <ol class="mt-6 space-y-4">
+            ${[
+              "Free Counseling & Profile Assessment",
+              "Shortlist Country & Universities",
+              "Application Submission & Offer Letter",
+              "Documentation, Loan & Scholarship",
+              "Visa Filing & Interview Prep",
+              "Pre-departure & Airport Pickup"
+            ].map((s, i) => `
+              <li class="flex gap-3">
+                <span class="w-9 h-9 shrink-0 rounded-full bg-gradient-to-br from-blue-700 to-green-600 text-white font-bold flex items-center justify-center">${i + 1}</span>
+                <span class="text-slate-700 pt-1">${s}</span>
+              </li>
+            `).join("")}
+          </ol>
+        </div>
+      </div>
+    </section>
+
     <!-- CALL TO ACTION -->
     <section class="py-20 bg-blue-900 text-white text-center font-sans">
       <div class="max-w-4xl mx-auto px-4">
