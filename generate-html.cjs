@@ -1789,6 +1789,25 @@ const europeCountries = [
     recognition: ["NMC Approved", "WHO Listed", "EU Recognized"],
     fmge: "Fully eligible for FMGE/NExT screening.",
     process: ["1. Profile Evaluation", "2. Entrance Exam", "3. Offer Letter", "4. Visa", "5. Flight to Poland"]
+  },
+  {
+    slug: "hungary",
+    name: "Hungary",
+    flag: "🇭🇺",
+    tagline: "MBBS in Hungary - Home of Semmelweis University",
+    duration: "6 Years",
+    fees: "₹ 12 – 18 Lacs/Year",
+    language: "English Medium",
+    intakes: ["September"],
+    topUniversities: ["Semmelweis University Budapest", "University of Pecs", "University of Debrecen", "University of Szeged"],
+    highlights: ["EU & Schengen", "Semmelweis University", "World-class clinical training"],
+    description: "Hungary is one of the most prestigious destinations for MBBS in Europe for Indian students. Home to the legendary Semmelweis University Budapest and the historic University of Pecs, Hungary offers fully English-medium, NMC approved medical programs with outstanding clinical exposure in modern university hospitals. As an EU and Schengen nation, a Hungarian medical degree is recognized worldwide. TrueMark Edu provides complete support for entrance exam preparation, university admission, visa documentation, and accommodation to ensure a smooth direct MBBS admission in Hungary.",
+    eligibility: ["NEET Qualified", "50% in PCB", "University Entrance Exam (Biology, Chemistry)"],
+    hostel: "Modern student dormitories and private apartments near campus.",
+    food: "Indian restaurants and mess facilities available in Budapest and Pecs.",
+    recognition: ["NMC Approved", "WHO Listed", "EU Recognized"],
+    fmge: "Fully eligible for FMGE/NExT screening with strong pass results.",
+    process: ["1. Profile Evaluation", "2. Entrance Exam", "3. Offer Letter", "4. Visa", "5. Flight to Hungary"]
   }
 ];
 
