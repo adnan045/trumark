@@ -37,18 +37,17 @@
       <img src="/logo.png" onerror="this.onerror=null; this.src='logo.svg'" alt="TrueMark Edu" style="width: 180px; height: 36px; object-fit: contain;" />
     </a>
     
-    <!-- Desktop Nav (Universities, Home, Blog, Contact and Services removed. Info has only Consultation Charges dropdown) -->
+    <!-- Desktop Nav (Overview links removed, main tabs converted to direct links with smooth CSS hover dropdowns) -->
     <nav class="hidden lg:flex items-center font-sans custom-nav">
       
       <!-- Click Menu MBBS Abroad -->
-      <div class="relative py-2">
-        <button class="desktop-dropdown-btn inline-flex items-center gap-1 py-2 font-medium text-slate-700 hover:text-blue-700 focus:outline-none custom-nav-link" data-target="dropdown-mbbs-abroad">
+      <div class="relative group py-2">
+        <a href="/mbbs-abroad" class="desktop-dropdown-btn inline-flex items-center gap-1 py-2 font-medium text-slate-700 hover:text-blue-700 custom-nav-link" data-menu="mbbs-abroad">
           MBBS Abroad <i data-lucide="chevron-down" class="w-3 h-3 transition-transform duration-300"></i>
-        </button>
+        </a>
         <div id="dropdown-mbbs-abroad" class="desktop-dropdown absolute left-1/2 -translate-x-1/2 top-full hidden pt-3 z-50 bg-white rounded-xl shadow-xl border border-slate-100 mega-menu-wide">
           <div class="text-xs font-bold uppercase tracking-wider text-blue-700 mb-3">MBBS Abroad - Countries</div>
           <ul class="mega-menu-grid">
-            <li class="mega-menu-col-span-2 border-b border-slate-100 pb-1.5"><a href="/mbbs-abroad" class="block text-sm text-slate-800 hover:text-green-700 hover:pl-2 transition-all font-bold">MBBS Abroad Overview</a></li>
             <li><a href="/mbbs-abroad/georgia" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">MBBS in Georgia</a></li>
             <li><a href="/mbbs-abroad/uzbekistan" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">MBBS in Uzbekistan</a></li>
             <li><a href="/mbbs-abroad/kazakhstan" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">MBBS in Kazakhstan</a></li>
@@ -61,14 +60,13 @@
       </div>
       
       <!-- Click Menu MBBS Europe -->
-      <div class="relative py-2">
-        <button class="desktop-dropdown-btn inline-flex items-center gap-1 py-2 font-medium text-slate-700 hover:text-blue-700 focus:outline-none custom-nav-link" data-target="dropdown-mbbs-europe">
+      <div class="relative group py-2">
+        <a href="/mbbs-in-europe" class="desktop-dropdown-btn inline-flex items-center gap-1 py-2 font-medium text-slate-700 hover:text-blue-700 custom-nav-link" data-menu="mbbs-in-europe">
           MBBS in Europe <i data-lucide="chevron-down" class="w-3 h-3 transition-transform duration-300"></i>
-        </button>
+        </a>
         <div id="dropdown-mbbs-europe" class="desktop-dropdown absolute left-1/2 -translate-x-1/2 top-full hidden pt-3 z-50 bg-white rounded-xl shadow-xl border border-slate-100 mega-menu-wide">
           <div class="text-xs font-bold uppercase tracking-wider text-blue-700 mb-3">MBBS in Europe</div>
           <ul class="mega-menu-grid">
-            <li class="mega-menu-col-span-2 border-b border-slate-100 pb-1.5"><a href="/mbbs-in-europe" class="block text-sm text-slate-800 hover:text-green-700 hover:pl-2 transition-all font-bold">MBBS in Europe Overview</a></li>
             <li><a href="/mbbs-in-europe/italy" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">MBBS in Italy</a></li>
             <li><a href="/mbbs-in-europe/spain" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">MBBS in Spain</a></li>
             <li><a href="/mbbs-in-europe/romania" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">MBBS in Romania</a></li>
@@ -80,14 +78,13 @@
       </div>
       
       <!-- Click Menu Study Abroad -->
-      <div class="relative py-2">
-        <button class="desktop-dropdown-btn inline-flex items-center gap-1 py-2 font-medium text-slate-700 hover:text-blue-700 focus:outline-none custom-nav-link" data-target="dropdown-study-abroad">
+      <div class="relative group py-2">
+        <a href="/study-abroad" class="desktop-dropdown-btn inline-flex items-center gap-1 py-2 font-medium text-slate-700 hover:text-blue-700 focus:outline-none custom-nav-link" data-menu="study-abroad">
           Study Abroad <i data-lucide="chevron-down" class="w-3 h-3 transition-transform duration-300"></i>
-        </button>
+        </a>
         <div id="dropdown-study-abroad" class="desktop-dropdown absolute left-1/2 -translate-x-1/2 top-full hidden pt-3 z-50 bg-white rounded-xl shadow-xl border border-slate-100 mega-menu-wide">
           <div class="text-xs font-bold uppercase tracking-wider text-blue-700 mb-3">Study Abroad Programs</div>
           <ul class="mega-menu-grid">
-            <li class="mega-menu-col-span-2 border-b border-slate-100 pb-1.5"><a href="/study-abroad" class="block text-sm text-slate-800 hover:text-green-700 hover:pl-2 transition-all font-bold">Study Abroad Overview</a></li>
             <li><a href="/study-abroad/mba-in-dubai" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">MBA in Dubai / UAE</a></li>
             <li><a href="/study-abroad/germany" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">Study in Germany</a></li>
             <li><a href="/study-abroad/canada" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">Study in Canada</a></li>
@@ -96,10 +93,12 @@
         </div>
       </div>
       
+      <a href="/universities" class="py-2 font-medium text-slate-700 hover:text-blue-700 custom-nav-link" data-menu="universities">Universities</a>
+      
       <a href="/about" class="py-2 font-medium text-blue-700 font-bold custom-nav-link" data-menu="about">About</a>
       
       <!-- Click Menu Info (Dropdown width increased and text wrap disabled to keep Consultation Charges on a single line) -->
-      <div class="relative py-2">
+      <div class="relative group py-2">
         <button class="desktop-dropdown-btn inline-flex items-center gap-1 py-2 font-medium text-slate-700 hover:text-blue-700 focus:outline-none custom-nav-link" data-target="dropdown-info">
           Info <i data-lucide="chevron-down" class="w-3 h-3 transition-transform duration-300"></i>
         </button>
@@ -173,6 +172,7 @@
       </div>
     </div>
     
+    <a href="/universities" class="block py-3 font-semibold text-slate-800 border-b border-slate-100">Universities</a>
     <a href="/about" class="block py-3 font-semibold text-slate-800 border-b border-slate-100">About Us</a>
     
     <!-- Accordion 4: Info -->

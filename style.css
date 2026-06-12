@@ -120,3 +120,10 @@ header .bg-blue-900.text-white {
 .pricing-card-dark .pricing-card-item-inactive {
   color: rgba(255, 255, 255, 0.45) !important;
 }
+
+/* Permanent Desktop Hover Trigger for Custom Dropdowns */
+@media (min-width: 1024px) {
+  .group:hover .desktop-dropdown {
+    display: block !important;
+  }
+}
