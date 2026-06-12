@@ -2241,7 +2241,22 @@ function getPageHeroHTML(title, subtitle, breadcrumb = [], image = "") {
 
 // Country Card Component HTML
 function getCountryCardHTML(c, root, index) {
-  const image = countryCardImages[index % countryCardImages.length];
+  const imageMap = {
+    georgia: "georgia.png",
+    uzbekistan: "uzbekistan.jpeg",
+    kazakhstan: "kazakhstan.jpeg",
+    russia: "russia.jpeg",
+    kyrgyzstan: "kyrgyzstan.jpeg",
+    armenia: "armenia.png",
+    nepal: "nepal.png",
+    bangladesh: "bangladesh.png",
+    china: "china.jpeg",
+    india: "india.jpeg",
+    italy: "italy.png"
+  };
+
+  const imageName = imageMap[c.slug] || countryCardImages[index % countryCardImages.length];
+  const image = root + imageName;
   return `<a href="${root}mbbs-abroad/${c.slug}" class="group relative block rounded-[2rem] overflow-hidden bg-slate-900 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 animate-fade-up" style="transition-delay: ${(index % 4) * 80}ms">
     <img src="${image}" alt="MBBS in ${c.name}" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-[1500ms] ease-out" />
     <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-slate-900/10"></div>
