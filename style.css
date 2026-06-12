@@ -127,3 +127,15 @@ header .bg-blue-900.text-white {
     display: block !important;
   }
 }
+
+/* Custom Stat Number Responsive Size Fix */
+.custom-stat-number {
+  font-size: 35px !important;
+  font-weight: 800 !important;
+  line-height: 1.1 !important;
+}
+@media (min-width: 768px) {
+  .custom-stat-number {
+    font-size: 3rem !important;
+  }
+}
