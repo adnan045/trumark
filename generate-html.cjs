@@ -3492,25 +3492,36 @@ function buildStudyAbroad(root) {
         <div class="lg:col-span-2 space-y-8">
           <div class="p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-green-50 border border-slate-200">
             <h2 class="text-3xl font-extrabold text-slate-900">Programs Beyond MBBS</h2>
-            <p class="text-slate-600 mt-3">We help students with Master's, MBA, BBA, Engineering, Data Science, Public Health, Hotel Management & Law programs across Dubai, Germany, Canada, USA, UK & Australia.</p>
+            <p class="text-slate-600 mt-3 leading-relaxed">We help students with Master's, MBA, BBA, Engineering, Data Science, Public Health, Hotel Management & Law programs across Dubai, Germany, Canada, USA, UK & Australia.</p>
             <ul class="grid md:grid-cols-2 gap-2 mt-5 text-slate-700">
               ${["Scholarships up to 100% tuition", "Admission in top 100 global universities", "SOP, LOR & profile building", "Loan assistance", "Post-study work visa guidance", "Pre-departure & accommodation support"].map(p => `
                 <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-5 h-5 text-green-600 shrink-0 mt-0.5"></i> ${p}</li>
               `).join("")}
             </ul>
           </div>
-          <div class="grid md:grid-cols-2 gap-6">
-            ${programs.map((p) => `
-              <a href="${root}study-abroad/${p.slug}" class="group bg-white rounded-2xl border border-slate-200 hover:shadow-xl transition p-6 block">
-                <h3 class="text-xl font-bold text-slate-900">${p.title}</h3>
-                <p class="text-sm text-slate-600 mt-2">${p.tagline}</p>
-                <div class="mt-4 text-sm text-slate-500">
-                  <div><b class="text-slate-700">Fees:</b> ${p.fees}</div>
-                  <div><b class="text-slate-700">Duration:</b> ${p.duration}</div>
+          <div class="grid md:grid-cols-2 gap-6 font-sans">
+            ${programs.map((p, i) => {
+              const image = [IMG.dubai, IMG.classroom, IMG.campus, IMG.university][i % 4];
+              return `
+              <a href="${root}study-abroad/${p.slug}" class="group bg-white rounded-3xl border border-slate-200 hover:shadow-2xl hover:-translate-y-1 transition-all overflow-hidden block">
+                <div class="h-48 overflow-hidden relative">
+                  <img src="${image}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur text-blue-900 text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                    ${p.duration}
+                  </div>
                 </div>
-                <div class="mt-4 text-blue-700 font-semibold text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all">Explore <i data-lucide="arrow-right" class="w-4 h-4"></i></div>
+                <div class="p-6">
+                  <h3 class="text-xl font-bold text-slate-900 group-hover:text-blue-700 transition">${p.title}</h3>
+                  <p class="text-sm text-slate-600 mt-2 leading-relaxed">${p.tagline}</p>
+                  <div class="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between text-sm">
+                    <div><span class="text-slate-500">Fees:</span> <b class="text-slate-900">${p.fees}</b></div>
+                    <div class="text-blue-700 font-bold inline-flex items-center gap-1 group-hover:gap-2 transition-all">Explore <i data-lucide="arrow-right" class="w-4 h-4"></i></div>
+                  </div>
+                </div>
               </a>
-            `).join("")}
+              `;
+            }).join("")}
           </div>
         </div>
         <aside>${getContactFormHTML()}</aside>
