@@ -2220,7 +2220,10 @@ function wrapPage(content, title, subtitle, filepath, activeMenu = "") {
 
 // Contact Form Template Component
 function getContactFormHTML() {
-  return `<form id="counseling-form" class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100 space-y-4">
+  return `<form id="counseling-form" action="https://formsubmit.co/adnanansari7042@gmail.com" method="POST" class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100 space-y-4">
+    <input type="hidden" name="_subject" value="New Counseling Enquiry - TrueMark Edu" />
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="hidden" name="_template" value="table" />
     <div>
       <h3 class="text-xl font-bold text-slate-900">Book Free Counseling</h3>
       <p class="text-sm text-slate-500">Get a 1-on-1 session with our admission experts today.</p>
@@ -2248,9 +2251,9 @@ function getContactFormHTML() {
     </select>
     <textarea name="message" id="form-message" rows="3" placeholder="Your message (optional)" class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-blue-600 focus:outline-none text-sm"></textarea>
     <button type="submit" class="w-full bg-gradient-to-r from-blue-700 to-green-600 text-white font-semibold py-3 rounded-lg hover:shadow-lg transition">
-      Submit &amp; Talk on WhatsApp
+      Submit Enquiry
     </button>
-    <div id="form-done-msg" class="hidden text-sm text-green-600 text-center">Thank you! We will connect with you on WhatsApp shortly.</div>
+    <div id="form-done-msg" class="hidden text-sm text-green-600 text-center">Thank you! Your enquiry has been submitted successfully.</div>
     <p class="text-xs text-slate-400 text-center">Your data is 100% secure and never shared.</p>
   </form>`;
 }
@@ -4251,38 +4254,71 @@ document.addEventListener("DOMContentLoaded", () => {
     animElements.forEach((el) => observer.observe(el));
   }
 
-  // 4. Contact / Counseling Form Submission via WhatsApp
+  // 4. Contact / Counseling Form Submission via Email (FormSubmit)
   const form = document.getElementById("counseling-form");
   const doneMsg = document.getElementById("form-done-msg");
+  const enquiryEmail = "adnanansari7042@gmail.com";
   
   if (form) {
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
       
-      const name = document.getElementById("form-name").value;
-      const phone = document.getElementById("form-phone").value;
-      const email = document.getElementById("form-email").value;
+      const name = document.getElementById("form-name").value.trim();
+      const phone = document.getElementById("form-phone").value.trim();
+      const email = document.getElementById("form-email").value.trim();
       const country = document.getElementById("form-country").value;
-      const message = document.getElementById("form-message").value;
+      const message = document.getElementById("form-message").value.trim();
       
       if (!name || !phone) {
         alert("Please provide your name and phone number.");
         return;
       }
-      
-      const text = \`Hi TrueMark Edu! My name is \${name}. My number is \${phone}. Email: \${email}. Interest: \&country=\${country}. Message: \&message=\${message}\`;
-      const whatsappURL = \`https://wa.me/919540302032?text=\${encodeURIComponent(text)}\`;
-      
-      window.open(whatsappURL, "_blank");
-      
-      if (doneMsg) {
-        doneMsg.classList.remove("hidden");
-        setTimeout(() => {
-          doneMsg.classList.add("hidden");
-        }, 6000);
+
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn ? submitBtn.innerHTML : "";
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = "Submitting...";
       }
+
+      const formData = new FormData(form);
+      formData.append("Page URL", window.location.href);
       
-      form.reset();
+      try {
+        const response = await fetch("https://formsubmit.co/ajax/" + enquiryEmail, {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: formData,
+        });
+
+        if (!response.ok) {
+          throw new Error("Email submission failed");
+        }
+        
+        if (doneMsg) {
+          doneMsg.textContent = "Thank you! Your enquiry has been submitted successfully.";
+          doneMsg.classList.remove("hidden", "text-red-600");
+          doneMsg.classList.add("text-green-600");
+          setTimeout(() => doneMsg.classList.add("hidden"), 6000);
+        }
+        
+        form.reset();
+      } catch (error) {
+        const emailSubject = encodeURIComponent("New Counseling Enquiry - TrueMark Edu");
+        const emailBody = encodeURIComponent("Name: " + name + "\\nPhone / WhatsApp: " + phone + "\\nEmail: " + email + "\\nInterest: " + country + "\\nMessage: " + message + "\\nPage URL: " + window.location.href);
+        window.location.href = "mailto:" + enquiryEmail + "?subject=" + emailSubject + "&body=" + emailBody;
+
+        if (doneMsg) {
+          doneMsg.textContent = "Please send the pre-filled email from your email app to complete submission.";
+          doneMsg.classList.remove("hidden", "text-green-600");
+          doneMsg.classList.add("text-red-600");
+        }
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnText;
+        }
+      }
     });
   }
 
