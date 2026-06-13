@@ -2354,7 +2354,7 @@ function buildHome(root) {
             <a href="${root}contact" class="btn-shine inline-flex items-center gap-2 bg-white text-blue-900 font-bold px-7 py-3.5 rounded-full hover:shadow-2xl hover:-translate-y-0.5 transition-all animate-pulse-soft">
               Get Free Counseling <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </a>
-            <a href="https://wa.me/919540302032" class="btn-shine inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/20 text-white font-bold px-7 py-3.5 rounded-full transition-all">
+            <a href="https://wa.me/919540302032" class="btn-shine inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-7 py-3.5 rounded-full transition-all shadow-lg">
               💬 WhatsApp Us
             </a>
             <a href="tel:+919540302032" class="btn-shine inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-blue-900 font-bold px-7 py-3.5 rounded-full transition-all shadow-lg">
