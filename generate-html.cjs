@@ -2220,10 +2220,7 @@ function wrapPage(content, title, subtitle, filepath, activeMenu = "") {
 
 // Contact Form Template Component
 function getContactFormHTML() {
-  return `<form id="counseling-form" action="https://formsubmit.co/adnanansari7042@gmail.com" method="POST" class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100 space-y-4">
-    <input type="hidden" name="_subject" value="New Counseling Enquiry - TrueMark Edu" />
-    <input type="hidden" name="_captcha" value="false" />
-    <input type="hidden" name="_template" value="table" />
+  return `<form id="counseling-form" class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100 space-y-4">
     <div>
       <h3 class="text-xl font-bold text-slate-900">Book Free Counseling</h3>
       <p class="text-sm text-slate-500">Get a 1-on-1 session with our admission experts today.</p>
@@ -4254,10 +4251,9 @@ document.addEventListener("DOMContentLoaded", () => {
     animElements.forEach((el) => observer.observe(el));
   }
 
-  // 4. Contact / Counseling Form Submission via Email (FormSubmit)
+  // 4. Contact / Counseling Form Submission via site API (no third-party form branding)
   const form = document.getElementById("counseling-form");
   const doneMsg = document.getElementById("form-done-msg");
-  const enquiryEmail = "adnanansari7042@gmail.com";
   
   if (form) {
     form.addEventListener("submit", async (e) => {
@@ -4280,19 +4276,27 @@ document.addEventListener("DOMContentLoaded", () => {
         submitBtn.disabled = true;
         submitBtn.innerHTML = "Submitting...";
       }
-
-      const formData = new FormData(form);
-      formData.append("Page URL", window.location.href);
       
       try {
-        const response = await fetch("https://formsubmit.co/ajax/" + enquiryEmail, {
+        const response = await fetch("/api/send-email", {
           method: "POST",
-          headers: { Accept: "application/json" },
-          body: formData,
+          headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name,
+            phone,
+            email,
+            country,
+            message,
+            pageUrl: window.location.href,
+          }),
         });
 
-        if (!response.ok) {
-          throw new Error("Email submission failed");
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok || !result.success) {
+          throw new Error(result.error || "Email submission failed");
         }
         
         if (doneMsg) {
@@ -4304,12 +4308,8 @@ document.addEventListener("DOMContentLoaded", () => {
         
         form.reset();
       } catch (error) {
-        const emailSubject = encodeURIComponent("New Counseling Enquiry - TrueMark Edu");
-        const emailBody = encodeURIComponent("Name: " + name + "\\nPhone / WhatsApp: " + phone + "\\nEmail: " + email + "\\nInterest: " + country + "\\nMessage: " + message + "\\nPage URL: " + window.location.href);
-        window.location.href = "mailto:" + enquiryEmail + "?subject=" + emailSubject + "&body=" + emailBody;
-
         if (doneMsg) {
-          doneMsg.textContent = "Please send the pre-filled email from your email app to complete submission.";
+          doneMsg.textContent = "Sorry, we could not submit your enquiry right now. Please try again.";
           doneMsg.classList.remove("hidden", "text-green-600");
           doneMsg.classList.add("text-red-600");
         }

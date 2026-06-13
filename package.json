@@ -4,5 +4,8 @@
   "scripts": {
     "build": "node build-dist.cjs",
     "dev": "echo 'No Dev Script Needed'"
+  },
+  "dependencies": {
+    "nodemailer": "^6.9.16"
   }
 }
