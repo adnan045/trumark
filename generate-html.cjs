@@ -4494,7 +4494,7 @@ function buildAbout(root) {
             <h3 class="text-xl font-bold text-slate-900 mt-4">Anandita Jitt</h3>
             <div class="text-sm text-green-700 font-semibold">Founder & University Relations</div>
             <p class="text-slate-600 text-sm mt-3">10+ years of experience in overseas MBBS admissions. Managing top university relations and admissions across Europe and Georgia.</p>
-            <a href="tel:+919540302039" class="text-sm text-blue-700 mt-3 inline-block">+91 95403 02039</a>
+            <a href="tel:+919540302093" class="text-sm text-blue-700 mt-3 inline-block">+91 95403 02093</a>
           </div>
           <div class="p-8 rounded-2xl bg-white border border-slate-200 hover:shadow-xl transition">
             <img src="team-haider.jpg" alt="Haidar Ali" class="w-24 h-24 rounded-full object-cover mx-auto border-2 border-green-600 shadow-md" />
@@ -4604,7 +4604,7 @@ function buildContact(root) {
               <div class="inline-flex p-3 bg-green-50 text-green-700 rounded-xl shrink-0"><i data-lucide="phone" class="w-6 h-6"></i></div>
               <div>
                 <h4 class="font-bold text-slate-900">Call / WhatsApp</h4>
-                <p class="text-sm text-slate-600">Anandita Jitt: <a href="tel:+919540302039" class="text-blue-700 hover:text-green-600">+91 95403 02039</a></p>
+                <p class="text-sm text-slate-600">Anandita Jitt: <a href="tel:+919540302093" class="text-blue-700 hover:text-green-600">+91 95403 02093</a></p>
                 <p class="text-sm text-slate-600">Haidar Ali: <a href="tel:+919540302032" class="text-blue-700 hover:text-green-600">+91 95403 02032</a></p>
               </div>
             </div>
