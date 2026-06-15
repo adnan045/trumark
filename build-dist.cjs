@@ -34,7 +34,7 @@ function copyDir(src, dest) {
 }
 
 // Copy directories
-const dirsToCopy = ["mbbs-abroad", "mbbs-in-europe", "study-abroad", "universities", "blog"];
+const dirsToCopy = ["mbbs-abroad", "mbbs-in-europe", "study-abroad", "universities", "blog", "js"];
 dirsToCopy.forEach(dir => {
   if (fs.existsSync(dir)) {
     copyDir(dir, path.join("dist", dir));
@@ -77,6 +77,8 @@ const filesToCopy = [
   "mbbs-abroad.html",
   "mbbs-in-europe.html",
   "study-abroad.html",
+  "header.html",
+  "footer.html",
   "style.css",
   "script.js",
   "vercel.json"

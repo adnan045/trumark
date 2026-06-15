@@ -2157,20 +2157,15 @@ function highlightActiveMenu(html, activeMenu) {
   return result;
 }
 
-// Global page wrap template (reads header.html and footer.html on-the-fly!)
+// Global page wrap template (uses shared header.html / footer.html partials).
+//
+// Header and footer are NOT inlined into every generated page anymore.
+// Instead we emit <div data-include="header.html"></div> and
+// <div data-include="footer.html"></div> placeholders. The browser fills
+// them at runtime via /js/includes.js. So: edit header.html or footer.html
+// once and every page updates automatically - no rebuild needed for those.
 function wrapPage(content, title, subtitle, filepath, activeMenu = "") {
   const root = getRootPrefix(filepath);
-  
-  // Read header and footer templates
-  let headerHTML = fs.readFileSync("header.html", "utf8");
-  let footerHTML = fs.readFileSync("footer.html", "utf8");
-  
-  // Adjust links inside templates based on depth
-  headerHTML = adjustPaths(headerHTML, root);
-  footerHTML = adjustPaths(footerHTML, root);
-  
-  // Highlight active menu in header
-  headerHTML = highlightActiveMenu(headerHTML, activeMenu);
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -2179,44 +2174,35 @@ function wrapPage(content, title, subtitle, filepath, activeMenu = "") {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${title} | TrueMark Edu - Study Abroad</title>
   <meta name="description" content="${subtitle || "TrueMark Edu is India's most trusted study abroad medical consultancy."}">
-  
+
   <!-- Font and Stylesheet -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="${root}style.css">
-  
+
   <!-- Lucide Icons Browser Script CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="min-h-screen flex flex-col bg-white text-slate-800 font-sans antialiased">
 
-  <!-- Header Section -->
-  <header class="sticky top-0 z-40 bg-white border-b border-slate-200 shadow-sm">
-    ${headerHTML}
-  </header>
+  <!-- Header (shared partial: filled at runtime from /header.html) -->
+  <div data-include="header.html"></div>
 
   <main class="flex-1">
     ${content}
   </main>
 
-  <!-- Footer Section -->
-  <footer class="bg-slate-900 text-slate-300">
-    ${footerHTML}
-  </footer>
+  <!-- Footer (shared partial: filled at runtime from /footer.html) -->
+  <div data-include="footer.html"></div>
 
-  <!-- Floating WhatsApp & Scroll Back to Top Button -->
-  <a href="https://wa.me/919540302032" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all flex items-center justify-center animate-bounce duration-1000" aria-label="WhatsApp">
-    <svg class="w-7 h-7 fill-white" viewBox="0 0 24 24">
-      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.262 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.859-4.42 9.863-9.864.002-2.637-1.023-5.11-2.884-6.974C16.573 1.8 14.1 1.777 12.001 1.777c-5.44 0-9.866 4.418-9.87 9.864 0 1.758.463 3.473 1.337 4.988L2.427 20.87l4.22-1.716zM17.7 14.93c-.312-.156-1.848-.91-2.134-1.015-.286-.105-.494-.156-.701.156-.207.312-.804 1.015-.986 1.22-.182.207-.364.234-.676.078-1.284-.641-2.128-1.085-2.97-2.528-.22-.377.22-.35.63-1.17.068-.13.034-.247-.017-.35-.05-.105-.494-1.19-.677-1.63-.177-.428-.357-.37-.494-.37h-.42c-.143 0-.377.053-.574.27-.197.218-.752.735-.752 1.79 0 1.054.767 2.073.873 2.217.106.143 1.51 2.3 3.655 3.228.51.22.908.351 1.218.45.513.162.98.14 1.35.084.41-.06 1.848-.756 2.11-.1.263-.736.263-1.365.185-1.48-.078-.115-.286-.182-.598-.338z"/>
-    </svg>
-  </a>
-
-  <!-- JS Logic File -->
+  <!-- Includes loader fetches header.html + footer.html, then script.js runs -->
+  <script src="${root}js/includes.js"></script>
   <script src="${root}script.js"></script>
 </body>
 </html>`;
 }
+
 
 // Contact Form Template Component
 function getContactFormHTML() {
@@ -4200,9 +4186,16 @@ console.log("Static HTML files generated successfully!");
 // ---------------- WRITE SCRIPT.JS ----------------
 
 const scriptContent = `// Static HTML Interactive Script for TrueMark Edu
+//
+// All initialization runs AFTER includes.js has finished loading header.html,
+// footer.html and other partials (so this script can find injected elements
+// like the mobile menu button, dropdown buttons, etc.).
+//
+// If for some reason the includes never load (e.g. partial file missing), a
+// 3-second fallback timeout still runs init so the page is not totally broken.
 
-document.addEventListener("DOMContentLoaded", () => {
-  
+function initSite() {
+
   // 1. Initialize Lucide Icons
   if (typeof lucide !== "undefined") {
     lucide.createIcons();
@@ -4211,7 +4204,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 2. Mobile Menu Toggle
   const menuBtn = document.getElementById("menu-btn");
   const mobileMenu = document.getElementById("mobile-menu");
-  
+
   if (menuBtn && mobileMenu) {
     menuBtn.addEventListener("click", () => {
       const isHidden = mobileMenu.classList.contains("hidden");
@@ -4232,7 +4225,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const animElements = document.querySelectorAll(
     ".animate-fade-up, .animate-fade-in, .animate-scale-in, .animate-slide-left, .animate-slide-right"
   );
-  
+
   if (!("IntersectionObserver" in window)) {
     animElements.forEach((el) => el.classList.add("is-visible"));
   } else {
@@ -4247,24 +4240,24 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       { threshold: 0.05 }
     );
-    
+
     animElements.forEach((el) => observer.observe(el));
   }
 
-  // 4. Contact / Counseling Form Submission via site API (no third-party form branding)
+  // 4. Contact / Counseling Form Submission via site API
   const form = document.getElementById("counseling-form");
   const doneMsg = document.getElementById("form-done-msg");
-  
+
   if (form) {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      
+
       const name = document.getElementById("form-name").value.trim();
       const phone = document.getElementById("form-phone").value.trim();
       const email = document.getElementById("form-email").value.trim();
       const country = document.getElementById("form-country").value;
       const message = document.getElementById("form-message").value.trim();
-      
+
       if (!name || !phone) {
         alert("Please provide your name and phone number.");
         return;
@@ -4276,7 +4269,7 @@ document.addEventListener("DOMContentLoaded", () => {
         submitBtn.disabled = true;
         submitBtn.innerHTML = "Submitting...";
       }
-      
+
       try {
         const response = await fetch("/api/send-email", {
           method: "POST",
@@ -4298,14 +4291,14 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!response.ok || !result.success) {
           throw new Error(result.error || "Email submission failed");
         }
-        
+
         if (doneMsg) {
           doneMsg.textContent = "Thank you! Your enquiry has been submitted successfully.";
           doneMsg.classList.remove("hidden", "text-red-600");
           doneMsg.classList.add("text-green-600");
           setTimeout(() => doneMsg.classList.add("hidden"), 6000);
         }
-        
+
         form.reset();
       } catch (error) {
         if (doneMsg) {
@@ -4323,7 +4316,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  // 6. Real-time Fee Table Filtering
+  // 5. Real-time Fee Table Filtering
   const searchInputs = document.querySelectorAll(".fee-table-search");
   searchInputs.forEach(input => {
     input.addEventListener("input", () => {
@@ -4341,18 +4334,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 5. Mobile Menu Accordion Toggle
+  // 6. Mobile Menu Accordion Toggle
   const accordionBtns = document.querySelectorAll(".mobile-accordion-btn");
   accordionBtns.forEach(btn => {
     btn.addEventListener("click", () => {
       const targetId = btn.getAttribute("data-target");
       const targetEl = document.getElementById(targetId);
       const icon = btn.querySelector("i[data-lucide='chevron-down']");
-      
+
       if (targetEl) {
         const isHidden = targetEl.classList.contains("hidden");
-        
-        // Hide all other accordions first (for a clean single-open accordion feel)
+
+        // Hide all other accordions first
         document.querySelectorAll(".mobile-accordion-btn").forEach(otherBtn => {
           if (otherBtn !== btn) {
             const otherTargetId = otherBtn.getAttribute("data-target");
@@ -4363,7 +4356,6 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         });
 
-        // Toggle current accordion
         if (isHidden) {
           targetEl.classList.remove("hidden");
           if (icon) icon.classList.add("rotate-180");
@@ -4379,16 +4371,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const desktopBtns = document.querySelectorAll(".desktop-dropdown-btn");
   desktopBtns.forEach(btn => {
     btn.addEventListener("click", (e) => {
-      e.stopPropagation(); // Prevent immediate closing due to document click listener
-      
+      e.stopPropagation();
+
       const targetId = btn.getAttribute("data-target");
       const targetEl = document.getElementById(targetId);
       const icon = btn.querySelector("i[data-lucide='chevron-down']");
-      
+
       if (targetEl) {
         const isHidden = targetEl.classList.contains("hidden");
-        
-        // Hide all other desktop dropdowns first
+
         document.querySelectorAll(".desktop-dropdown").forEach(otherDropdown => {
           if (otherDropdown !== targetEl) {
             otherDropdown.classList.add("hidden");
@@ -4400,7 +4391,6 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         });
 
-        // Toggle current dropdown
         if (isHidden) {
           targetEl.classList.remove("hidden");
           if (icon) icon.classList.add("rotate-180");
@@ -4421,7 +4411,32 @@ document.addEventListener("DOMContentLoaded", () => {
       icon.classList.remove("rotate-180");
     });
   });
-});
+}
+
+
+// Bootstrap: wait for includesLoaded event from /js/includes.js.
+// (includesLoaded fires AFTER all [data-include] elements are filled in.)
+(function bootstrap() {
+  let initialized = false;
+  function run() {
+    if (initialized) return;
+    initialized = true;
+    initSite();
+  }
+  document.addEventListener("includesLoaded", run, { once: true });
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => {
+      if (!initialized) run();
+    });
+  }
+  // Fallback: if includes.js fails, run anyway after 3 seconds.
+  setTimeout(() => {
+    if (!initialized) {
+      console.warn("[script.js] includesLoaded did not fire in 3s, running init anyway");
+      run();
+    }
+  }, 3000);
+})();
 `;
 
 fs.writeFileSync("script.js", scriptContent);
