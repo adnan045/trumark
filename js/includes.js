@@ -57,11 +57,20 @@
     } catch (e) {
       console.warn("[includes] lucide.createIcons failed", e);
     }
+    // Mark all includes as fully loaded so script.js (or any other
+    // listener) can run init logic safely.
+    window.__includesReady = true;
     document.dispatchEvent(new Event("includesLoaded"));
   }
 
   var base = getBasePath();
   var nodes = document.querySelectorAll("[data-include]");
+
+  // Expose state flags so other scripts (script.js) can check whether
+  // includes are still being loaded. script.js uses these to decide
+  // whether it is safe to wire up event listeners (e.g. dropdown buttons
+  // injected by header.html).
+  window.__includesRequested = nodes.length > 0;
 
   if (nodes.length === 0) {
     // Nothing to include, fire immediately so listeners can init.

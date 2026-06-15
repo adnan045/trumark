@@ -239,8 +239,14 @@ function initSite() {
   document.addEventListener("includesLoaded", run, { once: true });
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", () => {
-      if (!initialized) run();
+      if (!window.__includesRequested || window.__includesReady) {
+        if (!initialized) run();
+      }
     });
+  } else {
+    if (!window.__includesRequested || window.__includesReady) {
+      run();
+    }
   }
   // Fallback: if includes.js fails, run anyway after 3 seconds.
   setTimeout(() => {
