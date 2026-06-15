@@ -2602,6 +2602,45 @@ const collegesDatabase = {
       countryRank: "—"
     },
   ],
+
+  "Bulgaria": [
+    {
+      sNo: "1",
+      name: "Medical University of Sofia Faculty of Medicine",
+      tuitionUSD: "~$10,950",
+      hostelUSD: "$1,000 – $1,800",
+      foodUSD: "$1,600 – $2,200",
+      totalTuitionUSD: "~$65,700",
+      grandTotalUSD: "$81,300 – $89,700",
+      totalINR: "₹76.82 Lakh – ₹84.76 Lakh",
+      worldRank: "—",
+      countryRank: "—"
+    },
+    {
+      sNo: "2",
+      name: "Medical University of 'Prof. Dr. Paraskev Stoyanov' Varna Faculty of Medicine",
+      tuitionUSD: "~$11,000",
+      hostelUSD: "$900 – $1,600",
+      foodUSD: "$1,500 – $2,000",
+      totalTuitionUSD: "~$66,000",
+      grandTotalUSD: "$80,400 – $87,600",
+      totalINR: "₹75.97 Lakh – ₹82.78 Lakh",
+      worldRank: "—",
+      countryRank: "—"
+    },
+    {
+      sNo: "3",
+      name: "Medical University - Pleven",
+      tuitionUSD: "~$9,900",
+      hostelUSD: "$850 – $1,200",
+      foodUSD: "$1,400 – $1,800",
+      totalTuitionUSD: "~$59,400",
+      grandTotalUSD: "$72,900 – $77,400",
+      totalINR: "₹68.89 Lakh – ₹73.14 Lakh",
+      worldRank: "—",
+      countryRank: "—"
+    },
+  ],
 };;;
 
 // --- DATA FROM SITE.TS ---
@@ -3035,7 +3074,7 @@ const europeCountries = [
     flag: "🇧🇬",
     tagline: "Affordable EU MBBS - Sofia University",
     duration: "6 Years",
-    fees: "₹ 35 – 55 Lacs (Total)",
+    fees: "₹ 69 – 85 Lacs (Total)",
     language: "English Medium",
     intakes: ["October"],
     topUniversities: ["Sofia Medical University", "Plovdiv Medical University", "Varna Medical University"],
