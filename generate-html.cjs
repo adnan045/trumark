@@ -4427,158 +4427,194 @@ function buildAbout(root) {
   const content = `
     ${getPageHeroHTML("Why TrueMark Edu", "Honest guidance. Transparent processes. Student-first counselling. The story, meaning, and principles behind every recommendation we make.", [{ name: "Home", to: `${root}index` }, { name: "Why TrueMark Edu" }])}
 
-    <!-- SECTION 1: Why We Started TrueMark Edu -->
+    <!-- SECTION 1: Why We Started TrueMark Edu (Image + Content) -->
     <section class="py-20 font-sans bg-white">
-      <div class="max-w-4xl mx-auto px-4">
-        <div class="text-center mb-10">
-          <span class="inline-block bg-green-100 text-green-700 text-xs font-bold tracking-wider uppercase px-4 py-1.5 rounded-full">Section 1</span>
-          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-4">Why We Started TrueMark Edu</h2>
-          <p class="text-slate-500 mt-2 text-sm uppercase tracking-wider font-semibold">The Story Behind TrueMark Edu</p>
-        </div>
-
-        <div class="prose prose-lg max-w-none">
-          <p class="text-slate-700 leading-relaxed text-lg">
-            After spending years counselling students and working within the international education industry, we noticed a recurring pattern.
-          </p>
-          <p class="text-slate-700 leading-relaxed mt-4">
-            Students often received information, but not always guidance.
-          </p>
-          <p class="text-slate-700 leading-relaxed mt-4">
-            Many families struggled to understand the difference between universities, fee structures, admission processes, visa requirements, and long-term career outcomes. Important decisions were sometimes reduced to rankings, commissions, or whichever destination was trending at the time.
-          </p>
-          <p class="text-slate-700 leading-relaxed mt-4 font-semibold">
-            We believed students deserved something better.
-          </p>
-          <p class="text-slate-700 leading-relaxed mt-4">
-            That belief became the foundation of TrueMark Edu.
-          </p>
-          <p class="text-slate-700 leading-relaxed mt-4">
-            We created TrueMark Edu to provide honest, transparent, and personalised guidance that helps students make informed decisions about their future.
-          </p>
-          <p class="text-slate-700 leading-relaxed mt-4 font-medium text-blue-900">
-            Because studying abroad is not simply about getting an admission letter. It\'s about choosing a path that aligns with a student\'s ambitions, circumstances, and long-term goals.
-          </p>
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="order-2 lg:order-1 relative">
+            <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&h=600&fit=crop&q=80" alt="Student counselling session at TrueMark Edu" class="rounded-3xl shadow-2xl w-full h-[480px] object-cover" />
+            <div class="absolute -bottom-6 -right-6 bg-white p-5 rounded-2xl shadow-xl hidden md:block">
+              <div class="text-3xl font-extrabold text-blue-700">10+</div>
+              <div class="text-slate-600 text-xs font-semibold">Years of Counselling</div>
+            </div>
+          </div>
+          <div class="order-1 lg:order-2">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900">Why We Started TrueMark Edu</h2>
+            <div class="space-y-4 mt-6 text-slate-700 leading-relaxed">
+              <p>
+                After spending years counselling students and working within the international education industry, we noticed a recurring pattern.
+              </p>
+              <p>
+                Students often received information, but not always guidance.
+              </p>
+              <p>
+                Many families struggled to understand the difference between universities, fee structures, admission processes, visa requirements, and long-term career outcomes. Important decisions were sometimes reduced to rankings, commissions, or whichever destination was trending at the time.
+              </p>
+              <p class="font-semibold text-slate-900">
+                We believed students deserved something better.
+              </p>
+              <p>
+                That belief became the foundation of TrueMark Edu.
+              </p>
+              <p>
+                We created TrueMark Edu to provide honest, transparent, and personalised guidance that helps students make informed decisions about their future.
+              </p>
+              <p class="font-medium text-blue-900">
+                Because studying abroad is not simply about getting an admission letter. It\'s about choosing a path that aligns with a student\'s ambitions, circumstances, and long-term goals.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 2: Why the Name "TrueMark" -->
+    <!-- SECTION 2: Why the Name "TrueMark" (Content + Image) -->
     <section class="py-20 font-sans bg-slate-50 border-t border-b border-slate-100">
-      <div class="max-w-4xl mx-auto px-4">
-        <div class="text-center mb-10">
-          <span class="inline-block bg-blue-100 text-blue-700 text-xs font-bold tracking-wider uppercase px-4 py-1.5 rounded-full">Section 2</span>
-          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-4">Why the Name &ldquo;TrueMark&rdquo;</h2>
-          <p class="text-slate-500 mt-2 text-sm uppercase tracking-wider font-semibold">Why We Chose the Name &ldquo;TrueMark&rdquo;</p>
-        </div>
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900">Why the Name &ldquo;TrueMark&rdquo;</h2>
+            <div class="space-y-4 mt-6 text-slate-700 leading-relaxed">
+              <p>
+                Every student\'s educational journey leaves a mark on their future.
+              </p>
+              <p>
+                We wanted that mark to be based on clarity, confidence, and the right decisions.
+              </p>
+              <p>
+                The word &ldquo;True&rdquo; reflects our commitment to honest advice, transparent processes, and student-first counselling.
+              </p>
+              <p>
+                The word &ldquo;Mark&rdquo; represents achievement, progress, and meaningful outcomes.
+              </p>
+              <p>
+                Together, TrueMark represents our belief that the right guidance can leave a lasting and positive mark on a student\'s future.
+              </p>
+            </div>
 
-        <div class="prose prose-lg max-w-none">
-          <p class="text-slate-700 leading-relaxed text-lg">
-            Every student\'s educational journey leaves a mark on their future.
-          </p>
-          <p class="text-slate-700 leading-relaxed mt-4">
-            We wanted that mark to be based on clarity, confidence, and the right decisions.
-          </p>
-          <p class="text-slate-700 leading-relaxed mt-4">
-            The word &ldquo;True&rdquo; reflects our commitment to honest advice, transparent processes, and student-first counselling.
-          </p>
-          <p class="text-slate-700 leading-relaxed mt-4">
-            The word &ldquo;Mark&rdquo; represents achievement, progress, and meaningful outcomes.
-          </p>
-          <p class="text-slate-700 leading-relaxed mt-4">
-            Together, TrueMark represents our belief that the right guidance can leave a lasting and positive mark on a student\'s future.
-          </p>
-
-          <div class="mt-10 p-8 bg-gradient-to-br from-blue-50 to-green-50 rounded-2xl border border-slate-200 text-center">
-            <p class="text-slate-700 leading-relaxed font-semibold">Our promise is simple:</p>
-            <p class="text-3xl md:text-4xl font-extrabold mt-2 text-blue-900">True guidance. Global destinations.</p>
+            <div class="mt-8 p-6 bg-gradient-to-br from-blue-50 to-green-50 rounded-2xl border border-slate-200">
+              <p class="text-slate-700 font-semibold">Our promise is simple:</p>
+              <p class="text-2xl md:text-3xl font-extrabold mt-2 text-blue-900">True guidance. Global destinations.</p>
+            </div>
+          </div>
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1454165804606-c6d2d7a4d7c4?w=800&h=600&fit=crop&q=80" alt="Guidance and decision making" class="rounded-3xl shadow-2xl w-full h-[480px] object-cover" />
+            <div class="absolute -bottom-6 -left-6 bg-white p-5 rounded-2xl shadow-xl hidden md:block">
+              <div class="text-2xl font-extrabold text-green-700">True + Mark</div>
+              <div class="text-slate-600 text-xs font-semibold">Our identity</div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 3: What We Learned From Years of Counselling -->
+    <!-- SECTION 3: What We Learned From Years of Counselling (Image + Content) -->
     <section class="py-20 font-sans bg-white">
-      <div class="max-w-4xl mx-auto px-4">
-        <div class="text-center mb-10">
-          <span class="inline-block bg-green-100 text-green-700 text-xs font-bold tracking-wider uppercase px-4 py-1.5 rounded-full">Section 3</span>
-          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-4">What We Learned From Years of Counselling</h2>
-          <p class="text-slate-500 mt-2 text-sm uppercase tracking-wider font-semibold">What Experience Has Taught Us</p>
-        </div>
-
-        <div class="prose prose-lg max-w-none">
-          <p class="text-slate-700 leading-relaxed text-lg">
-            Over the years, we have counselled students interested in MBBS abroad, European universities, international business programmes, and study destinations across multiple countries.
-          </p>
-          <p class="text-slate-700 leading-relaxed mt-4 font-semibold text-slate-900">
-            Along the way, we observed several common challenges:
-          </p>
-
-          <ul class="mt-6 space-y-3 text-slate-700">
-            <li class="flex items-start gap-3"><i data-lucide="alert-circle" class="w-5 h-5 text-amber-500 shrink-0 mt-1"></i><span>Students overwhelmed by conflicting information online.</span></li>
-            <li class="flex items-start gap-3"><i data-lucide="alert-circle" class="w-5 h-5 text-amber-500 shrink-0 mt-1"></i><span>Families unsure about the true cost of studying abroad.</span></li>
-            <li class="flex items-start gap-3"><i data-lucide="alert-circle" class="w-5 h-5 text-amber-500 shrink-0 mt-1"></i><span>Universities being recommended without considering a student\'s goals.</span></li>
-            <li class="flex items-start gap-3"><i data-lucide="alert-circle" class="w-5 h-5 text-amber-500 shrink-0 mt-1"></i><span>Limited clarity around visa processes and post-study opportunities.</span></li>
-            <li class="flex items-start gap-3"><i data-lucide="alert-circle" class="w-5 h-5 text-amber-500 shrink-0 mt-1"></i><span>A lack of personalised counselling for students with unique academic profiles.</span></li>
-          </ul>
-
-          <p class="text-slate-700 leading-relaxed mt-8">
-            These experiences shaped how we work today.
-          </p>
-          <p class="text-slate-700 leading-relaxed mt-4">
-            At TrueMark Edu, we focus on understanding the student before recommending a destination.
-          </p>
-
-          <div class="mt-8 p-6 bg-gradient-to-r from-blue-50 to-green-50 rounded-2xl border border-slate-200">
-            <p class="text-slate-700 leading-relaxed font-medium italic text-lg text-center">
-              Because the best university isn\'t necessarily the most famous one.
-            </p>
-            <p class="text-slate-900 leading-relaxed font-bold text-xl mt-3 text-center">
-              It\'s the one that\'s right for the student.
-            </p>
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&h=600&fit=crop&q=80" alt="Students navigating study abroad information" class="rounded-3xl shadow-2xl w-full h-[480px] object-cover" />
+            <div class="absolute -bottom-6 -right-6 bg-white p-5 rounded-2xl shadow-xl hidden md:block">
+              <div class="text-3xl font-extrabold text-blue-700">5</div>
+              <div class="text-slate-600 text-xs font-semibold">Common Challenges</div>
+            </div>
+          </div>
+          <div>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900">What We Learned From Years of Counselling</h2>
+            <div class="space-y-4 mt-6 text-slate-700 leading-relaxed">
+              <p>
+                Over the years, we have counselled students interested in MBBS abroad, European universities, international business programmes, and study destinations across multiple countries.
+              </p>
+              <p class="font-semibold text-slate-900">
+                Along the way, we observed several common challenges:
+              </p>
+              <ul class="space-y-3 text-slate-700">
+                <li class="flex items-start gap-3"><i data-lucide="alert-circle" class="w-5 h-5 text-amber-500 shrink-0 mt-1"></i><span>Students overwhelmed by conflicting information online.</span></li>
+                <li class="flex items-start gap-3"><i data-lucide="alert-circle" class="w-5 h-5 text-amber-500 shrink-0 mt-1"></i><span>Families unsure about the true cost of studying abroad.</span></li>
+                <li class="flex items-start gap-3"><i data-lucide="alert-circle" class="w-5 h-5 text-amber-500 shrink-0 mt-1"></i><span>Universities being recommended without considering a student\'s goals.</span></li>
+                <li class="flex items-start gap-3"><i data-lucide="alert-circle" class="w-5 h-5 text-amber-500 shrink-0 mt-1"></i><span>Limited clarity around visa processes and post-study opportunities.</span></li>
+                <li class="flex items-start gap-3"><i data-lucide="alert-circle" class="w-5 h-5 text-amber-500 shrink-0 mt-1"></i><span>A lack of personalised counselling for students with unique academic profiles.</span></li>
+              </ul>
+              <p class="mt-4">
+                These experiences shaped how we work today.
+              </p>
+              <p>
+                At TrueMark Edu, we focus on understanding the student before recommending a destination.
+              </p>
+              <div class="mt-6 p-5 bg-gradient-to-r from-blue-50 to-green-50 rounded-2xl border border-slate-200">
+                <p class="text-slate-700 font-medium italic text-center">
+                  Because the best university isn\'t necessarily the most famous one.
+                </p>
+                <p class="text-slate-900 font-bold text-lg mt-2 text-center">
+                  It\'s the one that\'s right for the student.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 4: Our Principles -->
+    <!-- SECTION 4: Our Principles (Content + Image with 4 cards on content side) -->
     <section class="py-20 font-sans bg-slate-50 border-t border-slate-100">
-      <div class="max-w-5xl mx-auto px-4">
-        <div class="text-center mb-12">
-          <span class="inline-block bg-blue-100 text-blue-700 text-xs font-bold tracking-wider uppercase px-4 py-1.5 rounded-full">Section 4</span>
-          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-4">Our Principles</h2>
-          <p class="text-slate-500 mt-2 text-sm uppercase tracking-wider font-semibold">What You Can Expect From Us</p>
-        </div>
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="grid lg:grid-cols-2 gap-12 items-start">
+          <div>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900">Our Principles</h2>
+            <p class="text-slate-600 mt-4 leading-relaxed">
+              These four principles guide every conversation, every recommendation, and every decision we help you make.
+            </p>
 
-        <div class="grid md:grid-cols-2 gap-6">
-          <div class="p-8 rounded-2xl bg-white border border-slate-200 hover:shadow-xl transition">
-            <div class="inline-flex p-3 bg-blue-50 text-blue-700 rounded-xl"><i data-lucide="eye" class="w-7 h-7"></i></div>
-            <h3 class="text-xl font-bold text-slate-900 mt-4">Transparency First</h3>
-            <p class="text-slate-600 mt-3 leading-relaxed">We believe students should understand every cost, requirement, and process before making a commitment.</p>
+            <div class="space-y-5 mt-8">
+              <div class="p-6 rounded-2xl bg-white border border-slate-200 hover:shadow-xl transition">
+                <div class="flex items-start gap-4">
+                  <div class="shrink-0 inline-flex p-3 bg-blue-50 text-blue-700 rounded-xl"><i data-lucide="eye" class="w-6 h-6"></i></div>
+                  <div>
+                    <h3 class="text-lg font-bold text-slate-900">Transparency First</h3>
+                    <p class="text-slate-600 text-sm mt-1 leading-relaxed">We believe students should understand every cost, requirement, and process before making a commitment.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-6 rounded-2xl bg-white border border-slate-200 hover:shadow-xl transition">
+                <div class="flex items-start gap-4">
+                  <div class="shrink-0 inline-flex p-3 bg-green-50 text-green-700 rounded-xl"><i data-lucide="user-check" class="w-6 h-6"></i></div>
+                  <div>
+                    <h3 class="text-lg font-bold text-slate-900">Student-Centric Advice</h3>
+                    <p class="text-slate-600 text-sm mt-1 leading-relaxed">Recommendations should fit the student, not the other way around.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-6 rounded-2xl bg-white border border-slate-200 hover:shadow-xl transition">
+                <div class="flex items-start gap-4">
+                  <div class="shrink-0 inline-flex p-3 bg-purple-50 text-purple-700 rounded-xl"><i data-lucide="compass" class="w-6 h-6"></i></div>
+                  <div>
+                    <h3 class="text-lg font-bold text-slate-900">Long-Term Thinking</h3>
+                    <p class="text-slate-600 text-sm mt-1 leading-relaxed">We look beyond admissions and consider career goals, future opportunities, and academic success.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-6 rounded-2xl bg-white border border-slate-200 hover:shadow-xl transition">
+                <div class="flex items-start gap-4">
+                  <div class="shrink-0 inline-flex p-3 bg-amber-50 text-amber-700 rounded-xl"><i data-lucide="heart-handshake" class="w-6 h-6"></i></div>
+                  <div>
+                    <h3 class="text-lg font-bold text-slate-900">Personal Support</h3>
+                    <p class="text-slate-600 text-sm mt-1 leading-relaxed">We remain accessible throughout the journey, from counseling till you graduate.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="p-8 rounded-2xl bg-white border border-slate-200 hover:shadow-xl transition">
-            <div class="inline-flex p-3 bg-green-50 text-green-700 rounded-xl"><i data-lucide="user-check" class="w-7 h-7"></i></div>
-            <h3 class="text-xl font-bold text-slate-900 mt-4">Student-Centric Advice</h3>
-            <p class="text-slate-600 mt-3 leading-relaxed">Recommendations should fit the student, not the other way around.</p>
+          <div class="relative lg:sticky lg:top-24">
+            <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&h=900&fit=crop&q=80" alt="Personal guidance and support" class="rounded-3xl shadow-2xl w-full h-[600px] object-cover" />
+            <div class="absolute -bottom-6 -left-6 bg-white p-5 rounded-2xl shadow-xl hidden md:block">
+              <div class="text-2xl font-extrabold text-blue-700">4 Principles</div>
+              <div class="text-slate-600 text-xs font-semibold">We never compromise</div>
+            </div>
           </div>
-
-          <div class="p-8 rounded-2xl bg-white border border-slate-200 hover:shadow-xl transition">
-            <div class="inline-flex p-3 bg-purple-50 text-purple-700 rounded-xl"><i data-lucide="compass" class="w-7 h-7"></i></div>
-            <h3 class="text-xl font-bold text-slate-900 mt-4">Long-Term Thinking</h3>
-            <p class="text-slate-600 mt-3 leading-relaxed">We look beyond admissions and consider career goals, future opportunities, and academic success.</p>
-          </div>
-
-          <div class="p-8 rounded-2xl bg-white border border-slate-200 hover:shadow-xl transition">
-            <div class="inline-flex p-3 bg-amber-50 text-amber-700 rounded-xl"><i data-lucide="heart-handshake" class="w-7 h-7"></i></div>
-            <h3 class="text-xl font-bold text-slate-900 mt-4">Personal Support</h3>
-            <p class="text-slate-600 mt-3 leading-relaxed">We remain accessible throughout the journey, from counseling till you graduate.</p>
-          </div>
-        </div>
-
-        <div class="mt-12 text-center">
-          <p class="text-slate-600 italic text-lg max-w-2xl mx-auto">
-            These principles guide every conversation, every recommendation, and every decision we help you make.
-          </p>
         </div>
       </div>
     </section>
