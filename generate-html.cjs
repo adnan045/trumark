@@ -4498,7 +4498,7 @@ function buildAbout(root) {
             </div>
           </div>
           <div class="relative">
-            <img src="https://images.unsplash.com/photo-1454165804606-c6d2d7a4d7c4?w=800&h=600&fit=crop&q=80" alt="Guidance and decision making" class="rounded-3xl shadow-2xl w-full h-[480px] object-cover" />
+            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=600&fit=crop&q=80" alt="Signature representing TrueMark brand identity" class="rounded-3xl shadow-2xl w-full h-[480px] object-cover" />
             <div class="absolute -bottom-6 -left-6 bg-white p-5 rounded-2xl shadow-xl hidden md:block">
               <div class="text-2xl font-extrabold text-green-700">True + Mark</div>
               <div class="text-slate-600 text-xs font-semibold">Our identity</div>
