@@ -16,49 +16,42 @@
     <a href="/index" class="flex items-center gap-3 shrink-0">
       <img src="/logo.png" onerror="this.onerror=null; this.src='/logo.svg'" alt="TrueMark Edu" style="width: 180px; height: 36px; object-fit: contain;" />
     </a>
-    
-    <!-- Desktop Nav (Main tabs restored as clickable buttons, overview link is placed on the small uppercase blue headers inside dropdowns) -->
+
+    <!-- Desktop Nav -->
     <nav class="hidden lg:flex items-center font-sans custom-nav">
-      
-      <!-- Click Menu MBBS Abroad -->
+
+      <!-- Click Menu MBBS Abroad (now includes all countries including Europe) -->
       <div class="relative py-2">
         <button class="desktop-dropdown-btn inline-flex items-center gap-1 py-2 font-medium text-slate-700 hover:text-blue-700 focus:outline-none custom-nav-link" data-target="dropdown-mbbs-abroad">
           MBBS Abroad <i data-lucide="chevron-down" class="w-3 h-3 transition-transform duration-300"></i>
         </button>
         <div id="dropdown-mbbs-abroad" class="desktop-dropdown absolute left-1/2 -translate-x-1/2 top-full hidden pt-3 z-50 bg-white rounded-xl shadow-xl border border-slate-100 mega-menu-wide">
-          <a href="/mbbs-abroad" class="block text-xs font-bold uppercase tracking-wider text-blue-700 mb-3 hover:text-green-700 transition">MBBS Abroad - Countries</a>
+          <a href="/mbbs-abroad" class="block text-xs font-bold uppercase tracking-wider text-blue-700 mb-3 hover:text-green-700 transition">MBBS Abroad - All Destinations</a>
           <ul class="mega-menu-grid">
             <li><a href="/mbbs-abroad/georgia" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">MBBS in Georgia</a></li>
             <li><a href="/mbbs-abroad/uzbekistan" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">MBBS in Uzbekistan</a></li>
             <li><a href="/mbbs-abroad/kazakhstan" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">MBBS in Kazakhstan</a></li>
             <li><a href="/mbbs-abroad/russia" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">MBBS in Russia</a></li>
             <li><a href="/mbbs-abroad/kyrgyzstan" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">MBBS in Kyrgyzstan</a></li>
+            <li><a href="/mbbs-abroad/nepal" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">MBBS in Nepal</a></li>
+            <li><a href="/mbbs-abroad/bangladesh" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">MBBS in Bangladesh</a></li>
+            <li><a href="/mbbs-abroad/china" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">MBBS in China</a></li>
+            <li><a href="/mbbs-abroad/philippines" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">MBBS in Philippines</a></li>
+            <li><a href="/mbbs-abroad/armenia" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">MBBS in Armenia</a></li>
             <li><a href="/mbbs-abroad/st-lucia" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">MBBS in St. Lucia</a></li>
             <li><a href="/mbbs-abroad/india" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">MBBS in India</a></li>
+            <li><a href="/mbbs-abroad/italy" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">MBBS in Italy</a></li>
+            <li><a href="/mbbs-abroad/spain" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">MBBS in Spain</a></li>
+            <li><a href="/mbbs-abroad/romania" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">MBBS in Romania</a></li>
+            <li><a href="/mbbs-abroad/bulgaria" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">MBBS in Bulgaria</a></li>
+            <li><a href="/mbbs-abroad/czech" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">MBBS in Czech Republic</a></li>
+            <li><a href="/mbbs-abroad/slovakia" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">MBBS in Slovakia</a></li>
+            <li><a href="/mbbs-abroad/poland" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">MBBS in Poland</a></li>
+            <li><a href="/mbbs-abroad/hungary" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">MBBS in Hungary</a></li>
           </ul>
         </div>
       </div>
-      
-      <!-- Click Menu MBBS Europe -->
-      <div class="relative py-2">
-        <button class="desktop-dropdown-btn inline-flex items-center gap-1 py-2 font-medium text-slate-700 hover:text-blue-700 focus:outline-none custom-nav-link" data-target="dropdown-mbbs-europe">
-          MBBS in Europe <i data-lucide="chevron-down" class="w-3 h-3 transition-transform duration-300"></i>
-        </button>
-        <div id="dropdown-mbbs-europe" class="desktop-dropdown absolute left-1/2 -translate-x-1/2 top-full hidden pt-3 z-50 bg-white rounded-xl shadow-xl border border-slate-100 mega-menu-wide">
-          <a href="/mbbs-in-europe" class="block text-xs font-bold uppercase tracking-wider text-blue-700 mb-3 hover:text-green-700 transition">MBBS in Europe</a>
-          <ul class="mega-menu-grid">
-            <li><a href="/mbbs-in-europe/italy" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">MBBS in Italy</a></li>
-            <li><a href="/mbbs-in-europe/spain" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">MBBS in Spain</a></li>
-            <li><a href="/mbbs-in-europe/romania" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">MBBS in Romania</a></li>
-            <li><a href="/mbbs-in-europe/bulgaria" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">MBBS in Bulgaria</a></li>
-            <li><a href="/mbbs-in-europe/czech" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">MBBS in Czech Republic</a></li>
-            <li><a href="/mbbs-in-europe/slovakia" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">MBBS in Slovakia</a></li>
-            <li><a href="/mbbs-in-europe/poland" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">MBBS in Poland</a></li>
-            <li><a href="/mbbs-in-europe/hungary" class="block text-sm text-slate-600 hover:text-green-700 hover:pl-2 transition-all py-1">MBBS in Hungary</a></li>
-          </ul>
-        </div>
-      </div>
-      
+
       <!-- Click Menu Study Abroad -->
       <div class="relative py-2">
         <button class="desktop-dropdown-btn inline-flex items-center gap-1 py-2 font-medium text-slate-700 hover:text-blue-700 focus:outline-none custom-nav-link" data-target="dropdown-study-abroad">
@@ -74,12 +67,12 @@
           </ul>
         </div>
       </div>
-      
+
       <a href="/about" class="py-2 font-medium text-slate-700 hover:text-blue-700 custom-nav-link" data-menu="about">About</a>
-      
+
       <a href="https://truemarkedu.com/pricing" class="py-2 font-medium text-slate-700 hover:text-blue-700 custom-nav-link whitespace-nowrap" data-menu="pricing">Info</a>
     </nav>
-    
+
     <div class="flex items-center gap-3 shrink-0">
       <a href="/contact" class="hidden xl:inline-flex items-center bg-gradient-to-r from-blue-700 to-green-600 text-white text-xs xl:text-sm font-semibold px-3 xl:px-4 py-2 rounded-full shadow hover:shadow-lg transition whitespace-nowrap">
         Free Counseling
@@ -94,8 +87,8 @@
 <!-- Mobile Menu -->
 <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 bg-white max-h-[75vh] overflow-auto">
   <div class="px-5 py-4 space-y-1 text-sm font-sans">
-    
-    <!-- Accordion 1: MBBS Abroad -->
+
+    <!-- Accordion 1: MBBS Abroad (now includes all countries) -->
     <div class="py-1 border-b border-slate-100">
       <button class="mobile-accordion-btn w-full flex items-center justify-between font-bold text-slate-800 py-3 focus:outline-none" data-target="mobile-mbbs-abroad">
         MBBS Abroad <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
@@ -107,30 +100,25 @@
         <a href="/mbbs-abroad/kazakhstan" class="block py-1.5 text-slate-600">MBBS in Kazakhstan</a>
         <a href="/mbbs-abroad/russia" class="block py-1.5 text-slate-600">MBBS in Russia</a>
         <a href="/mbbs-abroad/kyrgyzstan" class="block py-1.5 text-slate-600">MBBS in Kyrgyzstan</a>
+        <a href="/mbbs-abroad/nepal" class="block py-1.5 text-slate-600">MBBS in Nepal</a>
+        <a href="/mbbs-abroad/bangladesh" class="block py-1.5 text-slate-600">MBBS in Bangladesh</a>
+        <a href="/mbbs-abroad/china" class="block py-1.5 text-slate-600">MBBS in China</a>
+        <a href="/mbbs-abroad/philippines" class="block py-1.5 text-slate-600">MBBS in Philippines</a>
+        <a href="/mbbs-abroad/armenia" class="block py-1.5 text-slate-600">MBBS in Armenia</a>
         <a href="/mbbs-abroad/st-lucia" class="block py-1.5 text-slate-600">MBBS in St. Lucia</a>
         <a href="/mbbs-abroad/india" class="block py-1.5 text-slate-600">MBBS in India</a>
+        <a href="/mbbs-abroad/italy" class="block py-1.5 text-slate-600">MBBS in Italy</a>
+        <a href="/mbbs-abroad/spain" class="block py-1.5 text-slate-600">MBBS in Spain</a>
+        <a href="/mbbs-abroad/romania" class="block py-1.5 text-slate-600">MBBS in Romania</a>
+        <a href="/mbbs-abroad/bulgaria" class="block py-1.5 text-slate-600">MBBS in Bulgaria</a>
+        <a href="/mbbs-abroad/czech" class="block py-1.5 text-slate-600">MBBS in Czech Republic</a>
+        <a href="/mbbs-abroad/slovakia" class="block py-1.5 text-slate-600">MBBS in Slovakia</a>
+        <a href="/mbbs-abroad/poland" class="block py-1.5 text-slate-600">MBBS in Poland</a>
+        <a href="/mbbs-abroad/hungary" class="block py-1.5 text-slate-600">MBBS in Hungary</a>
       </div>
     </div>
-    
-    <!-- Accordion 2: MBBS in Europe -->
-    <div class="py-1 border-b border-slate-100">
-      <button class="mobile-accordion-btn w-full flex items-center justify-between font-bold text-slate-800 py-3 focus:outline-none" data-target="mobile-mbbs-europe">
-        MBBS in Europe <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
-      </button>
-      <div id="mobile-mbbs-europe" class="hidden pl-4 py-1.5 space-y-1 border-l-2 border-blue-500/20">
-        <a href="/mbbs-in-europe" class="block py-1.5 text-slate-700 font-semibold">MBBS in Europe Overview</a>
-        <a href="/mbbs-in-europe/italy" class="block py-1.5 text-slate-600">MBBS in Italy</a>
-        <a href="/mbbs-in-europe/spain" class="block py-1.5 text-slate-600">MBBS in Spain</a>
-        <a href="/mbbs-in-europe/romania" class="block py-1.5 text-slate-600">MBBS in Romania</a>
-        <a href="/mbbs-in-europe/bulgaria" class="block py-1.5 text-slate-600">MBBS in Bulgaria</a>
-        <a href="/mbbs-in-europe/czech" class="block py-1.5 text-slate-600">MBBS in Czech Republic</a>
-        <a href="/mbbs-in-europe/slovakia" class="block py-1.5 text-slate-600">MBBS in Slovakia</a>
-        <a href="/mbbs-in-europe/poland" class="block py-1.5 text-slate-600">MBBS in Poland</a>
-        <a href="/mbbs-in-europe/hungary" class="block py-1.5 text-slate-600">MBBS in Hungary</a>
-      </div>
-    </div>
-    
-    <!-- Accordion 3: Study Abroad -->
+
+    <!-- Accordion 2: Study Abroad -->
     <div class="py-1 border-b border-slate-100">
       <button class="mobile-accordion-btn w-full flex items-center justify-between font-bold text-slate-800 py-3 focus:outline-none" data-target="mobile-study-abroad">
         Study Abroad <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
@@ -143,9 +131,9 @@
         <a href="/study-abroad/usa" class="block py-1.5 text-slate-600">Study in USA</a>
       </div>
     </div>
-    
+
     <a href="/about" class="block py-3 font-semibold text-slate-800 border-b border-slate-100">About Us</a>
-    
+
     <a href="https://truemarkedu.com/pricing" class="block py-3 font-semibold text-slate-800 border-b border-slate-100">Info</a>
   </div>
 </div>

@@ -3857,7 +3857,7 @@ function buildHome(root) {
                 <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-5 h-5 text-green-300 shrink-0"></i> ${p}</li>
               `).join("")}
             </ul>
-            <a href="${root}mbbs-in-europe" class="mt-10 inline-flex items-center gap-2 bg-white text-blue-900 font-bold px-7 py-3.5 rounded-full hover:shadow-2xl transition-all w-fit">
+            <a href="${root}mbbs-abroad" class="mt-10 inline-flex items-center gap-2 bg-white text-blue-900 font-bold px-7 py-3.5 rounded-full hover:shadow-2xl transition-all w-fit">
               Explore Europe <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </a>
           </div>
@@ -4003,7 +4003,7 @@ function buildHome(root) {
               <div class="text-sm text-slate-600">Medium</div>
             </div>
           </div>
-          <a href="${root}mbbs-in-europe/italy" class="mt-10 inline-flex items-center gap-2 bg-gradient-to-r from-blue-700 to-green-600 text-white font-bold px-7 py-3.5 rounded-full hover:shadow-2xl transition-all">
+          <a href="${root}mbbs-abroad/italy" class="mt-10 inline-flex items-center gap-2 bg-gradient-to-r from-blue-700 to-green-600 text-white font-bold px-7 py-3.5 rounded-full hover:shadow-2xl transition-all">
             MBBS in Italy <i data-lucide="arrow-right" class="w-4 h-4"></i>
           </a>
         </div>
@@ -4965,7 +4965,7 @@ function buildMBBSAbroad(root) {
   return wrapPage(content, "MBBS Abroad Guide", "NMC approved medical degrees in Georgia, Central Asia, Russia and the Caribbean.", "mbbs-abroad.html", "mbbs-abroad");
 }
 
-// 8. MBBS IN EUROPE OVERVIEW (mbbs-in-europe.html)
+// 8. (REMOVED) MBBS in Europe overview - now unified under MBBS Abroad
 function buildMBBSEurope(root) {
   const content = `
     ${getPageHeroHTML("MBBS in Europe", "Study MBBS in Europe - EU-recognized degrees, public universities with zero tuition in Italy, and high FMGE/NExT passing rates in Czech, Romania & Bulgaria.", [{ name: "Home", to: `${root}index` }, { name: "MBBS in Europe" }])}
@@ -5010,7 +5010,7 @@ function buildMBBSEurope(root) {
           <div class="p-8 rounded-3xl bg-gradient-to-r from-blue-800 to-green-700 text-white shadow-xl animate-fade-up">
             <h3 class="text-2xl md:text-3xl font-extrabold">IMAT Exam for Italy — Zero Tuition Fee</h3>
             <p class="mt-3 text-white/90 text-lg">Through the IMAT exam, Indian students can study MBBS in Italian public universities at almost zero tuition. Sapienza Rome, Milan, Bologna, Pavia are top choices.</p>
-            <a href="${root}mbbs-in-europe/italy" class="mt-5 inline-flex items-center bg-white text-blue-800 font-bold px-6 py-3 rounded-full hover:shadow-xl transition btn-shine">MBBS in Italy <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i></a>
+            <a href="${root}mbbs-abroad/italy" class="mt-5 inline-flex items-center bg-white text-blue-800 font-bold px-6 py-3 rounded-full hover:shadow-xl transition btn-shine">MBBS in Italy <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i></a>
           </div>
 
           <div>
@@ -5081,7 +5081,7 @@ function buildStudyAbroad(root) {
   return wrapPage(content, "Study Abroad Programs", "Expand your career horizons with postgraduate, master's and MBA courses in UAE, Germany, USA and Canada.", "study-abroad.html", "study-abroad");
 }
 
-// 10. DYNAMIC COUNTRY PAGE (mbbs-abroad/[country].html and mbbs-in-europe/[country].html)
+// 10. DYNAMIC COUNTRY PAGE (mbbs-abroad/[country].html) - all countries unified
 // IMAT Complete Guide content (shown only on the Italy page)
 const imatGuideHTML = `
             <div class="p-6 md:p-8 rounded-2xl bg-white border border-slate-200">
@@ -5239,11 +5239,11 @@ const imatGuideHTML = `
 
 function buildCountryPage(country, variant, root) {
   const content = `
-    ${getPageHeroHTML(`MBBS in ${country.name}`, country.tagline, [{ name: "Home", to: `${root}index` }, { name: variant === "europe" ? "MBBS in Europe" : "MBBS Abroad", to: variant === "europe" ? `${root}mbbs-in-europe` : `${root}mbbs-abroad` }, { name: country.name }])}
+    ${getPageHeroHTML(`MBBS in ${country.name}`, country.tagline, [{ name: "Home", to: `${root}index` }, { name: "MBBS Abroad", to: variant === "europe" ? `${root}mbbs-abroad` : `${root}mbbs-abroad` }, { name: country.name }])}
     
     <section class="py-20">
       <div class="max-w-7xl mx-auto px-4">
-        <a href="${variant === "europe" ? `${root}mbbs-in-europe` : `${root}mbbs-abroad`}" class="text-blue-700 inline-flex items-center gap-2 mb-8 text-sm"><i data-lucide="arrow-left" class="w-4 h-4"></i> Back</a>
+        <a href="${variant === "europe" ? `${root}mbbs-abroad` : `${root}mbbs-abroad`}" class="text-blue-700 inline-flex items-center gap-2 mb-8 text-sm"><i data-lucide="arrow-left" class="w-4 h-4"></i> Back</a>
 
         <div class="grid lg:grid-cols-3 gap-8">
           <div class="lg:col-span-2 space-y-8">
@@ -5409,7 +5409,7 @@ function buildCountryPage(country, variant, root) {
       </div>
     </section>
   `;
-  return wrapPage(content, `MBBS in ${country.name}`, country.tagline, `${variant === "europe" ? "mbbs-in-europe" : "mbbs-abroad"}/${country.slug}.html`, variant === "europe" ? "mbbs-in-europe" : "mbbs-abroad");
+  return wrapPage(content, `MBBS in ${country.name}`, country.tagline, `${"mbbs-abroad"}/${country.slug}.html`, "mbbs-abroad");
 }
 
 // 11. DYNAMIC PROGRAM PAGE (study-abroad/[slug].html)
@@ -5594,7 +5594,7 @@ function buildBlogPostPage(b, root) {
 console.log("Generating static HTML files...");
 
 // Ensure folders exist
-const dirs = ["mbbs-abroad", "mbbs-in-europe", "study-abroad", "universities", "blog"];
+const dirs = ["mbbs-abroad", "study-abroad", "universities", "blog"];
 dirs.forEach(d => {
   if (!fs.existsSync(d)) {
     fs.mkdirSync(d, { recursive: true });
@@ -5610,19 +5610,13 @@ fs.writeFileSync("contact.html", buildContact("./"));
 fs.writeFileSync("blog.html", buildBlogList("./"));
 fs.writeFileSync("universities.html", buildUniversities("./"));
 fs.writeFileSync("mbbs-abroad.html", buildMBBSAbroad("./"));
-fs.writeFileSync("mbbs-in-europe.html", buildMBBSEurope("./"));
+// mbbs-in-europe.html removed: all Europe pages now live under mbbs-abroad/
 fs.writeFileSync("study-abroad.html", buildStudyAbroad("./"));
 
-// Write Dynamic Countries (MBBS Abroad)
-mbbsCountries.forEach(c => {
+// Write Dynamic Countries (MBBS Abroad - includes ALL countries: Asia + Europe)
+// All country pages now live under /mbbs-abroad/{slug} for unified navigation.
+[...mbbsCountries, ...europeCountries].forEach(c => {
   fs.writeFileSync(path.join("mbbs-abroad", `${c.slug}.html`), buildCountryPage(c, "mbbs", "../"));
-});
-
-// Write Dynamic Countries (Europe)
-europeCountries.forEach(c => {
-  fs.writeFileSync(path.join("mbbs-in-europe", `${c.slug}.html`), buildCountryPage(c, "europe", "../"));
-  // Also write to mbbs-abroad folder to prevent 404 errors for students typing /mbbs-abroad/italy etc.
-  fs.writeFileSync(path.join("mbbs-abroad", `${c.slug}.html`), buildCountryPage(c, "europe", "../"));
 });
 
 // Write Dynamic Programs

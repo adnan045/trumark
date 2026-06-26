@@ -34,7 +34,9 @@ function copyDir(src, dest) {
 }
 
 // Copy directories
-const dirsToCopy = ["mbbs-abroad", "mbbs-in-europe", "study-abroad", "universities", "blog", "js"];
+// Note: All country pages (Asia + Europe) now live under /mbbs-abroad/.
+// The /mbbs-in-europe/ folder is no longer used.
+const dirsToCopy = ["mbbs-abroad", "study-abroad", "universities", "blog", "js"];
 dirsToCopy.forEach(dir => {
   if (fs.existsSync(dir)) {
     copyDir(dir, path.join("dist", dir));
@@ -56,14 +58,7 @@ if (fs.existsSync("public")) {
   }
 }
 
-// Copy all European country HTML files into mbbs-abroad/ directory too, to prevent 404s!
-if (fs.existsSync("dist/mbbs-in-europe")) {
-  console.log("Cross-copying European countries to mbbs-abroad folder to prevent 404s...");
-  const euroFiles = fs.readdirSync("dist/mbbs-in-europe");
-  euroFiles.forEach(file => {
-    fs.copyFileSync(path.join("dist/mbbs-in-europe", file), path.join("dist/mbbs-abroad", file));
-  });
-}
+// Cross-copy removed: all countries generate directly to mbbs-abroad/
 
 // Copy root files
 const filesToCopy = [
@@ -75,7 +70,6 @@ const filesToCopy = [
   "blog.html",
   "universities.html",
   "mbbs-abroad.html",
-  "mbbs-in-europe.html",
   "study-abroad.html",
   "header.html",
   "footer.html",
