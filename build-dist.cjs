@@ -70,6 +70,7 @@ const filesToCopy = [
   "blog.html",
   "universities.html",
   "mbbs-abroad.html",
+  "mbbs-in-europe.html",
   "study-abroad.html",
   "header.html",
   "footer.html",
