@@ -3298,18 +3298,18 @@ const testimonials = [
 ];
 
 const services = [
+  { title: "Study in Germany", icon: "map", desc: "Priority study abroad counselling for Germany: public universities, APS, blocked account, visa and job-seeker pathway." },
+  { title: "MBA in Dubai / UAE", icon: "briefcase", desc: "Priority Dubai admissions in top business schools with paid internships, post-study work visa and PR pathway." },
   { title: "MBBS Abroad Counseling", icon: "stethoscope", desc: "Free personalized MBBS abroad guidance with country & university comparison, fee structure and eligibility check." },
   { title: "MBBS in Europe", icon: "globe", desc: "Admission in EU universities including Italy, Romania, Bulgaria, Czech, Slovakia, Spain and Hungary." },
   { title: "Visa Assistance", icon: "file-check", desc: "End-to-end visa documentation, SOP, LOR, financial planning and interview preparation." },
   { title: "IELTS / PTE / OET Coaching", icon: "book-open", desc: "Live & classroom coaching for IELTS, PTE and OET with mock tests and band-score improvement." },
-  { title: "NExT / FMGE Coaching", icon: "graduation-cap", desc: "Targeted coaching for FMGE/NExT screening test for students returning from abroad medical universities." },
-  { title: "SOP & LOR Writing", icon: "pen-tool", desc: "Admission-winning SOP, LOR, essays and personal statements tailored to top global universities." },
   { title: "Scholarship Guidance", icon: "award", desc: "Help apply for merit-based, need-based and country-specific scholarships up to 100% tuition coverage." },
-  { title: "MBA in Dubai / UAE", icon: "briefcase", desc: "Admission in top business schools in Dubai with paid internships, post-study work visa and PR pathway." },
-  { title: "Study Abroad - Europe", icon: "map", desc: "Complete study abroad programs for EU countries - Germany, France, Spain, Italy, Poland." },
+  { title: "SOP & LOR Writing", icon: "pen-tool", desc: "Admission-winning SOP, LOR, essays and personal statements tailored to top global universities." },
+  { title: "Loan Assistance", icon: "wallet", desc: "Tie-ups with leading banks for collateral and non-collateral education loans at lowest interest rates." },
+  { title: "NExT / FMGE Coaching", icon: "graduation-cap", desc: "Targeted coaching for FMGE/NExT screening test for students returning from abroad medical universities." },
   { title: "Hostel & Accommodation", icon: "home", desc: "Verified hostel, PG and apartment bookings near university campuses with Indian food option." },
-  { title: "Pre-departure Briefing", icon: "plane", desc: "Packing, currency, culture, SIM, banking and airport pickup arrangements before you fly." },
-  { title: "Loan Assistance", icon: "wallet", desc: "Tie-ups with leading banks for collateral and non-collateral education loans at lowest interest rates." }
+  { title: "Pre-departure Briefing", icon: "plane", desc: "Packing, currency, culture, SIM, banking and airport pickup arrangements before you fly." }
 ];
 
 const blogs = [
@@ -3331,10 +3331,10 @@ const faqs = [
 ];
 
 const programs = [
-  { slug: "mba-in-dubai", title: "MBA in Dubai / UAE", tagline: "1-year MBA with paid internships, 2-year post-study visa & PR pathway", fees: "₹ 12 – 25 Lacs", duration: "12 – 24 Months" },
-  { slug: "germany", title: "Study in Germany", tagline: "Free public education with low cost of living & excellent job opportunities", fees: "₹ 0 – 8 Lacs", duration: "2 Years (PG)" },
-  { slug: "canada", title: "Study in Canada", tagline: "PGWP pathway, permanent residency & world-class universities", fees: "₹ 15 – 30 Lacs", duration: "1 – 2 Years" },
-  { slug: "usa", title: "Study in USA", tagline: "Top-ranked universities, STEM programs & post-study OPT work authorization", fees: "₹ 25 – 60 Lacs", duration: "1 – 2 Years" }
+  { slug: "germany", title: "Study in Germany", tagline: "Priority destination: tuition-free public universities, job seeker visa & PR pathway", fees: "₹ 0 – 8 Lacs", duration: "2 Years (PG)", priority: true },
+  { slug: "mba-in-dubai", title: "MBA in Dubai / UAE", tagline: "Priority program: 1-year MBA with paid internships, post-study visa & PR pathway", fees: "₹ 12 – 25 Lacs", duration: "12 – 24 Months", priority: true },
+  { slug: "canada", title: "Study in Canada", tagline: "Secondary option: PGWP pathway, permanent residency & world-class universities", fees: "₹ 15 – 30 Lacs", duration: "1 – 2 Years" },
+  { slug: "usa", title: "Study in USA", tagline: "Secondary option: top-ranked universities, STEM programs & post-study OPT", fees: "₹ 25 – 60 Lacs", duration: "1 – 2 Years" }
 ];
 
 const programData = {
@@ -5038,28 +5038,37 @@ function buildMBBSEurope(root) {
 // 9. STUDY ABROAD OVERVIEW (study-abroad.html)
 function buildStudyAbroad(root) {
   const content = `
-    ${getPageHeroHTML("Study Abroad Programs", "MBA in Dubai, Germany, Canada, USA, UK, Australia & more — with scholarships, admissions, visa & pre-departure support.", [{ name: "Home", to: `${root}index` }, { name: "Study Abroad" }])}
+    ${getPageHeroHTML("Study Abroad Programs", "Priority admissions for Germany and Dubai, with Canada and USA as secondary options — scholarships, visa and pre-departure support included.", [{ name: "Home", to: `${root}index` }, { name: "Study Abroad" }])}
     
     <section class="py-20">
       <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-3 gap-8">
         <div class="lg:col-span-2 space-y-8">
           <div class="p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-green-50 border border-slate-200">
-            <h2 class="text-3xl font-extrabold text-slate-900">Programs Beyond MBBS</h2>
-            <p class="text-slate-600 mt-3 leading-relaxed">We help students with Master's, MBA, BBA, Engineering, Data Science, Public Health, Hotel Management & Law programs across Dubai, Germany, Canada, USA, UK & Australia.</p>
+            <div class="inline-flex items-center gap-2 bg-white text-blue-700 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm mb-3">Business Priority</div>
+            <h2 class="text-3xl font-extrabold text-slate-900">Germany & Dubai Focused Study Abroad Guidance</h2>
+            <p class="text-slate-600 mt-3 leading-relaxed">Based on current business goals, Germany and Dubai are highlighted first with stronger CTAs and counselling focus. Canada and USA remain available as secondary options.</p>
             <ul class="grid md:grid-cols-2 gap-2 mt-5 text-slate-700">
-              ${["Scholarships up to 100% tuition", "Admission in top 100 global universities", "SOP, LOR & profile building", "Loan assistance", "Post-study work visa guidance", "Pre-departure & accommodation support"].map(p => `
+              ${["Germany APS, blocked account & public university guidance", "Dubai MBA admissions with internship pathway", "Scholarships up to 100% tuition", "SOP, LOR & profile building", "Loan assistance", "Post-study work visa guidance"].map(p => `
                 <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-5 h-5 text-green-600 shrink-0 mt-0.5"></i> ${p}</li>
               `).join("")}
             </ul>
           </div>
           <div class="grid md:grid-cols-2 gap-6 font-sans">
             ${programs.map((p, i) => {
-              const image = [IMG.dubai, IMG.classroom, IMG.campus, IMG.university][i % 4];
+              const imageByProgram = {
+                germany: IMG.classroom,
+                "mba-in-dubai": IMG.dubai,
+                canada: IMG.campus,
+                usa: IMG.university
+              };
+              const image = imageByProgram[p.slug] || IMG.classroom;
+              const priorityClasses = p.priority ? "border-2 border-blue-600 shadow-xl ring-4 ring-blue-50" : "border border-slate-200";
               return `
-              <a href="${root}study-abroad/${p.slug}" class="group bg-white rounded-3xl border border-slate-200 hover:shadow-2xl hover:-translate-y-1 transition-all overflow-hidden block">
-                <div class="h-48 overflow-hidden relative">
+              <a href="${root}study-abroad/${p.slug}" class="group bg-white rounded-3xl ${priorityClasses} hover:shadow-2xl hover:-translate-y-1 transition-all overflow-hidden block">
+                <div class="h-52 overflow-hidden relative">
                   <img src="${image}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                  ${p.priority ? `<div class="absolute top-4 left-4 bg-green-400 text-slate-900 text-xs font-extrabold px-3 py-1.5 rounded-full shadow-md uppercase tracking-wide">Priority Destination</div>` : `<div class="absolute top-4 left-4 bg-white/90 text-slate-700 text-xs font-bold px-3 py-1.5 rounded-full shadow-md">Secondary Option</div>`}
                   <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur text-blue-900 text-xs font-bold px-3 py-1 rounded-full shadow-md">
                     ${p.duration}
                   </div>
@@ -5069,7 +5078,7 @@ function buildStudyAbroad(root) {
                   <p class="text-sm text-slate-600 mt-2 leading-relaxed">${p.tagline}</p>
                   <div class="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between text-sm">
                     <div><span class="text-slate-500">Fees:</span> <b class="text-slate-900">${p.fees}</b></div>
-                    <div class="text-blue-700 font-bold inline-flex items-center gap-1 group-hover:gap-2 transition-all">Explore <i data-lucide="arrow-right" class="w-4 h-4"></i></div>
+                    <div class="text-blue-700 font-bold inline-flex items-center gap-1 group-hover:gap-2 transition-all">${p.priority ? "Apply Now" : "Explore"} <i data-lucide="arrow-right" class="w-4 h-4"></i></div>
                   </div>
                 </div>
               </a>
@@ -5081,7 +5090,7 @@ function buildStudyAbroad(root) {
       </div>
     </section>
   `;
-  return wrapPage(content, "Study Abroad Programs", "Expand your career horizons with postgraduate, master's and MBA courses in UAE, Germany, USA and Canada.", "study-abroad.html", "study-abroad");
+  return wrapPage(content, "Study Abroad Programs", "Priority Germany and Dubai study abroad admissions with visa, scholarship and pre-departure support.", "study-abroad.html", "study-abroad");
 }
 
 // 10. DYNAMIC COUNTRY PAGE (mbbs-abroad/[country].html) - all countries unified
