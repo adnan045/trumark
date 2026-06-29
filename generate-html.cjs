@@ -5898,5 +5898,7 @@ function initSite() {
 })();
 `;
 
-fs.writeFileSync("script.js", scriptContent);
-console.log("script.js generated successfully!");
+// script.js is maintained as a standalone file because it contains the
+// local icon fallback used when the Lucide CDN is unavailable/blocked.
+// Do not overwrite it during static HTML generation.
+console.log("script.js kept unchanged");
