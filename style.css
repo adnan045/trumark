@@ -168,3 +168,30 @@ html,body{overflow-x:clip}
   opacity: 0.75;
   cursor: not-allowed;
 }
+
+/* MBBS Europe page fixes: missing Tailwind color utilities + mobile table cards */
+.bg-blue-500{background-color:#3b82f6!important}.border-blue-300{border-color:#93c5fd!important}.border-blue-500{border-color:#3b82f6!important}.text-blue-800{color:#1e40af!important}
+.bg-purple-50{background-color:#faf5ff!important}.bg-purple-100{background-color:#f3e8ff!important}.bg-purple-500{background-color:#a855f7!important}.border-purple-300{border-color:#d8b4fe!important}.border-purple-500{border-color:#a855f7!important}.text-purple-700{color:#7e22ce!important}.text-purple-800{color:#6b21a8!important}
+.bg-amber-50{background-color:#fffbeb!important}.bg-amber-100{background-color:#fef3c7!important}.bg-amber-500{background-color:#f59e0b!important}.border-amber-400{border-color:#fbbf24!important}.border-amber-500{border-color:#f59e0b!important}.text-amber-700{color:#b45309!important}.text-amber-900{color:#78350f!important}
+.bg-red-100{background-color:#fee2e2!important}.text-red-700{color:#b91c1c!important}
+.bg-pink-50{background-color:#fdf2f8!important}.bg-pink-500{background-color:#ec4899!important}.border-pink-300{border-color:#f9a8d4!important}.border-pink-500{border-color:#ec4899!important}.text-pink-800{color:#9d174d!important}
+.bg-indigo-50{background-color:#eef2ff!important}.bg-indigo-100{background-color:#e0e7ff!important}.bg-indigo-500{background-color:#6366f1!important}.border-indigo-400{border-color:#818cf8!important}.border-indigo-500{border-color:#6366f1!important}.text-indigo-900{color:#312e81!important}
+
+@media (max-width: 640px){
+  .europe-comparison-table{border:0!important;box-shadow:none!important;overflow:visible!important;background:transparent!important}
+  .europe-comparison-table table,.europe-comparison-table thead,.europe-comparison-table tbody,.europe-comparison-table tr,.europe-comparison-table td{display:block;width:100%}
+  .europe-comparison-table thead{display:none}
+  .europe-comparison-table tbody{display:grid;gap:14px}
+  .europe-comparison-table tr{background:#fff;border:1px solid #e2e8f0;border-radius:16px;overflow:hidden;box-shadow:0 10px 24px rgba(15,23,42,.08)}
+  .europe-comparison-table tr:hover{background:#fff!important}
+  .europe-comparison-table td{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 16px!important;border-bottom:1px solid #f1f5f9;text-align:right;color:#334155}
+  .europe-comparison-table td:last-child{border-bottom:0}
+  .europe-comparison-table td::before{content:"";font-weight:800;color:#0f172a;text-align:left;min-width:42%;}
+  .europe-comparison-table td:nth-child(1){background:#eff6ff;text-align:left;font-size:1.05rem;color:#0f172a}
+  .europe-comparison-table td:nth-child(1)::before{content:"Country"}
+  .europe-comparison-table td:nth-child(2)::before{content:"Tuition / year"}
+  .europe-comparison-table td:nth-child(3)::before{content:"Total 6-Year Cost"}
+  .europe-comparison-table td:nth-child(4)::before{content:"Entrance Exam"}
+  .europe-comparison-table td:nth-child(5)::before{content:"Living"}
+  .europe-comparison-table td:nth-child(6)::before{content:"English"}
+}
