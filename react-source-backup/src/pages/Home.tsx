@@ -6,7 +6,7 @@ import CountryCard from "../components/CountryCard";
 
 const IMG = {
   hero: "https://images.pexels.com/photos/32213424/pexels-photo-32213424.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=1800",
-  campus: "https://images.pexels.com/photos/33977829/pexels-photo-33977829.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1400",
+  campus: "https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1400",
   students: "https://images.pexels.com/photos/7616700/pexels-photo-7616700.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1400",
   students2: "https://images.pexels.com/photos/37762503/pexels-photo-37762503.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1400",
   airport: "https://images.pexels.com/photos/30981181/pexels-photo-30981181.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1400",

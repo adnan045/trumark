@@ -3386,7 +3386,7 @@ const programData = {
 
 const IMG = {
   hero: "https://images.pexels.com/photos/32213424/pexels-photo-32213424.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=1800",
-  campus: "https://images.pexels.com/photos/33977829/pexels-photo-33977829.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1400",
+  campus: "https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1400",
   students: "https://images.pexels.com/photos/7616700/pexels-photo-7616700.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1400",
   students2: "https://images.pexels.com/photos/37762503/pexels-photo-37762503.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1400",
   airport: "https://images.pexels.com/photos/30981181/pexels-photo-30981181.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1400",
@@ -3399,7 +3399,7 @@ const IMG = {
 };
 
 const countryCardImages = [
-  "https://images.pexels.com/photos/33977829/pexels-photo-33977829.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1400",
+  "https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1400",
   "https://images.pexels.com/photos/27238168/pexels-photo-27238168.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1400",
   "https://images.pexels.com/photos/8197551/pexels-photo-8197551.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1400",
   "https://images.pexels.com/photos/37762503/pexels-photo-37762503.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1400",
@@ -3411,17 +3411,12 @@ const countryCardImages = [
 
 // Custom client-provided university images (slug -> file in public/)
 const universityImageMap = {
-  "ostrava-university": "univ-ostrava.jpeg",
-  "semmelweis-university": "univ-semmelweis.jpeg",
-  "sofia-medical-university": "univ-sofia.jpeg",
-  "medical-university-of-bialystok": "univ-bialystok.jpeg",
-  "carol-davila-bucharest": "univ-carol-davila.webp",
-  "university-of-warsaw": "univ-warsaw.webp",
-  "sapienza-university-rome": "univ-sapienza.webp",
-  "medical-university-of-gdansk": "univ-gdansk.webp",
-  "medical-university-of-poznan": "univ-poznan.webp",
-  "medical-university-of-rzeszow": "univ-rzeszow.webp",
-  "university-of-pecs": "univ-pecs.webp"
+  "alte-university": "univ-alte-university.jpg",
+  "avicenna-batumi-medical-university": "univ-avicenna-batumi.jpg",
+  "tambov-state-university": "univ-tambov-state.jpg",
+  "astrakhan-state-medical-university": "univ-astrakhan-state.jpg",
+  "sevastopol-state-university": "univ-sevastopol-state.jpg",
+  "brookestone-international-university": "univ-brookestone-international.jpg"
 };
 
 // Helper to determine path depth (always absolute from root for production stability)
@@ -3607,7 +3602,7 @@ function getCountryCardHTML(c, root, index) {
   };
 
   const imageName = imageMap[c.slug] || countryCardImages[index % countryCardImages.length];
-  const image = root + imageName;
+  const image = imageName.startsWith("http") ? imageName : root + imageName;
   return `<a href="${root}mbbs-abroad/${c.slug}" class="group relative block rounded-[2rem] overflow-hidden bg-slate-900 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 animate-fade-up" style="transition-delay: ${(index % 4) * 80}ms">
     <img src="${image}" alt="MBBS in ${c.name}" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-[1500ms] ease-out" />
     <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-slate-900/10"></div>

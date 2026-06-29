@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import type { Country } from "../data/site";
 
 const IMG = [
-  "https://images.pexels.com/photos/33977829/pexels-photo-33977829.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1400",
+  "https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1400",
   "https://images.pexels.com/photos/27238168/pexels-photo-27238168.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1400",
   "https://images.pexels.com/photos/8197551/pexels-photo-8197551.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1400",
   "https://images.pexels.com/photos/37762503/pexels-photo-37762503.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1400",
