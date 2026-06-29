@@ -3165,6 +3165,30 @@ const europeCountries = [
   }
 ];
 
+
+const emergingDestinationSlugs = ["bangladesh", "nepal", "china", "armenia", "st-lucia"];
+const primaryDestinationSlugs = [
+  "georgia",
+  "italy",
+  "russia",
+  "kazakhstan",
+  "uzbekistan",
+  "kyrgyzstan",
+  "poland",
+  "hungary",
+  "romania",
+  "bulgaria",
+  "spain",
+  "philippines"
+];
+const allMbbsDestinations = [...mbbsCountries, ...europeCountries];
+const emergingMbbsCountries = emergingDestinationSlugs
+  .map(slug => allMbbsDestinations.find(c => c.slug === slug))
+  .filter(Boolean);
+const primaryMbbsCountries = primaryDestinationSlugs
+  .map(slug => allMbbsDestinations.find(c => c.slug === slug))
+  .filter(Boolean);
+
 const universities = [
   {
     slug: "carol-davila-bucharest",
@@ -3614,6 +3638,37 @@ function getPageHeroHTML(title, subtitle, breadcrumb = [], image = "") {
 }
 
 // Country Card Component HTML
+function getEmergingDestinationsCardHTML(root, index = 0) {
+  return `<a href="${root}mbbs-abroad/emerging-destinations" class="group relative block rounded-[2rem] overflow-hidden bg-gradient-to-br from-blue-900 via-slate-900 to-green-800 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 animate-fade-up" style="transition-delay: ${(index % 4) * 80}ms">
+    <div class="absolute -top-16 -right-16 w-44 h-44 bg-green-400/25 rounded-full blur-2xl"></div>
+    <div class="absolute -bottom-16 -left-16 w-44 h-44 bg-blue-400/25 rounded-full blur-2xl"></div>
+    <div class="relative p-6 sm:p-7 min-h-[360px] flex flex-col">
+      <div class="flex items-start justify-between gap-4">
+        <div class="text-5xl sm:text-6xl leading-none drop-shadow-2xl">🇧🇩 🇳🇵<br><span class="text-4xl sm:text-5xl">🇨🇳 🇦🇲 🇱🇨</span></div>
+        <span class="inline-flex items-center gap-1 bg-white text-blue-800 text-xs font-bold px-3 py-1.5 rounded-full shadow-xl">NEW</span>
+      </div>
+      <div class="mt-auto">
+        <div class="inline-block text-[10px] sm:text-xs tracking-[0.2em] font-extrabold text-green-300 uppercase mb-2">MBBS Abroad</div>
+        <h3 class="text-3xl sm:text-4xl font-extrabold text-white leading-[1.1] drop-shadow-lg">Emerging Destinations</h3>
+        <p class="mt-2 text-sm sm:text-base text-white/90 leading-snug max-w-sm drop-shadow">Bangladesh, Nepal, China, Armenia and St. Lucia grouped under one clean destination hub.</p>
+        <div class="mt-5 flex flex-wrap gap-2 max-w-sm">
+          ${emergingMbbsCountries.map(c => `<span class="bg-white/10 backdrop-blur border border-white/20 rounded-full px-3 py-1 text-xs font-bold text-white">${c.name}</span>`).join("")}
+        </div>
+        <div class="mt-6 inline-flex items-center gap-2 bg-white text-slate-900 font-bold text-sm px-5 py-3 rounded-full shadow-xl group-hover:bg-green-400 group-hover:text-slate-900 transition-colors">
+          View Destinations <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+        </div>
+      </div>
+    </div>
+  </a>`;
+}
+
+function getPrimaryDestinationCardsHTML(root) {
+  return [
+    ...primaryMbbsCountries.map((c, i) => getCountryCardHTML(c, root, i)),
+    getEmergingDestinationsCardHTML(root, primaryMbbsCountries.length)
+  ].join("");
+}
+
 function getCountryCardHTML(c, root, index) {
   const imageMap = {
     georgia: "georgia.png",
@@ -3835,7 +3890,7 @@ function buildHome(root) {
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          ${mbbsCountries.map((c, i) => getCountryCardHTML(c, root, i)).join("")}
+          ${getPrimaryDestinationCardsHTML(root)}
         </div>
       </div>
     </section>
@@ -4894,7 +4949,7 @@ function buildMBBSAbroad(root) {
             <p class="text-slate-600 mt-3">Explore and compare NMC-approved, budget-friendly destinations for Indian medical students.</p>
           </div>
           <div class="grid md:grid-cols-2 gap-6">
-            ${mbbsCountries.map((c, i) => getCountryCardHTML(c, root, i)).join("")}
+            ${getPrimaryDestinationCardsHTML(root)}
           </div>
 
           <div class="p-8 rounded-2xl bg-gradient-to-r from-blue-50 to-green-50 border border-slate-200">
@@ -4963,6 +5018,39 @@ function buildMBBSAbroad(root) {
     </section>
   `;
   return wrapPage(content, "MBBS Abroad Guide", "NMC approved medical degrees in Georgia, Central Asia, Russia and the Caribbean.", "mbbs-abroad.html", "mbbs-abroad");
+}
+
+
+function buildEmergingDestinations(root) {
+  const content = `
+    ${getPageHeroHTML("MBBS Abroad Emerging Destinations", "Explore Bangladesh, Nepal, China, Armenia and St. Lucia under one dedicated destination hub for Indian medical aspirants.", [{ name: "Home", to: `${root}index` }, { name: "MBBS Abroad", to: `${root}mbbs-abroad` }, { name: "Emerging Destinations" }])}
+
+    <section class="py-20 bg-white font-sans">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <span class="inline-block bg-green-100 text-green-700 text-xs font-bold tracking-wider uppercase px-4 py-1.5 rounded-full">New Category</span>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-3">Emerging MBBS Abroad Destinations</h2>
+          <p class="text-slate-600 mt-4 leading-relaxed">These destinations are grouped separately to keep the MBBS Abroad URL taxonomy clean while still giving students access to country-specific details, fees, eligibility and admission support.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          ${emergingMbbsCountries.map((c, i) => getCountryCardHTML(c, root, i)).join("")}
+        </div>
+
+        <div class="mt-14 rounded-3xl bg-gradient-to-br from-blue-50 to-green-50 border border-slate-200 p-8 md:p-10 grid lg:grid-cols-3 gap-8 items-center">
+          <div class="lg:col-span-2">
+            <h3 class="text-2xl md:text-3xl font-extrabold text-slate-900">Not sure which emerging destination fits your budget?</h3>
+            <p class="text-slate-600 mt-3 leading-relaxed">Talk to TrueMark Edu for free counselling and compare admission process, fees, FMGE/NExT suitability, living cost and documentation requirements.</p>
+          </div>
+          <div class="flex flex-col sm:flex-row lg:flex-col gap-3">
+            <a href="${root}contact" class="inline-flex justify-center items-center gap-2 bg-blue-700 text-white font-bold px-6 py-3 rounded-full hover:bg-blue-800 transition">Free Counselling <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+            <a href="https://wa.me/919540302032" target="_blank" class="inline-flex justify-center items-center gap-2 bg-green-500 text-white font-bold px-6 py-3 rounded-full hover:bg-green-600 transition">WhatsApp Now <i data-lucide="message-circle" class="w-4 h-4"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  `;
+  return wrapPage(content, "MBBS Abroad Emerging Destinations", "Compare emerging MBBS abroad destinations including Bangladesh, Nepal, China, Armenia and St. Lucia.", "mbbs-abroad/emerging-destinations.html", "mbbs-abroad");
 }
 
 // 8. (REMOVED) MBBS in Europe overview - now unified under MBBS Abroad
@@ -5610,6 +5698,7 @@ fs.writeFileSync("contact.html", buildContact("./"));
 fs.writeFileSync("blog.html", buildBlogList("./"));
 fs.writeFileSync("universities.html", buildUniversities("./"));
 fs.writeFileSync("mbbs-abroad.html", buildMBBSAbroad("./"));
+fs.writeFileSync(path.join("mbbs-abroad", "emerging-destinations.html"), buildEmergingDestinations("../"));
 // mbbs-in-europe.html removed: all Europe pages now live under mbbs-abroad/
 fs.writeFileSync("study-abroad.html", buildStudyAbroad("./"));
 
