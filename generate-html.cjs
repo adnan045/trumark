@@ -3191,180 +3191,100 @@ const primaryMbbsCountries = primaryDestinationSlugs
 
 const universities = [
   {
-    slug: "carol-davila-bucharest",
-    name: "Carol Davila University of Medicine and Pharmacy",
-    country: "Romania",
-    flag: "🇷🇴",
-    qs: "Top 200",
-    fees: "₹ 7 – 9 Lacs/Year",
+    slug: "alte-university",
+    name: "Alte University",
+    country: "Georgia",
+    flag: "🇬🇪",
+    qs: "Strategic Partner",
+    fees: "USD 5,000 – 5,500/Year",
     duration: "6 Years",
-    language: "English",
-    eligibility: ["NEET Qualified", "50% in PCB", "University Entrance Exam"],
-    hostel: "On-campus dormitory available at approx ₹ 25,000/month.",
-    food: "Indian restaurants and mess facility available nearby.",
-    recognition: ["NMC", "WHO", "EU", "WFME"],
-    fmge: "Eligible for NExT/FMGE.",
-    process: ["Counseling → Entrance → Offer → Visa → Departure"]
+    language: "English Medium",
+    eligibility: ["NEET Qualified", "50% in PCB", "17+ years of age", "Valid passport"],
+    hostel: "Student hostel and private accommodation options available near campus.",
+    food: "Indian food and self-cooking options available in Tbilisi.",
+    recognition: ["NMC", "WHO", "WFME"],
+    fmge: "Eligible for FMGE/NExT subject to current NMC guidelines.",
+    process: ["Profile evaluation", "Document submission", "Offer letter", "Visa support", "Departure guidance"]
   },
   {
-    slug: "ostrava-university",
-    name: "University of Ostrava",
-    country: "Czech Republic",
-    flag: "🇨🇿",
-    qs: "Top EU Medical",
-    fees: "EUR 12,000/Year",
-    duration: "6 Years (Medicine)",
-    language: "English",
-    eligibility: ["NEET Qualified", "50% PCB marks", "Entrance Exam / Online Exam / Interview"],
-    hostel: "On-campus dormitory with modern amenities.",
-    food: "Indian mess and restaurants in Ostrava.",
-    recognition: ["NMC", "WHO", "EU", "WFME"],
-    fmge: "NExT eligible. High pass rate.",
-    process: ["1. Register for Entrance Exam", "2. Submit documents & pay EUR 200 Application Fee", "3. Programs: Medicine, Dentistry, Nursing", "4. Entrance Exam / Interview", "5. Visa Processing", "6. Departure in September"]
-  },
-  {
-    slug: "semmelweis-university",
-    name: "Semmelweis University, Budapest",
-    country: "Hungary",
-    flag: "🇭🇺",
-    qs: "Top 250",
-    fees: "₹ 10 – 13 Lacs/Year",
+    slug: "avicenna-batumi-medical-university",
+    name: "Avicenna Batumi Medical University",
+    country: "Georgia",
+    flag: "🇬🇪",
+    qs: "Strategic Partner",
+    fees: "USD 4,000 – 4,900/Year",
     duration: "6 Years",
-    language: "English",
-    eligibility: ["NEET", "50% PCB", "Entrance test"],
-    hostel: "Hostels near campus.",
-    food: "Indian food nearby.",
-    recognition: ["NMC", "WHO", "EU"],
-    fmge: "Eligible for NExT.",
-    process: ["Apply → Entrance → Visa → Fly"]
+    language: "English Medium",
+    eligibility: ["NEET Qualified", "50% in PCB", "17+ years of age", "Valid passport"],
+    hostel: "Assisted accommodation and hostel options for international students.",
+    food: "Indian food options and student kitchens available around Batumi.",
+    recognition: ["NMC", "WHO", "WFME"],
+    fmge: "Eligible for FMGE/NExT subject to current NMC guidelines.",
+    process: ["Counselling", "Application", "Admission letter", "Visa processing", "Travel support"]
   },
   {
-    slug: "sofia-medical-university",
-    name: "Sofia Medical University",
-    country: "Bulgaria",
-    flag: "🇧🇬",
-    qs: "Top EU Medical",
-    fees: "₹ 6 – 8 Lacs/Year",
+    slug: "tambov-state-university",
+    name: "Tambov State University",
+    country: "Russia",
+    flag: "🇷🇺",
+    qs: "Strategic Partner",
+    fees: "USD 3,000 – 3,600/Year",
     duration: "6 Years",
-    language: "English",
-    eligibility: ["NEET", "50% PCB", "Entrance"],
-    hostel: "Hostel available.",
-    food: "Indian food available.",
-    recognition: ["NMC", "WHO", "EU"],
-    fmge: "Eligible for NExT.",
-    process: ["Apply → Exam → Visa → Fly"]
+    language: "English Medium",
+    eligibility: ["NEET Qualified", "50% in PCB", "17+ years of age", "Valid passport"],
+    hostel: "University hostel options with student support facilities.",
+    food: "Indian mess support and local food options available.",
+    recognition: ["NMC", "WHO"],
+    fmge: "Eligible for FMGE/NExT subject to current NMC guidelines.",
+    process: ["Free counselling", "Document check", "University offer", "Visa filing", "Fly to Russia"]
   },
   {
-    slug: "university-of-warsaw",
-    name: "University of Warsaw",
-    country: "Poland",
-    flag: "🇵🇱",
-    qs: "Top 300",
-    fees: "₹ 12 – 16 Lacs/Year",
+    slug: "astrakhan-state-medical-university",
+    name: "Astrakhan State Medical University",
+    country: "Russia",
+    flag: "🇷🇺",
+    qs: "Strategic Partner",
+    fees: "USD 3,100 – 3,800/Year",
     duration: "6 Years",
-    language: "English",
-    eligibility: ["NEET", "50% PCB", "Entrance"],
-    hostel: "Student housing.",
-    food: "Indian options.",
-    recognition: ["NMC", "WHO", "EU"],
-    fmge: "NExT eligible.",
-    process: ["Apply → Exam → Visa"]
+    language: "English Medium",
+    eligibility: ["NEET Qualified", "50% in PCB", "17+ years of age", "Valid passport"],
+    hostel: "University hostel accommodation with essential student amenities.",
+    food: "Indian food support and affordable local dining options available.",
+    recognition: ["NMC", "WHO"],
+    fmge: "Eligible for FMGE/NExT subject to current NMC guidelines.",
+    process: ["Counselling", "Application submission", "Offer letter", "Visa", "Departure"]
   },
   {
-    slug: "sapienza-university-rome",
-    name: "Sapienza University of Rome",
-    country: "Italy",
-    flag: "🇮🇹",
-    qs: "#134 QS",
-    fees: "₹ 1 – 3 Lacs/Year (public)",
+    slug: "sevastopol-state-university",
+    name: "Sevastopol State University",
+    country: "Russia",
+    flag: "🇷🇺",
+    qs: "Strategic Partner",
+    fees: "Contact for latest fee",
     duration: "6 Years",
-    language: "English",
-    eligibility: ["NEET", "50% PCB", "IMAT Score"],
-    hostel: "Student accommodation.",
-    food: "Indian mess & restaurants.",
-    recognition: ["NMC", "WHO", "EU"],
-    fmge: "Eligible for NExT.",
-    process: ["IMAT → Rank → Enroll → Visa"]
+    language: "English Medium",
+    eligibility: ["NEET Qualified", "50% in PCB", "17+ years of age", "Valid passport"],
+    hostel: "Student accommodation support available.",
+    food: "Indian food guidance and local student dining options available.",
+    recognition: ["NMC", "WHO"],
+    fmge: "Eligible for FMGE/NExT subject to current NMC guidelines.",
+    process: ["Profile review", "Application", "Admission confirmation", "Visa guidance", "Pre-departure support"]
   },
   {
-    slug: "medical-university-of-gdansk",
-    name: "Medical University of Gdansk",
-    country: "Poland",
-    flag: "🇵🇱",
-    qs: "Top 500 QS",
-    fees: "EUR 13,500/Year",
-    duration: "6 Years (MD) / 3 Years (Nursing)",
-    language: "English",
-    eligibility: ["NEET Qualified", "50% PCB marks", "High School transcripts", "Online Entrance Exam"],
-    hostel: "Modern on-campus dormitories with excellent utilities.",
-    food: "Indian food outlets and student kitchen services near the Gdansk campus.",
-    recognition: ["NMC Approved", "WHO Listed", "EU Recognized", "WFME"],
-    fmge: "Fully eligible for NExT and licensing exams globally.",
-    process: ["1. MD Medicine: EUR 13,500 + EUR 750 Orientation Fee", "2. Bachelor of Nursing: EUR 6,000 + EUR 750 Orientation Fee", "3. Intakes: Sep'26, Last date 30'June", "4. Pass Entrance Exam / Interview", "5. Secure Visa & Departure in September 2026"]
-  },
-  {
-    slug: "medical-university-of-bialystok",
-    name: "Medical University of Bialystok",
-    country: "Poland",
-    flag: "🇵🇱",
-    qs: "Top EU Medical",
-    fees: "EUR 15,100/Year",
+    slug: "brookestone-international-university",
+    name: "Brookestone International University",
+    country: "Georgia",
+    flag: "🇬🇪",
+    qs: "Strategic Partner",
+    fees: "Contact for latest fee",
     duration: "6 Years",
-    language: "English",
-    eligibility: ["NEET Qualified", "12th standard PCB 50%+", "Entrance Interview / Test"],
-    hostel: "On-campus student dorms with modern rooms and Wi-Fi.",
-    food: "Indian food delivery and self-cooking kitchens in dorms.",
-    recognition: ["NMC Approved", "WHO Listed", "EU Recognized"],
-    fmge: "Fully eligible for FMGE/NExT screening.",
-    process: ["1. MD Medicine: EUR 15,100 + EUR 200 Application Fee", "2. Bachelor of Nursing: Fee will be confirmed in the coming days", "3. Intakes: Sep'26, Last date 15'July", "4. University Entrance Interview", "5. Visa filing & Departure in September"]
-  },
-  {
-    slug: "medical-university-of-poznan",
-    name: "Medical University of Poznan",
-    country: "Poland",
-    flag: "🇵🇱",
-    qs: "Top 600 QS",
-    fees: "USD 19,000/Year",
-    duration: "6 Years (MD) / 5 Years (Dentistry)",
-    language: "English",
-    eligibility: ["NEET Qualified", "50% in PCB", "Entrance Exam / Online Interview"],
-    hostel: "Premium student residences near university hospital complexes.",
-    food: "Hygienic Polish student canteens & local Indian restaurants.",
-    recognition: ["NMC Approved", "WHO Listed", "EU Recognized", "WFME"],
-    fmge: "Eligible for NExT/FMGE and USMLE pathways.",
-    process: ["1. MD Medicine: USD 19,000 + USD 250 Application Fee", "2. Bachelor of Dentistry (5-Year Program): USD 18,400 + USD 250 Application Fee", "3. Intakes: Sep'26, Last date 30'June", "4. Complete Entrance Exam / Interview", "5. Get Visa & fly in September"]
-  },
-  {
-    slug: "medical-university-of-rzeszow",
-    name: "Medical University of Rzeszow",
-    country: "Poland",
-    flag: "🇵🇱",
-    qs: "Top Polish Medical",
-    fees: "EUR 14,500/Year",
-    duration: "6 Years",
-    language: "English",
-    eligibility: ["NEET Qualified", "50% in PCB", "University Interview / Evaluation"],
-    hostel: "Fully furnished student housing near clinics.",
-    food: "Polish cafeterias and student self-cooking facilities.",
-    recognition: ["NMC Approved", "WHO Listed", "EU Recognized"],
-    fmge: "Fully eligible for FMGE/NExT screening.",
-    process: ["1. MD Medicine: EUR 14,500 + EUR 200 Application Fee", "2. Intakes: Sep'26, Last date 30'June", "3. Complete Online interview / assessment", "4. Visa processing & Flight in September 2026"]
-  },
-  {
-    slug: "university-of-pecs",
-    name: "University of Pecs",
-    country: "Hungary",
-    flag: "🇭🇺",
-    qs: "Top 250 in Europe",
-    fees: "USD 16,750/Year",
-    duration: "6 Years",
-    language: "English",
-    eligibility: ["NEET Qualified", "12th Grade Biology & Chemistry 50%+", "Entrance Exam (Written & Oral)"],
-    hostel: "Premium modern university hostels near Faculty of Medicine.",
-    food: "Excellent Hungarian canteens & local Indian dining near Pecs.",
-    recognition: ["NMC Approved", "WHO Listed", "EU Recognized", "WFME"],
-    fmge: "Fully eligible for NExT/FMGE screening.",
-    process: ["1. Faculty of Medicine: USD 16,750 + USD 250 Application Fee", "2. Intakes: Sep'26, Last date 30'June", "3. Pass Entrance Examination (Written + Oral)", "4. Seat confirmation, Visa & Fly in September"]
+    language: "English Medium",
+    eligibility: ["NEET Qualified", "50% in PCB", "17+ years of age", "Valid passport"],
+    hostel: "Assisted hostel/private accommodation options available.",
+    food: "Indian food and self-cooking support available.",
+    recognition: ["NMC", "WHO"],
+    fmge: "Eligible for FMGE/NExT subject to current NMC guidelines.",
+    process: ["Counselling", "Documents", "Offer letter", "Visa support", "Departure"]
   }
 ];
 
@@ -3991,9 +3911,9 @@ function buildHome(root) {
     <section class="py-24 bg-slate-50">
       <div class="max-w-7xl mx-auto px-4">
         <div class="text-center max-w-3xl mx-auto mb-16 animate-fade-up">
-          <span class="inline-block bg-green-100 text-green-700 text-xs font-bold tracking-wider uppercase px-4 py-1.5 rounded-full">Top Universities</span>
-          <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 mt-4">World-Class Medical Universities</h2>
-          <p class="text-slate-600 mt-4 text-lg">NMC & WHO approved universities with proven FMGE/NExT results. Each university page has full fee, eligibility, hostel & admission process.</p>
+          <span class="inline-block bg-green-100 text-green-700 text-xs font-bold tracking-wider uppercase px-4 py-1.5 rounded-full">Featured Universities</span>
+          <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 mt-4">Strategic Medical Universities</h2>
+          <p class="text-slate-600 mt-4 text-lg">Focused partner university shortlist including Alte, Avicenna, Tambov, Astrakhan, Sevastopol and Brookestone.</p>
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -4886,7 +4806,7 @@ function buildBlogList(root) {
 // 6. UNIVERSITIES LISTING PAGE (universities.html)
 function buildUniversities(root) {
   const content = `
-    ${getPageHeroHTML("Top Medical Universities", "Explore NMC & WHO approved medical universities across 15+ countries. Each university page includes fees, eligibility, hostel, food, recognition and FMGE eligibility.", [{ name: "Home", to: `${root}index` }, { name: "Universities" }])}
+    ${getPageHeroHTML("Featured Medical Universities", "Focused strategic universities for MBBS admissions including Alte, Avicenna, Tambov, Astrakhan, Sevastopol and Brookestone.", [{ name: "Home", to: `${root}index` }, { name: "Universities" }])}
     
     <section class="py-20">
       <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -4920,7 +4840,7 @@ function buildUniversities(root) {
       </div>
     </section>
   `;
-  return wrapPage(content, "Top Medical Universities", "Explore top partner universities worldwide with their complete fees structures and eligibility criteria.", "universities.html", "universities");
+  return wrapPage(content, "Featured Medical Universities", "Strategic partner universities with focused MBBS admission guidance.", "universities.html", "universities");
 }
 
 // 7. MBBS ABROAD OVERVIEW (mbbs-abroad.html)
@@ -5713,7 +5633,12 @@ Object.keys(programData).forEach(pSlug => {
   fs.writeFileSync(path.join("study-abroad", `${pSlug}.html`), buildProgramPage(pSlug, "../"));
 });
 
-// Write Dynamic Universities
+// Write Dynamic Universities (strategic shortlist only). Remove stale broad-coverage pages first.
+if (fs.existsSync("universities")) {
+  fs.readdirSync("universities").forEach(file => {
+    if (file.endsWith(".html")) fs.unlinkSync(path.join("universities", file));
+  });
+}
 universities.forEach(u => {
   fs.writeFileSync(path.join("universities", `${u.slug}.html`), buildUniversityPage(u, "../"));
 });
