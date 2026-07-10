@@ -3166,7 +3166,7 @@ const europeCountries = [
 ];
 
 
-const emergingDestinationSlugs = ["bangladesh", "nepal", "china", "armenia", "st-lucia"];
+const emergingDestinationSlugs = ["bangladesh", "nepal", "china", "armenia", "st-lucia", "philippines"];
 const primaryDestinationSlugs = [
   "russia",
   "georgia",
@@ -3178,8 +3178,7 @@ const primaryDestinationSlugs = [
   "hungary",
   "romania",
   "bulgaria",
-  "spain",
-  "philippines"
+  "spain"
 ];
 const allMbbsDestinations = [...mbbsCountries, ...europeCountries];
 const emergingMbbsCountries = emergingDestinationSlugs
