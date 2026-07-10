@@ -3560,8 +3560,8 @@ function getEmergingDestinationsCardHTML(root, index = 0) {
     <div class="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-transparent to-green-900/40"></div>
     <div class="relative p-6 sm:p-7 min-h-[360px] flex flex-col">
       <div class="flex items-start justify-between gap-4">
-        <div class="text-5xl sm:text-6xl leading-none drop-shadow-2xl">🇧🇩 🇳🇵<br><span class="text-4xl sm:text-5xl">🇨🇳 🇦🇲 🇱🇨</span></div>
-        <span class="inline-flex items-center gap-1 bg-green-400 text-slate-900 text-xs font-bold px-3 py-1.5 rounded-full shadow-xl">NEW</span>
+        <div class="text-5xl sm:text-6xl leading-none drop-shadow-2xl text-white">🇧🇩 🇳🇵<br><span class="text-4xl sm:text-5xl">🇨🇳 🇦🇲 🇱🇨</span></div>
+        <span class="inline-flex items-center gap-1 bg-green-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-xl animate-pulse">NEW</span>
       </div>
       <div class="mt-auto">
         <div class="inline-block text-[10px] sm:text-xs tracking-[0.2em] font-extrabold text-green-300 uppercase mb-2">MBBS Abroad</div>
