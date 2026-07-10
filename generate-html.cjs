@@ -4097,34 +4097,34 @@ function buildCountryPage(country, variant, root) {
                   </div>
                   <div class="relative w-full max-w-xs">
                     <input type="text" class="fee-table-search w-full px-4 py-2.5 pl-10 rounded-lg border border-slate-200 text-sm focus:border-blue-600 focus:outline-none" placeholder="Search college name..." data-table="fee-table-${country.slug}">
-                    <div class="absolute left-3 top-3.5 text-slate-400"><i data-lucide="search" class="w-4 h-4"></i></div>
+                    <div class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none"><i data-lucide="search" class="w-4 h-4"></i></div>
                   </div>
                 </div>
                 <div class="overflow-x-auto">
-                  <table id="fee-table-${country.slug}" class="w-full text-left border-collapse text-sm">
+                  <table id="fee-table-${country.slug}" class="w-full text-left border-collapse text-sm min-w-[800px]">
                     <thead>
                       <tr class="bg-blue-900 text-white font-semibold">
-                        <th class="p-4 rounded-l-xl">S.No</th>
-                        <th class="p-4">University / Institution</th>
-                        <th class="p-4">1-Year Tuition (USD)</th>
-                        <th class="p-4">1-Year Hostel (USD)</th>
-                        <th class="p-4">1-Year Food (USD)</th>
-                        <th class="p-4">6-Year Total Tuition (USD)</th>
-                        <th class="p-4">6-Year Grand Total (USD)</th>
-                        <th class="p-4 rounded-r-xl">Total INR Range</th>
+                        <th class="p-3 md:p-4 rounded-l-xl whitespace-nowrap">S.No</th>
+                        <th class="p-3 md:p-4 whitespace-nowrap">University / Institution</th>
+                        <th class="p-3 md:p-4 whitespace-nowrap">Tuition/Year</th>
+                        <th class="p-3 md:p-4 whitespace-nowrap">Hostel/Year</th>
+                        <th class="p-3 md:p-4 whitespace-nowrap">Food/Year</th>
+                        <th class="p-3 md:p-4 whitespace-nowrap">6-Yr Tuition</th>
+                        <th class="p-3 md:p-4 whitespace-nowrap">Grand Total</th>
+                        <th class="p-3 md:p-4 rounded-r-xl whitespace-nowrap">Total INR</th>
                       </tr>
                     </thead>
                     <tbody class="divide-y divide-slate-100 text-slate-700">
                       ${colleges.map(c => `
                         <tr class="hover:bg-slate-50/50 transition">
-                          <td class="p-4 font-semibold">${c.sNo}</td>
-                          <td class="p-4 font-bold text-slate-900">${c.name}</td>
-                          <td class="p-4 font-semibold text-blue-700">${c.tuitionUSD}</td>
-                          <td class="p-4 text-slate-600">${c.hostelUSD}</td>
-                          <td class="p-4 text-slate-500">${c.foodUSD}</td>
-                          <td class="p-4 font-semibold text-blue-700">${c.totalTuitionUSD}</td>
-                          <td class="p-4 font-bold text-slate-900">${c.grandTotalUSD}</td>
-                          <td class="p-4 font-bold text-green-700 bg-green-50/40">${c.totalINR}</td>
+                          <td class="p-3 md:p-4 font-semibold">${c.sNo}</td>
+                          <td class="p-3 md:p-4 font-bold text-slate-900 min-w-[200px]">${c.name}</td>
+                          <td class="p-3 md:p-4 font-semibold text-blue-700 whitespace-nowrap">${c.tuitionUSD}</td>
+                          <td class="p-3 md:p-4 text-slate-600 whitespace-nowrap">${c.hostelUSD}</td>
+                          <td class="p-3 md:p-4 text-slate-500">${c.foodUSD}</td>
+                          <td class="p-3 md:p-4 font-semibold text-blue-700 whitespace-nowrap">${c.totalTuitionUSD}</td>
+                          <td class="p-3 md:p-4 font-bold text-slate-900 whitespace-nowrap">${c.grandTotalUSD}</td>
+                          <td class="p-3 md:p-4 font-bold text-green-700 bg-green-50/40 whitespace-nowrap">${c.totalINR}</td>
                         </tr>
                       `).join("")}
                     </tbody>
