@@ -3301,6 +3301,7 @@ const services = [
   { title: "MBA in Dubai / UAE", icon: "briefcase", desc: "Priority Dubai admissions in top business schools with paid internships, post-study work visa and PR pathway." },
   { title: "MBBS Abroad Counseling", icon: "stethoscope", desc: "Free personalized MBBS abroad guidance with country & university comparison, fee structure and eligibility check." },
   { title: "MBBS in Europe", icon: "globe", desc: "Admission in EU universities including Italy, Romania, Bulgaria, Czech, Slovakia, Spain and Hungary." },
+  { title: "Admission Support", icon: "clipboard-check", desc: "Complete university application support, document verification, offer letter processing and seat confirmation guidance." },
   { title: "Visa Assistance", icon: "file-check", desc: "End-to-end visa documentation, SOP, LOR, financial planning and interview preparation." },
   { title: "IELTS / PTE / OET Coaching", icon: "book-open", desc: "Live & classroom coaching for IELTS, PTE and OET with mock tests and band-score improvement." },
   { title: "Scholarship Guidance", icon: "award", desc: "Help apply for merit-based, need-based and country-specific scholarships up to 100% tuition coverage." },
