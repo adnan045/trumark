@@ -3661,11 +3661,11 @@ function buildHome(root) {
             Study MBBS in <b>NMC & WHO approved</b> universities across Europe, Georgia, Uzbekistan, Kazakhstan & Russia. <b>Zero donation.</b> Direct admission. 100% visa success.
           </p>
           <div class="mt-10 flex flex-wrap gap-4">
-            <a href="${root}contact" class="btn-shine inline-flex items-center gap-2 bg-white text-blue-900 font-bold px-7 py-3.5 rounded-full hover:shadow-2xl hover:-translate-y-0.5 transition-all animate-pulse-soft">
-              Get Free Counseling <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            <a href="https://wa.me/919540302032" class="btn-shine inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-full transition-all shadow-lg animate-pulse-soft text-lg">
+              💬 Chat on WhatsApp <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </a>
-            <a href="https://wa.me/919540302032" class="btn-shine inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-7 py-3.5 rounded-full transition-all shadow-lg">
-              💬 WhatsApp Us
+            <a href="${root}contact" class="btn-shine inline-flex items-center gap-2 bg-white text-blue-900 font-bold px-7 py-3.5 rounded-full hover:shadow-2xl hover:-translate-y-0.5 transition-all">
+              Get Free Counseling
             </a>
             <a href="tel:+919540302032" class="btn-shine inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-blue-900 font-bold px-7 py-3.5 rounded-full transition-all shadow-lg">
               <i data-lucide="phone" class="w-4 h-4"></i> +91 95403 02032
@@ -4110,8 +4110,8 @@ function buildHome(root) {
         </div>
 
         <div class="text-center mt-14 animate-fade-up">
-          <a href="${root}contact" class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-700 to-green-600 text-white font-bold px-8 py-4 rounded-full hover:shadow-2xl transition-all text-lg">
-            Start Your Success Story <i data-lucide="arrow-right" class="w-5 h-5"></i>
+          <a href="https://wa.me/919540302032" class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-full hover:shadow-2xl transition-all text-lg">
+            💬 Start Your Success Story on WhatsApp <i data-lucide="arrow-right" class="w-5 h-5"></i>
           </a>
         </div>
       </div>
@@ -4209,10 +4209,10 @@ function buildHome(root) {
         <p class="mt-6 text-xl text-white/90 max-w-2xl mx-auto">Book your free 1-on-1 counseling session today. We'll help you shortlist the best country and university based on your profile, budget & career goals — absolutely free.</p>
         <div class="mt-10 flex flex-wrap justify-center gap-4">
           <a href="${root}contact" class="inline-flex items-center gap-2 bg-white text-blue-900 font-bold px-8 py-4 rounded-full hover:shadow-2xl hover:-translate-y-1 transition-all text-lg">
-            Book Free Counseling <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            💬 Chat on WhatsApp <i data-lucide="arrow-right" class="w-5 h-5"></i>
           </a>
-          <a href="https://wa.me/919540302032" class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-full transition-all shadow-lg text-lg">
-            💬 WhatsApp Now
+          <a href="${root}contact" class="inline-flex items-center gap-2 bg-white text-blue-900 font-bold px-8 py-4 rounded-full hover:shadow-2xl hover:-translate-y-1 transition-all text-lg">
+            Book Free Counseling
           </a>
           <a href="tel:+919540302032" class="inline-flex items-center gap-2 bg-white/10 backdrop-blur border border-white/30 hover:bg-white/20 text-white font-bold px-8 py-4 rounded-full transition-all text-lg">
             <i data-lucide="phone" class="w-5 h-5"></i> Call +91 95403 02032
