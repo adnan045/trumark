@@ -5402,6 +5402,47 @@ function buildCountryPage(country, variant, root) {
               </ul>
             </div>
 
+            <!-- FEATURED PARTNER UNIVERSITIES WITH LINKS -->
+            ${(() => {
+              const countryUnis = universities.filter(u => u.country.toLowerCase() === country.name.toLowerCase());
+              if (countryUnis.length === 0) return '';
+              return `
+              <div class="p-6 rounded-2xl bg-gradient-to-br from-blue-50 to-green-50 border border-blue-200">
+                <div class="flex items-center gap-3 mb-6">
+                  <div class="p-3 bg-yellow-100 text-yellow-800 rounded-xl"><i data-lucide="award" class="w-6 h-6"></i></div>
+                  <div>
+                    <h2 class="text-2xl font-bold text-slate-900">Our Strategic Partner Universities in ${country.name}</h2>
+                    <p class="text-slate-600 text-sm mt-1">Click to view detailed admission info, fees, eligibility and process.</p>
+                  </div>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  ${countryUnis.map((u, i) => `
+                    <a href="${root}universities/${u.slug}" class="group bg-white rounded-2xl border border-slate-200 hover:shadow-xl hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 p-5">
+                      <div class="flex items-center gap-3 mb-3">
+                        <span class="text-3xl">${u.flag}</span>
+                        <span class="bg-yellow-400 text-slate-900 text-[10px] font-extrabold px-2 py-1 rounded-full">${u.qs}</span>
+                      </div>
+                      <h3 class="font-extrabold text-slate-900 group-hover:text-blue-700 transition text-lg">${u.name}</h3>
+                      <div class="mt-3 grid grid-cols-2 gap-2 text-sm">
+                        <div class="bg-slate-50 p-2 rounded-lg">
+                          <div class="text-[10px] text-slate-500">Fees</div>
+                          <div class="font-bold text-slate-900 text-xs">${u.fees}</div>
+                        </div>
+                        <div class="bg-slate-50 p-2 rounded-lg">
+                          <div class="text-[10px] text-slate-500">Duration</div>
+                          <div class="font-bold text-slate-900 text-xs">${u.duration}</div>
+                        </div>
+                      </div>
+                      <div class="mt-4 flex items-center gap-1 text-blue-700 font-bold text-sm group-hover:gap-2 transition-all">
+                        View Details <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                      </div>
+                    </a>
+                  `).join('')}
+                </div>
+              </div>
+              `;
+            })()}
+
             <!-- DYNAMIC INTERACTIVE COLLEGE FEES TABLE -->
             ${(() => {
               const countryKey = Object.keys(collegesDatabase).find(k => k.toLowerCase() === country.name.toLowerCase());
