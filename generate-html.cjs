@@ -4067,6 +4067,56 @@ function buildHome(root) {
       </div>
     </section>
 
+    <!-- Success Stories -->
+    <section class="py-24 bg-gradient-to-b from-white to-slate-50">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center max-w-3xl mx-auto mb-16 animate-fade-up">
+          <span class="inline-block bg-green-100 text-green-700 text-xs font-bold tracking-wider uppercase px-4 py-1.5 rounded-full">Success Stories</span>
+          <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 mt-4">From Dream to Doctor</h2>
+          <p class="text-slate-600 mt-4 text-lg">Real students. Real journeys. See how TrueMark Edu turned aspirations into white coats across 15+ countries.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          ${[
+            { flag: "🇬🇪", name: "Priya Nair", uni: "Tbilisi State Medical University", country: "Georgia", badge: "Admitted 2023", quote: "I scored 480 in NEET but could not get a government seat. TrueMark Edu guided me to Georgia — zero donation, transparent fees, and they even met me at Tbilisi airport. Now I am in my 3rd year and loving every moment!", from: "Kerala", to: "Tbilisi, Georgia", gradient: "from-blue-700 to-green-600", bg: "from-blue-100 to-green-100" },
+            { flag: "🇮🇹", name: "Arjun Mehta", uni: "Sapienza University of Rome", country: "Italy", badge: "IMAT 2024", quote: "Cracking IMAT seemed impossible, but TrueMark coaching material and mock tests were game-changers. I got into Sapienza Rome with almost zero tuition! Annual fee less than ₹2 Lakhs. Dream come true!", from: "Delhi", to: "Rome, Italy", gradient: "from-green-600 to-yellow-500", bg: "from-green-100 to-yellow-100" },
+            { flag: "🇺🇿", name: "Fatima Khan", uni: "Samarkand State Medical Institute", country: "Uzbekistan", badge: "Admitted 2022", quote: "My family could not afford ₹80L+ for private MBBS in India. TrueMark showed us Uzbekistan — total cost under ₹25 Lakhs! Indian mess, hostel, and clinical exposure are excellent. Best decision ever.", from: "Lucknow", to: "Samarkand, Uzbekistan", gradient: "from-yellow-500 to-red-500", bg: "from-yellow-100 to-red-100" },
+            { flag: "🇨🇿", name: "Rohan Kapoor", uni: "University of Ostrava", country: "Czech Republic", badge: "Graduated 2025", quote: "Ostrava clinical training is world-class. TrueMark prepared me for the entrance exam and handled all EU documentation. I just graduated and cleared NExT in first attempt! The 6-year support abroad was invaluable.", from: "Mumbai", to: "Ostrava, Czech Republic", gradient: "from-purple-600 to-blue-600", bg: "from-purple-100 to-blue-100" },
+            { flag: "🇷🇴", name: "Ananya Singh", uni: "Carol Davila University, Bucharest", country: "Romania", badge: "Admitted 2023", quote: "As a female student, safety was my top priority. Romania is incredibly safe, and TrueMark female student support network made the transition seamless. Carol Davila is one of Europe oldest medical schools — proud to be here!", from: "Jaipur", to: "Bucharest, Romania", gradient: "from-blue-600 to-purple-600", bg: "from-blue-100 to-purple-100" },
+            { flag: "🇰🇿", name: "Amanpreet Gill", uni: "Kazakh National Medical University", country: "Kazakhstan", badge: "Final Year", quote: "Kazakhstan was a hidden gem TrueMark revealed to us. Top-ranked government university, modern labs, amazing clinical exposure — all under ₹35 Lakhs total. TrueMark NExT coaching helped me prepare alongside my studies.", from: "Amritsar", to: "Almaty, Kazakhstan", gradient: "from-green-600 to-blue-600", bg: "from-green-100 to-blue-100" }
+          ].map((s, i) => `
+            <div class="group relative bg-white rounded-3xl border border-slate-200 overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 animate-fade-up" style="transition-delay: ${(i % 3) * 100}ms">
+              <div class="h-2 bg-gradient-to-r ${s.gradient}"></div>
+              <div class="p-8">
+                <div class="flex items-center gap-4 mb-6">
+                  <div class="w-16 h-16 rounded-full bg-gradient-to-br ${s.bg} flex items-center justify-center text-3xl shadow-md">${s.flag}</div>
+                  <div>
+                    <div class="font-extrabold text-slate-900 text-lg">${s.name}</div>
+                    <div class="text-sm text-green-700 font-semibold">${s.uni}</div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2 mb-4">
+                  <span class="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full">${s.country}</span>
+                  <span class="bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full">${s.badge}</span>
+                </div>
+                <p class="text-slate-700 leading-relaxed">“${s.quote}”</p>
+                <div class="mt-6 pt-5 border-t border-slate-100 flex items-center gap-2 text-sm text-slate-500">
+                  <i data-lucide="map-pin" class="w-4 h-4 text-green-600"></i>
+                  <span>${s.from} → ${s.to}</span>
+                </div>
+              </div>
+            </div>
+          `).join("")}
+        </div>
+
+        <div class="text-center mt-14 animate-fade-up">
+          <a href="${root}contact" class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-700 to-green-600 text-white font-bold px-8 py-4 rounded-full hover:shadow-2xl transition-all text-lg">
+            Start Your Success Story <i data-lucide="arrow-right" class="w-5 h-5"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- Process -->
     <section class="relative py-24 text-white overflow-hidden">
       <div class="absolute inset-0 bg-cover bg-center opacity-20" style="background-image: url('${IMG.airport}')"></div>
