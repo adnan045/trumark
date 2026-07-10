@@ -3554,13 +3554,14 @@ function getPageHeroHTML(title, subtitle, breadcrumb = [], image = "") {
 
 // Country Card Component HTML
 function getEmergingDestinationsCardHTML(root, index = 0) {
-  return `<a href="${root}mbbs-abroad/emerging-destinations" class="group relative block rounded-[2rem] overflow-hidden bg-gradient-to-br from-blue-900 via-slate-900 to-green-800 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 animate-fade-up" style="transition-delay: ${(index % 4) * 80}ms">
-    <div class="absolute -top-16 -right-16 w-44 h-44 bg-green-400/25 rounded-full blur-2xl"></div>
-    <div class="absolute -bottom-16 -left-16 w-44 h-44 bg-blue-400/25 rounded-full blur-2xl"></div>
+  return `<a href="${root}mbbs-abroad/emerging-destinations" class="group relative block rounded-[2rem] overflow-hidden bg-slate-900 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 animate-fade-up" style="transition-delay: ${(index % 4) * 80}ms">
+    <img src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=800&w=1400" alt="Emerging MBBS Destinations" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-[1500ms] ease-out" />
+    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-slate-900/10"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-transparent to-green-900/40"></div>
     <div class="relative p-6 sm:p-7 min-h-[360px] flex flex-col">
       <div class="flex items-start justify-between gap-4">
         <div class="text-5xl sm:text-6xl leading-none drop-shadow-2xl">🇧🇩 🇳🇵<br><span class="text-4xl sm:text-5xl">🇨🇳 🇦🇲 🇱🇨</span></div>
-        <span class="inline-flex items-center gap-1 bg-white text-blue-800 text-xs font-bold px-3 py-1.5 rounded-full shadow-xl">NEW</span>
+        <span class="inline-flex items-center gap-1 bg-green-400 text-slate-900 text-xs font-bold px-3 py-1.5 rounded-full shadow-xl">NEW</span>
       </div>
       <div class="mt-auto">
         <div class="inline-block text-[10px] sm:text-xs tracking-[0.2em] font-extrabold text-green-300 uppercase mb-2">MBBS Abroad</div>
