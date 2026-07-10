@@ -3168,9 +3168,9 @@ const europeCountries = [
 
 const emergingDestinationSlugs = ["bangladesh", "nepal", "china", "armenia", "st-lucia"];
 const primaryDestinationSlugs = [
+  "russia",
   "georgia",
   "italy",
-  "russia",
   "kazakhstan",
   "uzbekistan",
   "kyrgyzstan",
@@ -3603,16 +3603,22 @@ function getCountryCardHTML(c, root, index) {
 
   const imageName = imageMap[c.slug] || countryCardImages[index % countryCardImages.length];
   const image = imageName.startsWith("http") ? imageName : root + imageName;
-  return `<a href="${root}mbbs-abroad/${c.slug}" class="group relative block rounded-[2rem] overflow-hidden bg-slate-900 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 animate-fade-up" style="transition-delay: ${(index % 4) * 80}ms">
+  return `<a href="${root}mbbs-abroad/${c.slug}" class="group relative block rounded-[2rem] overflow-hidden bg-slate-900 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 animate-fade-up ${c.slug === "russia" ? "ring-4 ring-green-400 ring-offset-4" : ""}" style="transition-delay: ${(index % 4) * 80}ms">
     <img src="${image}" alt="MBBS in ${c.name}" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-[1500ms] ease-out" />
     <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-slate-900/10"></div>
     <div class="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-transparent to-green-900/40"></div>
     <div class="relative p-6 sm:p-7 min-h-[360px] flex flex-col">
       <div class="flex items-start justify-between">
         <div class="text-6xl sm:text-7xl font-extrabold text-white drop-shadow-2xl">${c.flag}</div>
-        <span class="inline-flex items-center gap-1 bg-white text-blue-800 text-xs font-bold px-3 py-1.5 rounded-full shadow-xl">
-          ${c.duration}
-        </span>
+        ${c.slug === "russia" ? `
+          <span class="inline-flex items-center gap-1 bg-green-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-xl animate-pulse">
+            🔥 Currently Recruiting
+          </span>
+        ` : `
+          <span class="inline-flex items-center gap-1 bg-white text-blue-800 text-xs font-bold px-3 py-1.5 rounded-full shadow-xl">
+            ${c.duration}
+          </span>
+        `}
       </div>
       <div class="mt-auto">
         <div class="inline-block text-[10px] sm:text-xs tracking-[0.2em] font-extrabold text-green-300 uppercase mb-2">MBBS Abroad</div>
