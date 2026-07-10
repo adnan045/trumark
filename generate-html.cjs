@@ -3766,7 +3766,7 @@ function buildHome(root) {
           </div>
         </div>
         <div class="animate-slide-right">
-          <span class="inline-block bg-green-100 text-green-700 text-xs font-bold tracking-wider uppercase px-4 py-1.5 rounded-full">Why TrueMark Edu</span>
+          <a href="${root}pricing#why-truemark-edu" class="inline-block bg-green-100 text-green-700 text-xs font-bold tracking-wider uppercase px-4 py-1.5 rounded-full hover:bg-green-200 transition">Why TrueMark Edu</a>
           <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 mt-4 leading-tight">
             We make your <span class="text-blue-700">MBBS abroad</span> dream come true — <span class="text-green-700">truly.</span>
           </h2>
@@ -4180,6 +4180,37 @@ function buildHome(root) {
 function buildPricing(root) {
   const content = `
     ${getPageHeroHTML("Transparent Pricing & Packages", "No hidden charges, merit-based direct transfers, and exclusive discounts on your study abroad journey.", [{ name: "Home", to: `${root}index` }, { name: "Pricing & Packages" }])}
+    
+    <!-- WHY TRUEMARK EDU TRUST SECTION -->
+    <section id="why-truemark-edu" class="py-20 bg-slate-50 border-b border-slate-200 font-sans">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <span class="inline-block bg-green-100 text-green-700 text-xs font-bold tracking-wider uppercase px-4 py-1.5 rounded-full">Why TrueMark Edu</span>
+            <h2 class="text-3xl md:text-5xl font-extrabold text-slate-900 mt-4 leading-tight">Built on transparent guidance and real student support</h2>
+            <p class="text-slate-600 mt-5 text-lg leading-relaxed">Our INFO page is designed to make every important cost, process and service clear before a student commits. Families get honest counselling, documented fee guidance, and support that continues from admission to arrival abroad.</p>
+            <div class="mt-8 flex flex-wrap gap-4">
+              <a href="${root}pricing#why-truemark-edu" class="inline-flex items-center gap-2 bg-blue-700 hover:bg-blue-800 text-white font-bold px-6 py-3 rounded-full shadow-lg transition">View INFO Details <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+              <a href="${root}contact" class="inline-flex items-center gap-2 bg-white border border-slate-200 text-slate-900 font-bold px-6 py-3 rounded-full hover:shadow-lg transition">Talk to a Counsellor</a>
+            </div>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-5">
+            ${[
+              { icon: "eye", color: "bg-blue-50 text-blue-700", title: "No Hidden Charges", desc: "Clear consultancy, OTC and package details so parents can plan confidently." },
+              { icon: "shield-check", color: "bg-green-50 text-green-700", title: "Direct Admission Focus", desc: "University-first recommendations with no donation or capitation promises." },
+              { icon: "headphones", color: "bg-yellow-100 text-yellow-800", title: "End-to-End Support", desc: "Documentation, visa, travel, airport pickup and on-ground settling assistance." },
+              { icon: "users", color: "bg-slate-100 text-slate-800", title: "Family-First Communication", desc: "Regular updates and accessible counsellors throughout the admission journey." }
+            ].map(item => `
+              <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-xl transition">
+                <div class="inline-flex p-3 ${item.color} rounded-xl"><i data-lucide="${item.icon}" class="w-7 h-7"></i></div>
+                <h3 class="text-lg font-bold text-slate-900 mt-4">${item.title}</h3>
+                <p class="text-slate-600 text-sm mt-2 leading-relaxed">${item.desc}</p>
+              </div>
+            `).join("")}
+          </div>
+        </div>
+      </div>
+    </section>
     
     <!-- EUROPE PACKAGES SECTION -->
     <section class="py-20 font-sans bg-white">
